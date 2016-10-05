@@ -13,7 +13,11 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
-    "vue": "^2.0.1"
+    "gsap": "^1.19.0",
+    "lodash": "^4.16.3",
+    "normalize.css": "^5.0.0",
+    "vue": "^2.0.1",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
