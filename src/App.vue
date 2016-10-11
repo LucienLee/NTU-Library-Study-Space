@@ -1,5 +1,6 @@
 <template lang="jade">
 	#app
+		map
 		seat-filter
 </template>
 
@@ -7,9 +8,10 @@
 import SeatFilter from './components/SeatFilter'
 
 export default {
-  components: {
-	SeatFilter
-  }
+	components: {
+		map,
+		SeatFilter
+	}
 }
 </script>
 
@@ -26,6 +28,4 @@ body
 	height: 100%
 	background: $background-color
 
-#app
-	color: #2c3e50
 </style>
