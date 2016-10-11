@@ -10,11 +10,14 @@ module.exports = {
   plugins: [
     'html'
   ],
-  "globals": {
+  globals: {
   	process: true
   },
+  env: {
+  	browser: true
+  },
   // add your custom rules here
-  'rules': {
+  rules: {
     // allow paren-less arrow functions
     'arrow-parens': 0,
     // allow async-await
@@ -24,6 +27,7 @@ module.exports = {
     'semi': ['warn', 'never'],
     'comma-spacing': ['error', {'before': false, 'after': true}],
     'quotes': ['error', 'single', { allowTemplateLiterals: true }],
-    'no-var': 1
+    'no-var': 1,
+    'no-console': 'warn'
   }
 }

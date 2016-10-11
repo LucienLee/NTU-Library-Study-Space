@@ -1,0 +1,22 @@
+<template lang="jade">
+	div.panel
+		slot(name='panel-header')
+</template>
+
+<script>
+	export default {
+
+	}
+</script>
+
+
+<style lang="sass" scoped>
+.panel
+	// temporary used
+	width: 300px
+	height: 400px
+
+	background: #FFFFFF
+	box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.18)
+	border-radius: 4px
+</style>
