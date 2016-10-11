@@ -11,10 +11,11 @@ module.exports = {
     'html'
   ],
   globals: {
-  	process: true
+  	// foo: true
   },
   env: {
-  	browser: true
+  	browser: true,
+	node: true
   },
   // add your custom rules here
   rules: {
