@@ -6,9 +6,10 @@ import store from './store'
 
 import 'normalize.css'
 
-/* eslint-disable no-new */
+/* eslint-disable-next-line no-new */
 new Vue({
   el: '#app',
   store,
   render: h => h(App)
 })
+
