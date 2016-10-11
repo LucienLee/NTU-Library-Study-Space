@@ -1,15 +1,16 @@
 <template lang="jade">
-	#app
-		map
-		seat-filter
+#app
+	map-container
+	seat-filter
 </template>
 
 <script>
 import SeatFilter from './components/SeatFilter'
+import MapContainer from './components/MapContainer'
 
 export default {
 	components: {
-		map,
+		MapContainer,
 		SeatFilter
 	}
 }
