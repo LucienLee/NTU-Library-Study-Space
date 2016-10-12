@@ -1,7 +1,7 @@
 <template lang="jade">
 #app
 	map-container
-	seat-filter
+	.controlsContainer: seat-filter
 </template>
 
 <script>
@@ -17,16 +17,16 @@ export default {
 </script>
 
 <style lang="sass">
-$background-color: #F2EFE9
+@import '_variables'
 
 html
 	height: 100%
 
 body
-	display: flex
-	align-items: center
-	justify-content: center
 	height: 100%
 	background: $background-color
 
+.controlsContainer
+	position: absolute
+	left: ($panel-margin/$max-width)*100%
 </style>

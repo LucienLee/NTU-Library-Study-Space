@@ -13,7 +13,7 @@
 <style lang="sass" scoped>
 .panel
 	// temporary used
-	width: 300px
+	width: 100%
 	height: 400px
 
 	background: #FFFFFF

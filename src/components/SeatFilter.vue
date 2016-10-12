@@ -1,6 +1,6 @@
 <template lang="jade">
 	div.filter
-		h1 {{ msg }}
+		//- h1 {{ msg }}
 		panel
 </template>
 
@@ -20,5 +20,9 @@ export default {
 </script>
 
 <style lang="sass">
+@import '../_variables'
+
+.filter
+	width: ($panel-width/$max-width)*100vw
 
 </style>>
