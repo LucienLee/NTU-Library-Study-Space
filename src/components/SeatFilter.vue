@@ -1,7 +1,7 @@
 <template lang="jade">
 	div.filter
-		//- h1 {{ msg }}
 		panel
+			h1(slot='panel-header') {{title.zh}}
 </template>
 
 <script>
@@ -13,7 +13,10 @@ export default {
 	},
 	data () {
 		return {
-			msg: 'Filter'
+			title: {
+				zh: '座位篩選',
+				en: 'Seat Filter'
+			}
 		}
 	}
 }

@@ -1,12 +1,18 @@
 <template lang="jade">
 	div.panel
 		slot(name='panel-header')
+		divider(type="strong")
+
 </template>
 
 <script>
-	export default {
+import Divider from './Divider'
 
+export default {
+	components: {
+		Divider
 	}
+}
 </script>
 
 
