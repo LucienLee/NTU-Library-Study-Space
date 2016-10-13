@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="sass">
-@import '../variables'
+@import '../sass/variables'
 
 .seat-filter
 	width: ($panel-width/$max-width)*100vw

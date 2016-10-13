@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="sass">
-@import '../variables'
+@import '../sass/variables'
 
 .filter
 	padding: 16px $panel-padding
