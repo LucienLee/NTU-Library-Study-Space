@@ -1,16 +1,20 @@
 <template lang="jade">
 	div.panel
-		slot(name='panel-header')
-		divider(type="strong")
-
+		panel-header(:title="headerTitle")
+		slot(name="panel-body")
 </template>
 
 <script>
-import Divider from './Divider'
+import PanelHeader from './PanelHeader'
 
 export default {
+	props: {
+		headerTitle: {
+			type: Object
+		}
+	},
 	components: {
-		Divider
+		PanelHeader
 	}
 }
 </script>
@@ -18,10 +22,7 @@ export default {
 
 <style lang="sass" scoped>
 .panel
-	// temporary used
 	width: 100%
-	height: 400px
-
 	background: #FFFFFF
 	box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.18)
 	border-radius: 4px
