@@ -1,7 +1,7 @@
 <template lang="jade">
 	.seat-filter
 		panel(:headerTitle="title")
-			.filters(slot="panel-body")
+			div(slot="panel-body")
 				filter-control(label="使用筆記電腦 / Laptop Allowed")
 					toggle-button-group
 						toggle-button(v-model="filters.laptop.allow", label="laptop")

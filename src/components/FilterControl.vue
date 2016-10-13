@@ -2,8 +2,9 @@
 	.filterWrapper
 		fieldset.filter
 			legend.filter-legend {{label}}
-			.filter-aspectKeeper: .filter-controls
-				slot
+			.filter-aspectKeeper
+				.filter-inputs
+					slot
 		divider
 </template>
 
@@ -13,7 +14,8 @@ import Divider from './Divider'
 export default {
 	props: {
 		label: {
-			type: String
+			type: String,
+			required: true
 		}
 	},
 	components: {
@@ -46,7 +48,7 @@ $leading: $panel-leading + 2px
 	width: 100%
 	padding-bottom: percentage($button-height / $panel-inner-width)
 
-.filter-controls
+.filter-inputs
 	position: absolute
 	top: 0
 	bottom: 0

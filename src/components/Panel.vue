@@ -10,7 +10,8 @@ import PanelHeader from './PanelHeader'
 export default {
 	props: {
 		headerTitle: {
-			type: Object
+			type: Object,
+			required: true
 		}
 	},
 	components: {

@@ -14,7 +14,8 @@ export default {
 	name: 'header',
 	props: {
 		title: {
-			type: Object
+			type: Object,
+			required: true
 		}
 	},
 	components: {
@@ -33,14 +34,14 @@ export default {
 	font-family: $font-family-zh
 	font-weight: 400
 	font-size: 28px
-	color: $text-color-primary
 	margin: 0
+	color: $text-color-primary
 
 .panel-title--en
 	font-family: $font-family-en
 	font-weight: 400
 	font-size: 18px
-	line-height: 14px
+	line-height: 1
+	margin: 2px 0 -2px
 	color: $text-color-secondary
-	margin: 0
 </style>>
