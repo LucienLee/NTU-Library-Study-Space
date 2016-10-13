@@ -1,7 +1,7 @@
 <template lang="jade">
 	.filterWrapper
 		fieldset.filter
-			legend.filter-legend(:for="labelID") {{label}}
+			legend.filter-legend {{label}}
 			slot
 		divider
 </template>
@@ -17,10 +17,6 @@ export default {
 	},
 	components: {
 		Divider
-	},
-	data () {
-		return {
-		}
 	}
 }
 </script>
@@ -28,13 +24,15 @@ export default {
 <style lang="sass">
 @import '../sass/variables'
 
+$leading: $panel-leading + 2px
+
 .filter
-	padding: 16px $panel-padding
+	padding: $leading $panel-padding
 	border: none
 	margin: 0
 
 .filter-legend
-	padding-top: 16px
+	padding-top: $leading
 	font-family: $font-family-zh
 	font-size: 18px
 	font-weight: 300
