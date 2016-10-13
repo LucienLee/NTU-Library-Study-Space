@@ -39,9 +39,12 @@ $leading: $panel-leading + 2px
 	padding-top: $leading
 	margin-bottom: -$leading/2
 	font-family: $font-family-zh
-	font-size: 18px
+	font-size: $font-size-medium
 	font-weight: 300
 	color: $text-color-tertiary
+
+	@media #{$widescreen}
+		font-size: $font-size-small
 
 .filter-aspectKeeper
 	position: relative

@@ -32,16 +32,22 @@ export default {
 
 .panel-title--zh
 	font-family: $font-family-zh
+	font-size: $font-size-extra-large
 	font-weight: 400
-	font-size: 28px
 	margin: 0
 	color: $text-color-primary
 
+	@media #{$widescreen}
+		font-size: $font-size-large
+
 .panel-title--en
 	font-family: $font-family-en
+	font-size: $font-size-medium
 	font-weight: 400
-	font-size: 18px
 	line-height: 1
 	margin: 2px 0 -2px
 	color: $text-color-secondary
+
+	@media #{$widescreen}
+		font-size: $font-size-regular
 </style>>
