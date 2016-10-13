@@ -32,7 +32,9 @@ $leading: $panel-leading + 2px
 	margin: 0
 
 .filter-legend
+	display: block
 	padding-top: $leading
+	margin-bottom: -$leading/2
 	font-family: $font-family-zh
 	font-size: 18px
 	font-weight: 300

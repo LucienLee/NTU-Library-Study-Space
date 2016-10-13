@@ -3,9 +3,14 @@
 		panel(:headerTitle="title")
 			.filters(slot="panel-body")
 				filter-control(label="使用筆記電腦 / Laptop Allowed")
+					toggle-button-group
+						toggle-button(v-model="filters.laptop.allow", label="laptop")
+						toggle-button(v-model="filters.laptop.forbidden", label="laptop-forbidden")
 				filter-control(label="桌子類型 / Table Type")
 				filter-control(label="靠近 / Near")
 					toggle-button-group
+						toggle-button(v-model="filters.near.wall", label="wall")
+						toggle-button(v-model="filters.near.window", label="window")
 				filter-control(label="遠離 /Away from")
 					//- toggle-button(v-for="(value, key) in filters.away", v-model="value", :label="key")
 					toggle-button(v-model="filters.away.van", label="van")
@@ -35,7 +40,10 @@ export default {
 				en: 'Seat Filter'
 			},
 			filters: {
-				laptop: {},
+				laptop: {
+					allow: false,
+					forbidden: false
+				},
 				table: {
 					partition: false
 				},
@@ -61,7 +69,5 @@ export default {
 .seat-filter
 	width: ($panel-width/$max-width)*100vw
 	min-width: 300px
-
-
 
 </style>>

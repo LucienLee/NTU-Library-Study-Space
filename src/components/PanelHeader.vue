@@ -40,6 +40,7 @@ export default {
 	font-family: $font-family-en
 	font-weight: 400
 	font-size: 18px
+	line-height: 14px
 	color: $text-color-secondary
 	margin: 0
 </style>>
