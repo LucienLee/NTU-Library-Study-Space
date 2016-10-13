@@ -23,5 +23,5 @@ export default {
 		border-radius: 0 4px 4px 0
 
 .checkbox-button-group
-
+	height: 100%
 </style>

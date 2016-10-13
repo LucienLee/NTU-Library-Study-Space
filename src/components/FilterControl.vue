@@ -2,7 +2,8 @@
 	.filterWrapper
 		fieldset.filter
 			legend.filter-legend {{label}}
-			slot
+			.filter-aspectKeeper: .filter-controls
+				slot
 		divider
 </template>
 
@@ -27,7 +28,7 @@ export default {
 $leading: $panel-leading + 2px
 
 .filter
-	padding: $leading $panel-padding
+	padding: $leading percentage($panel-padding/$panel-width)
 	border: none
 	margin: 0
 
@@ -39,4 +40,17 @@ $leading: $panel-leading + 2px
 	font-size: 18px
 	font-weight: 300
 	color: $text-color-tertiary
+
+.filter-aspectKeeper
+	position: relative
+	width: 100%
+	padding-bottom: percentage($button-height / $panel-inner-width)
+
+.filter-controls
+	position: absolute
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+
 </style>>

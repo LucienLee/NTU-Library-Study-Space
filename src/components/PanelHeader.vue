@@ -27,7 +27,7 @@ export default {
 @import '../sass/variables'
 
 .panel-header
-	padding: $panel-leading $panel-padding
+	padding: $panel-leading percentage($panel-padding/$panel-width)
 
 .panel-title--zh
 	font-family: $font-family-zh

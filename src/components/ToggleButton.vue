@@ -43,6 +43,7 @@ export default {
 <style lang="sass">
 @import '../sass/variables'
 
+// hide native input
 .checkbox-button > input[type="checkbox"]
 	position: absolute
 	clip: rect(0,0,0,0)
@@ -51,20 +52,24 @@ export default {
 .checkbox-button
 	display: inline-block
 	box-sizing: border-box
-	width: 78px
-	height: 54px
+	width: percentage($button-width / $panel-inner-width)
+	height: 100%
+	margin-right: percentage($button-gutter / $panel-inner-width)
+
 	background: #FFFFFF
 	border: 2px solid $primary-dark-color
 	border-radius: 4px
-
 	cursor: pointer
-	margin-right: 8px
 
 	&:hover
 		background: rgba($primary-dark-color, 0.3)
 	&:last-of-type
 		margin-right: 0
 
+.checkbox-button__icon
+	color: $primary-dark-color
+
+// active style
 .checkbox-button--active
 	background: $primary-dark-color
 	&:hover
@@ -72,7 +77,5 @@ export default {
 	.checkbox-button__icon
 		color: #fff
 
-.checkbox-button__icon
-	color: $primary-dark-color
 
 </style>
