@@ -3,6 +3,9 @@
 		panel(:headerTitle="title")
 			.filters(slot="panel-body")
 				filter-control(label="使用筆記電腦 / Laptop Allowed")
+				filter-control(label="桌子類型 / Table Type")
+				filter-control(label="靠近 / Near")
+					toggle-button-group
 				filter-control(label="遠離 /Away from")
 					//- toggle-button(v-for="(value, key) in filters.away", v-model="value", :label="key")
 					toggle-button(v-model="filters.away.van", label="van")
@@ -16,12 +19,14 @@
 import Panel from './Panel'
 import FilterControl from './FilterControl'
 import ToggleButton from './ToggleButton'
+import ToggleButtonGroup from './ToggleButtonGroup'
 
 export default {
 	components: {
 		Panel,
 		FilterControl,
-		ToggleButton
+		ToggleButton,
+		ToggleButtonGroup
 	},
 	data () {
 		return {
