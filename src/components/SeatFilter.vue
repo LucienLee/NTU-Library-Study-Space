@@ -3,10 +3,10 @@
 		panel(:headerTitle="title")
 			.filters(slot="panel-body")
 				filter-control(label="遠離 /Away from")
-					toggle-button
-					toggle-button
-					toggle-button
-					toggle-button
+					//- toggle-button(v-for="(value, key) in filters.away", v-model="value", :label="key")
+					toggle-button(v-model="filters.away.van", :label="風扇")
+					toggle-button(v-model="filters.away.toilet", :label="廁所")
+
 </template>
 
 <script>
@@ -39,7 +39,7 @@ export default {
 					van: false,
 					toilet: false,
 					computer: false,
-					aisle: false
+					aisle: true
 				}
 			}
 		}

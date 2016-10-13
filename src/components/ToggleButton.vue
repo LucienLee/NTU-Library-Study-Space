@@ -1,11 +1,37 @@
 <template lang="jade">
-	label.checkbox-button
-		input(type="checkbox", id="")
+	label.checkbox-button(:class="{'checkbox-button--active': checked}")
+		input(type="checkbox", v-model="_value")
 		span.icon
 </template>
 
 <script>
-
+export default {
+	props: {
+		value: {},
+		label: {
+			type: String
+		},
+	},
+	computed: {
+		_value: {
+			get () {
+				return this.value !== undefined ? this.value : this.$parent.value
+			},
+			set (newValue) {
+				if (this.value !== undefined) {
+					this.$emit('input', newValue)
+				} else {
+					this.$parent.$emit('input', newValue)
+				}
+			}
+		},
+		checked() {
+			let type = Object.prototype.toString.call(this._value)
+			console.log(type)
+			return this._value
+		}
+	}
+}
 </script>
 
 <style lang="sass">
@@ -27,9 +53,12 @@
 	cursor: pointer
 	margin-right: 8px
 
-	&:hover
+	&:not(.checkbox-button--active):hover
 		background: rgba($primary-dark-color, 0.3)
 	&:last-of-type
 		margin-right: 0
+
+.checkbox-button--active
+	background: $primary-dark-color
 
 </style>
