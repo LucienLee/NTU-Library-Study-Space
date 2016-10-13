@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="sass">
-@import '../variables'
+@import '../sass/variables'
 
 .panel-header
 	padding: $panel-leading $panel-padding

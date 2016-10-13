@@ -9,7 +9,7 @@
 </script>
 
 <style lang="sass">
-@import '../variables'
+@import '../sass/variables'
 .checkbox-button > input[type="checkbox"]
 	position: absolute
 	clip: rect(0,0,0,0)
