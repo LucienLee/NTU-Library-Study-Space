@@ -1,7 +1,8 @@
 <template lang="jade">
 #app
 	map-container
-	.controlsContainer: seat-filter
+	.controlsContainer
+		seat-filter
 </template>
 
 <script>
@@ -17,7 +18,7 @@ export default {
 </script>
 
 <style lang="sass">
-@import '_variables'
+@import 'variables'
 
 html
 	height: 100%
