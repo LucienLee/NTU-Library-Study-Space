@@ -7,6 +7,7 @@ import store from './store'
 // import fonts here because this is the electron app
 import './assets/fonts/Noto_Sans_TC/NotoSansTC.scss'
 import './assets/fonts/Noto_Sans/NotoSans.scss'
+import './assets/fonts/avenir-next-lt-pro/avenir-next-lt-pro.scss'
 
 import 'normalize.css'
 

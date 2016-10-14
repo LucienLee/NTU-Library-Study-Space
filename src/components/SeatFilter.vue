@@ -12,11 +12,7 @@
 						toggle-button(v-model="filters.near.wall", label="wall")
 						toggle-button(v-model="filters.near.window", label="window")
 				filter-control(label="遠離 /Away from")
-					//- toggle-button(v-for="(value, key) in filters.away", v-model="value", :label="key")
-					toggle-button(v-model="filters.away.van", label="van")
-					toggle-button(v-model="filters.away.toilet", label="toilet")
-					toggle-button(v-model="filters.away.register", label="register")
-					toggle-button(v-model="filters.away.aisle", label="aisle")
+					toggle-button(v-for="(value, key) in filters.away", v-model="filters.away[key]", :label="key")
 
 </template>
 
@@ -33,33 +29,31 @@ export default {
 		ToggleButton,
 		ToggleButtonGroup
 	},
-	data () {
-		return {
-			title: {
-				zh: '座位篩選',
-				en: 'Seat Filter'
+	data: () => ({
+		title: {
+			zh: '座位篩選',
+			en: 'Seat Filter'
+		},
+		filters: {
+			laptop: {
+				allow: false,
+				forbidden: false
 			},
-			filters: {
-				laptop: {
-					allow: false,
-					forbidden: false
-				},
-				table: {
-					partition: false
-				},
-				near: {
-					wall: false,
-					window: false
-				},
-				away: {
-					van: false,
-					toilet: false,
-					register: false,
-					aisle: false
-				}
+			table: {
+				partition: false
+			},
+			near: {
+				wall: false,
+				window: false
+			},
+			away: {
+				vent: false,
+				toilet: false,
+				register: false,
+				aisle: false
 			}
 		}
-	}
+	})
 }
 </script>
 
