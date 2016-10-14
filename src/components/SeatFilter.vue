@@ -5,7 +5,7 @@
 				filter-control(label="使用筆記電腦 / Laptop Allowed")
 				filter-control(label="遠離 /Away from")
 					//- toggle-button(v-for="(value, key) in filters.away", v-model="value", :label="key")
-					toggle-button(v-model="filters.away.van", label="van")
+					toggle-button(v-model="filters.away.vent", label="vent")
 					toggle-button(v-model="filters.away.toilet", label="toilet")
 					toggle-button(v-model="filters.away.register", label="register")
 					toggle-button(v-model="filters.away.aisle", label="aisle")
@@ -23,30 +23,28 @@ export default {
 		FilterControl,
 		ToggleButton
 	},
-	data () {
-		return {
-			title: {
-				zh: '座位篩選',
-				en: 'Seat Filter'
+	data: () => ({
+		title: {
+			zh: '座位篩選',
+			en: 'Seat Filter'
+		},
+		filters: {
+			laptop: {},
+			table: {
+				partition: false
 			},
-			filters: {
-				laptop: {},
-				table: {
-					partition: false
-				},
-				near: {
-					wall: false,
-					window: false
-				},
-				away: {
-					van: false,
-					toilet: false,
-					register: false,
-					aisle: false
-				}
+			near: {
+				wall: false,
+				window: false
+			},
+			away: {
+				vent: false,
+				toilet: false,
+				register: false,
+				aisle: false
 			}
 		}
-	}
+	})
 }
 </script>
 
