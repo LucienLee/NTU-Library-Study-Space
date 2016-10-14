@@ -5,6 +5,8 @@
 				filter-control(label="使用筆記電腦 / Laptop Allowed")
 					toggle-button-group(:group-data="filters.laptop")
 				filter-control(label="桌子類型 / Table Type")
+					toggle-button-group(:group-data="filters.table.seatCount")
+					toggle-button(v-model="filters.table.partition", label="partition")
 				filter-control(label="靠近 / Near")
 					toggle-button-group(:group-data="filters.near")
 				filter-control(label="遠離 /Away from")
@@ -41,17 +43,23 @@ export default {
 					get laptopAllow () { return filters.laptop.laptopAllow },
 					set laptopAllow (val) { _this.updateLaptopAllow(val) },
 					get laptopForbidden () { return filters.laptop.laptopForbidden },
-					set laptopForbidden (val) { _this.updateLaptopForbidden(val)  }
+					set laptopForbidden (val) { _this.updateLaptopForbidden(val) },
 				},
 				table: {
+					seatCount: {
+						get seats4 () { return filters.table.seatCount.seats4 },
+						set seats4 (val) { _this.updateSeats4(val) },
+						get seats6 () { return filters.table.seatCount.seats6 },
+						set seats6 (val) { _this.updateSeats6(val) },
+					},
 					get partition () { return filters.table.partition },
-					set partition (val) { _this.updatePartition(val)  }
+					set partition (val) { _this.updatePartition(val) },
 				},
 				near: {
 					get wall () { return filters.near.wall },
 					set wall (val) { _this.updateWall(val) },
 					get window () { return filters.near.window },
-					set window (val) { _this.updateWindow(val)  }
+					set window (val) { _this.updateWindow(val) },
 				},
 				away: {
 					get vent () { return filters.away.vent },
@@ -70,6 +78,8 @@ export default {
 		...mapActions([
 			'updateLaptopAllow',
 			'updateLaptopForbidden',
+			'updateSeats4',
+			'updateSeats6',
 			'updatePartition',
 			'updateWall',
 			'updateWindow',

@@ -6,8 +6,10 @@ const state = {
 		laptopForbidden: false
 	},
 	table: {
-		four: false,
-		six: false,
+		seatCount: {
+			seats4: false,
+			seats6: false,
+		},
 		partition: false
 	},
 	near: {
@@ -28,10 +30,10 @@ const mutations = {
 		store.laptop = val
 	},
 	UPDATE_TABLE_SEATCOUNT (store, val) {
-		store.table = Object.assign({}, store.table, val)
+		store.table.seatCount = val
 	},
 	UPDATE_TABLE_PARTITION (store, val) {
-		store.table = Object.assign({}, store.table, val)
+		store.table.partition = val
 	},
 	UPDATE_NEAR (store, val) {
 		store.near = val
@@ -85,14 +87,14 @@ const actions = {
 	updateLaptopForbidden({ commit }, val) {
 		commit('UPDATE_LAPTOP', { laptopAllow: false, laptopForbidden: val })
 	},
-	updateSeatFour({ commit }, val) {
-		commit('UPDATE_TABLE_SEATCOUNT', { four: val, six: false })
+	updateSeats4({ commit }, val) {
+		commit('UPDATE_TABLE_SEATCOUNT', { seats4: val, seats6: false })
 	},
-	updateSeatSix({ commit }, val) {
-		commit('UPDATE_TABLE_SEATCOUNT', { four: false, six: val })
+	updateSeats6({ commit }, val) {
+		commit('UPDATE_TABLE_SEATCOUNT', { seats4: false, seats6: val })
 	},
 	updatePartition({ commit }, val) {
-		commit('UPDATE_TABLE_PARTITION', { partition: val })
+		commit('UPDATE_TABLE_PARTITION', val)
 	},
 	updateWall({ commit }, val) {
 		commit('UPDATE_NEAR', { wall: val, window: false })
