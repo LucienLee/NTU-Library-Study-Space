@@ -1,11 +1,18 @@
 <template lang="jade">
-	.checkbox-button-group
-		slot
+.checkbox-button-group
+	toggle-button(v-for="(value, key) in groupData" v-model="groupData[key]", :label="key")
 </template>
 
 <script>
+import ToggleButton from './ToggleButton'
+// should maintain the slot attribute
 export default {
-	// should maintain the slot attribute
+	components: {
+		ToggleButton,
+	},
+	props: {
+		groupData: Object,
+	},
 }
 
 </script>
