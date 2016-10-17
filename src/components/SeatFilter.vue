@@ -11,6 +11,7 @@
 					toggle-button-group(:group-data="filters.near")
 				filter-control(label="遠離 /Away from")
 					toggle-button(v-for="(value, key) in filters.away", v-model="filters.away[key]", :label="key")
+				clear-filter-button
 
 </template>
 
@@ -20,11 +21,13 @@ import Panel from './Panel'
 import FilterControl from './FilterControl'
 import ToggleButton from './ToggleButton'
 import ToggleButtonGroup from './ToggleButtonGroup'
+import ClearFilterButton from './ClearFilterButton'
 
 export default {
 	components: {
-		Panel,
+		ClearFilterButton,
 		FilterControl,
+		Panel,
 		ToggleButton,
 		ToggleButtonGroup
 	},

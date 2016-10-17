@@ -1,6 +1,8 @@
 // import * as types from '../mutation-types'
 
-const state = {
+function clone(s) { return JSON.parse(JSON.stringify(s)) }
+
+const initialState = {
 	laptop: {
 		laptopAllow: false,
 		laptopForbidden: false
@@ -23,61 +25,43 @@ const state = {
 		aisle: false
 	}
 }
+window.initialState = initialState
+const state = clone(initialState)
 
 // mutations
 const mutations = {
-	UPDATE_LAPTOP (store, val) {
-		store.laptop = val
+	UPDATE_LAPTOP (state, val) {
+		state.laptop = val
 	},
-	UPDATE_TABLE_SEATCOUNT (store, val) {
-		store.table.seatCount = val
+	UPDATE_TABLE_SEATCOUNT (state, val) {
+		state.table.seatCount = val
 	},
-	UPDATE_TABLE_PARTITION (store, val) {
-		store.table.partition = val
+	UPDATE_TABLE_PARTITION (state, val) {
+		state.table.partition = val
 	},
-	UPDATE_NEAR (store, val) {
-		store.near = val
+	UPDATE_NEAR (state, val) {
+		state.near = val
 	},
-	UPDATE_AWAY_VENT (store, val) {
-		store.away.vent = val
+	UPDATE_AWAY_VENT (state, val) {
+		state.away.vent = val
 	},
-	UPDATE_AWAY_TOILET(store, val) {
-		store.away.toilet = val
+	UPDATE_AWAY_TOILET(state, val) {
+		state.away.toilet = val
 	},
-	UPDATE_AWAY_REGISTER (store, val) {
-		store.away.register = val
+	UPDATE_AWAY_REGISTER (state, val) {
+		state.away.register = val
 	},
-	UPDATE_AWAY_AISLE (store, val) {
-		store.away.aisle = val
+	UPDATE_AWAY_AISLE (state, val) {
+		state.away.aisle = val
 	},
-	// [types.ADD_TO_CART] (state, { id }) {
-	// 	state.lastCheckout = null
-	// 	const record = state.added.find(p => p.id === id)
-	// 	if (!record) {
-	// 		state.added.push({
-	// 			id,
-	// 			quantity: 1
-	// 		})
-	// 	} else {
-	// 		record.quantity++
-	// 	}
-	// },
-    //
-	// [types.CHECKOUT_REQUEST] (state) {
-	// 	// clear cart
-	// 	state.added = []
-	// 	state.checkoutStatus = null
-	// },
-    //
-	// [types.CHECKOUT_SUCCESS] (state) {
-	// 	state.checkoutStatus = 'successful'
-	// },
-    //
-	// [types.CHECKOUT_FAILURE] (state, { savedCartItems }) {
-	// 	// rollback to the cart saved before sending the request
-	// 	state.added = savedCartItems
-	// 	state.checkoutStatus = 'failed'
-	// }
+	CLEAR_FILTER (state) { // eslint-disable-line no-unused-vars
+		// https://github.com/vuejs/vuex/issues/82
+		const is = clone(initialState)
+		state.laptop = is.laptop
+		state.away = is.away
+		state.near = is.near
+		state.table = is.table
+	},
 }
 
 const actions = {
@@ -113,6 +97,9 @@ const actions = {
 	},
 	updateAisle({ commit }, val) {
 		commit('UPDATE_AWAY_AISLE', val)
+	},
+	clearFilter({ commit }) {
+		commit('CLEAR_FILTER')
 	},
 }
 
