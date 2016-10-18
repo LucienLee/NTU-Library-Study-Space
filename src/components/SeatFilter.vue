@@ -5,7 +5,7 @@
 				filter-control(label="使用筆記電腦 / Laptop Allowed")
 					toggle-button-group(:group-data="filters.laptop")
 				filter-control(label="桌子類型 / Table Type")
-					toggle-button-group.checkbox-button-group__seatcount(:group-data="filters.table.seatCount")
+					toggle-button-group(:group-data="filters.table.seatCount", type="small")
 					toggle-button(v-model="filters.table.partition", label="partition")
 				filter-control(label="靠近 / Near")
 					toggle-button-group(:group-data="filters.near")
@@ -101,11 +101,4 @@ export default {
 .seat-filter
 	width: ($panel-width/$max-width)*100vw
 	min-width: 300px
-
-.checkbox-button-group__seatcount
-	display: inline-block
-	width: percentage(($panel-inner-width - $button-width) / $panel-inner-width) - 10%
-	margin-right: 10%
-
-
 </style>
