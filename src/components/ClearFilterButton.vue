@@ -21,10 +21,7 @@ export default {
 @import '../sass/variables'
 
 .clear-filter-button
-	// reset `user-agent-stylesheet` TODO
 	border: 0
-
-	// real style
 	font-family: $font-family-zh
 	// font-size: $font-size-medium // TODO
 	width: 100%

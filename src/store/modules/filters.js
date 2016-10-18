@@ -1,32 +1,28 @@
 // import * as types from '../mutation-types'
 
-function clone(s) { return JSON.parse(JSON.stringify(s)) }
-
-const initialState = {
+const initialStateFactory = () => ({
 	laptop: {
 		laptopAllow: false,
-		laptopForbidden: false
+		laptopForbidden: false,
 	},
 	table: {
 		seatCount: {
 			seats4: false,
 			seats6: false,
 		},
-		partition: false
+		partition: false,
 	},
 	near: {
 		wall: false,
-		window: false
+		window: false,
 	},
 	away: {
 		vent: false,
 		toilet: false,
 		register: false,
-		aisle: false
-	}
-}
-window.initialState = initialState
-const state = clone(initialState)
+		aisle: false,
+	},
+})
 
 // mutations
 const mutations = {
@@ -54,9 +50,9 @@ const mutations = {
 	UPDATE_AWAY_AISLE (state, val) {
 		state.away.aisle = val
 	},
-	CLEAR_FILTER (state) { // eslint-disable-line no-unused-vars
+	CLEAR_FILTER (state) {
 		// https://github.com/vuejs/vuex/issues/82
-		const is = clone(initialState)
+		const is = initialStateFactory()
 		state.laptop = is.laptop
 		state.away = is.away
 		state.near = is.near
@@ -103,6 +99,7 @@ const actions = {
 	},
 }
 
+const state = initialStateFactory()
 export default {
 	state,
 	mutations,

@@ -108,4 +108,4 @@ export default {
 	margin-right: 10%
 
 
-</style>>
+</style>
