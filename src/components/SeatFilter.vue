@@ -1,17 +1,17 @@
 <template lang="jade">
-	.seat-filter
-		panel(:headerTitle="title")
-			div(slot="panel-body")
-				filter-control(label="使用筆記電腦 / Laptop Allowed")
-					toggle-button-group(:group-data="filters.laptop")
-				filter-control(label="桌子類型 / Table Type")
-					toggle-button-group(:group-data="filters.table.seatCount", type="small")
-					toggle-button(v-model="filters.table.partition", label="partition")
-				filter-control(label="靠近 / Near")
-					toggle-button-group(:group-data="filters.near")
-				filter-control(label="遠離 /Away from")
-					toggle-button(v-for="(value, key) in filters.away", v-model="filters.away[key]", :label="key")
-				clear-filter-button
+.seat-filter
+	panel(:headerTitle="title")
+		div(slot="panel-body")
+			filter-control(label="使用筆記電腦 / Laptop Allowed")
+				toggle-button-group(:group-data="filters.laptop")
+			filter-control(label="桌子類型 / Table Type")
+				toggle-button-group(:group-data="filters.table.seatCount", type="small")
+				toggle-button(v-model="filters.table.partition", label="partition")
+			filter-control(label="靠近 / Near")
+				toggle-button-group(:group-data="filters.near")
+			filter-control(label="遠離 / Away from")
+				toggle-button(v-for="(value, key) in filters.away", v-model="filters.away[key]", :label="key")
+			clear-filter-button
 
 </template>
 

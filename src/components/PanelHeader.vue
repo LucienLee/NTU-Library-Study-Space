@@ -1,10 +1,9 @@
 <template lang="jade">
-	.panel-headerWrapper
-		.panel-header
-			h2.panel-title--zh {{title.zh}}
-			h3.panel-title--en {{title.en}}
-		divider(type="strong")
-
+.panel-headerWrapper
+	.panel-header
+		h2.panel-title--zh {{title.zh}}
+		h3.panel-title--en {{title.en}}
+	divider(type="strong")
 </template>
 
 <script>

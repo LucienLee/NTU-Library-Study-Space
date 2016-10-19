@@ -1,7 +1,7 @@
 <template lang="jade">
-	div.panel
-		panel-header(:title="headerTitle")
-		slot(name="panel-body")
+div.panel
+	panel-header(:title="headerTitle")
+	slot(name="panel-body")
 </template>
 
 <script>

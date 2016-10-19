@@ -1,11 +1,11 @@
 <template lang="jade">
-	.filterWrapper
-		fieldset.filter
-			legend.filter-legend {{label}}
-			.filter-aspectKeeper
-				.filter-inputs
-					slot
-		divider
+.filterWrapper
+	fieldset.filter
+		legend.filter-legend {{label}}
+		.filter-aspectKeeper
+			.filter-inputs
+				slot
+	divider
 </template>
 
 <script>
