@@ -1,6 +1,6 @@
 <template lang="jade">
-	svg(:class="iconClass")
-		use(v-bind:xlink:href="'#' + symbol")
+svg(:class="iconClass")
+	use(v-bind:xlink:href="'#' + symbol")
 </template>
 
 <script>
