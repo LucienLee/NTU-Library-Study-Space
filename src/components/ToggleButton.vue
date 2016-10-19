@@ -1,5 +1,5 @@
 <template lang="jade">
-label.checkbox-button(:class="{'checkbox-button--active': checked}")
+label.checkbox-button(:class="{'checkbox-button--active': value}")
 	input(type="checkbox", :value="value", :checked="value", @change="onChange")
 	span.checkbox-button__icon
 		icon(:symbol="label")
