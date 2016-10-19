@@ -1,8 +1,8 @@
 <template lang="jade">
-	label.checkbox-button(:class="{'checkbox-button--active': checked}")
-		input(type="checkbox", v-model="_value")
-		span.checkbox-button__icon
-			icon(:symbol="label")
+label.checkbox-button(:class="{'checkbox-button--active': checked}")
+	input(type="checkbox", :value="value", :checked="value", @change="onChange")
+	span.checkbox-button__icon
+		icon(:symbol="label")
 </template>
 
 <script>
@@ -10,31 +10,15 @@ import Icon from './Icon'
 
 export default {
 	props: {
-		value: {},
-		label: {
-			type: String
-		},
+		value: Boolean,
+		label: String
 	},
 	components: {
 		Icon
 	},
-	computed: {
-		_value: {
-			get () {
-				return this.value !== undefined ? this.value : this.$parent.value
-			},
-			set (newValue) {
-				if (this.value !== undefined) {
-					this.$emit('input', newValue)
-				} else {
-					this.$parent.$emit('input', newValue)
-				}
-			}
-		},
-		checked() {
-			let type = Object.prototype.toString.call(this._value)
-			console.log(type)
-			return this._value
+	methods: {
+		onChange (event) {
+			this.$emit('input', event.target.checked)
 		}
 	}
 }
