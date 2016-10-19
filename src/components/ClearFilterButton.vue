@@ -1,5 +1,5 @@
 <template lang="jade">
-button.clear-filter-button(@click="onClick") 清除篩選
+button.clear-filter-button(@click="onClick") 清除・Reset
 </template>
 
 <script>
@@ -11,7 +11,7 @@ export default {
 			this.clearFilter()
 		},
 		...mapActions([
-			'clearFilter',
+			'clearFilter'
 		]),
 	}
 }
@@ -21,15 +21,22 @@ export default {
 @import '../sass/variables'
 
 .clear-filter-button
-	border: 0
-	font-family: $font-family-zh
-	// font-size: $font-size-medium // TODO
 	width: 100%
-	height: 60px
-	border-radius: 0 0 4px 4px
+	height: 3.33em
+	font-family: $font-family-zh
+	font-size: $font-size-medium
+	border: 0
+	padding: 0
+	outline: none
+	border-radius: 0 0 $button-border-radius $button-border-radius
 	background: $button-color-primary
 	color: #fff
 	cursor: pointer
+
+	@media #{$widescreen}
+		font-size: $font-size-small
+
 	&:hover
 		background: rgba($button-color-primary, 0.84)
+
 </style>
