@@ -1,7 +1,7 @@
 <template lang="jade">
-	div.panel
-		panel-header(:title="headerTitle")
-		slot(name="panel-body")
+div.panel
+	panel-header(:title="headerTitle")
+	slot(name="panel-body")
 </template>
 
 <script>
@@ -10,7 +10,8 @@ import PanelHeader from './PanelHeader'
 export default {
 	props: {
 		headerTitle: {
-			type: Object
+			type: Object,
+			required: true
 		}
 	},
 	components: {

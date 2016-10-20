@@ -1,17 +1,12 @@
 <template lang="jade">
-	.divider(:class="[ type ? 'divier--' + type : '' ]")
+.divider(:class="[ type ? 'divier--' + type : '' ]")
 </template>
 
 <script>
 export default {
 	name: 'divider',
 	props: {
-		type: {
-			type: String,
-			default: () => {
-                return null
-            }
-		}
+		type: String
 	}
 }
 </script>
@@ -22,7 +17,7 @@ export default {
 	width: 100%
 	height: 1px
 	border-top: 1px solid #E4E4E4
-	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.12)
+	box-shadow: 0px 0.5px 0px 0px rgba(0,0,0,0.12)
 
 .divier--strong
 	box-shadow: 0px -1px 0px 0px rgba(0,0,0,0.19), 0px 1px 0px 0px rgba(137,137,137,0.07)
