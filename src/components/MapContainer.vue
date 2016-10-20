@@ -1,5 +1,5 @@
 <template>
-<div>
+<div style="position: absolute">
   <h3>MapContainer</h3>
 </div>
 </template>
