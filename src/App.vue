@@ -2,17 +2,20 @@
 #app
 	map-container
 	.controlsContainer
+		seat-register
 		seat-filter
 </template>
 
 <script>
-import SeatFilter from './components/SeatFilter'
 import MapContainer from './components/MapContainer'
+import SeatFilter from './components/SeatFilter'
+import SeatRegister from './components/SeatRegister'
 
 export default {
 	components: {
 		MapContainer,
-		SeatFilter
+		SeatFilter,
+		SeatRegister
 	}
 }
 </script>

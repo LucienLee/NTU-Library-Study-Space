@@ -22,9 +22,16 @@ export default {
 
 
 <style lang="sass" scoped>
+@import "../sass/variables"
+
 .panel
 	width: 100%
 	background: #FFFFFF
 	box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.18)
-	border-radius: 4px
+	border-radius: $button-border-radius
+	font-size: $font-size-regular
+	@media #{$widescreen}
+		font-size: $font-size-small
+	margin-top: 2.5em
+	margin-bottom: 4em
 </style>
