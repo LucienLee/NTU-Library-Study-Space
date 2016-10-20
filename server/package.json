@@ -1,0 +1,39 @@
+{
+  "name": "ntu-library-study-space-server",
+  "version": "1.0.0",
+  "description": "GraphQL server for NTU-Library-Study-Space, powered by Apollo-server",
+  "repository": "https://github.com/LucienLee/NTU-Library-Study-Space",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon ./server.js --exec babel-node",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "author": "DaxChen <dd@daxchen.com> (https://github.com/DaxChen)",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^0.3.2",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "graphql": "^0.7.2",
+    "graphql-tools": "^0.7.2",
+    "lodash": "^4.16.4",
+    "mongodb": "^2.2.10",
+    "request": "^2.75.0",
+    "request-promise": "^4.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^7.0.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "eslint": "^3.8.1",
+    "eslint-config-standard": "^6.2.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-promise": "^3.3.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "nodemon": "^1.11.0"
+  }
+}

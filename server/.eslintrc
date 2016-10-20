@@ -1,0 +1,10 @@
+{
+  "parser": "babel-eslint",
+  "extends": "standard",
+  "rules": {
+    "no-console": 0
+  },
+  "env": {
+    "node": true
+  }
+}
