@@ -1,0 +1,22 @@
+@import 'variables'
+
+// fade
+.fade-enter,
+.fade-leave-active
+	opacity: 0
+
+.fade-enter-active,
+.fade-leave-active
+	transition: opacity $medium $easeIn
+
+// fade and scale
+.fadeAndScale-enter,
+.fadeAndScale-leave-active
+	opacity: 0
+	transform: scale(0)
+
+.fadeAndScale-enter-active
+	transition: opacity $medium $easeIn, transform $fast $easeInOutBack
+
+.fadeAndScale-leave-active
+	transition: opacity $medium $easeOut, transform $fast $easeInOutBack

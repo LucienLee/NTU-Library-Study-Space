@@ -4,8 +4,9 @@
 	label.text-field__label(:for="id", :class="{ 'text-field__label--inputed' : hasValue }")
 		span.text-field__placeholder.text-field__placeholder--zh {{placeholder.zh}}
 		span.text-field__placeholder.text-field__placeholder--en {{placeholder.en}}
-	button.text-field__reset(v-show="hasValue", @click="reset")
-		img(src="../assets/images/cross.svg")
+	transition(name="fadeAndScale", v-on:after-enter="addHoverTransition", v-on:before-leave="removeHoverTransition")
+		button.text-field__reset(v-show="hasValue", @click="reset")
+			img(src="../assets/images/cross.svg")
 	divider
 </template>
 
@@ -34,6 +35,12 @@ export default {
 		},
 		reset () {
 			this.$emit('input', '')
+		},
+		addHoverTransition (el) {
+			el.classList.add('transition-filter')
+		},
+		removeHoverTransition (el) {
+			el.classList.remove('transition-filter')
 		}
 	}
 }
@@ -42,6 +49,7 @@ export default {
 <style lang="sass" scoped>
 @import "../sass/variables"
 @import "../sass/mixin"
+@import "../sass/transition"
 
 $padding: percentage($panel-padding/$panel-width)
 
@@ -89,5 +97,8 @@ $padding: percentage($panel-padding/$panel-width)
 
 	&:hover
 		filter: brightness(0.9)
+
+.transition-filter
+	transition: filter $fast
 
 </style>
