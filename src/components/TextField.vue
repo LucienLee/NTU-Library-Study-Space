@@ -3,9 +3,10 @@
 	input.text-field__input(type="text", :id="id", :value="value", @input="onInput")
 	p.text-field__display {{value}}
 	transition(name="fade")
-		label.text-field__label(:for="id", v-show="!hasValue")
-			span.text-field__placeholder.text-field__placeholder--zh {{placeholder.zh}}
-			span.text-field__placeholder.text-field__placeholder--en {{placeholder.en}}
+		label.text-field__labels(:for="id", v-show="!hasValue")
+			.text-field__labelGroup: div
+				span.text-field__placeholder.text-field__placeholder--zh {{placeholder.zh}}
+				span.text-field__placeholder.text-field__placeholder--en {{placeholder.en}}
 	transition(name="fadeAndScale", @after-enter="addHoverTransition", @before-leave="removeHoverTransition")
 		button.text-field__reset(v-show="hasValue", @click="reset")
 			img(src="../assets/images/cross.svg")
@@ -53,11 +54,16 @@ export default {
 @import "../sass/mixin"
 @import "../sass/transition"
 
+$font-size-billboard: 42px
+$font-size-billboard-shrinked: 32px
+$line-height-billboard: 64px
 $padding: percentage($panel-padding/$panel-width)
+$leading: percentage( 12px / $line-height-billboard)
 
 .text-field
 	position: relative
 
+// hide original input
 .text-field__input
 	+clearInputStyle
 	position: absolute
@@ -66,32 +72,43 @@ $padding: percentage($panel-padding/$panel-width)
 .text-field__display
 	box-sizing: border-box
 	width: 100%
-	height: #{(64/42)}em
+	height: #{ $line-height-billboard/$font-size-billboard }em
+	line-height: #{ $line-height-billboard/$font-size-billboard }em
+	font-size: $font-size-billboard
+	font-family: $font-family-zh
 	padding: 0 $padding
 	margin: 0
 	color: $primary-color
-	font-size: 42px
-	line-height: #{(64/42)}em
-	font-family: $font-family-zh
 
-.text-field__label
+	+mq(widescreen)
+		font-size: $font-size-billboard-shrinked
+
+.text-field__labels
 	+stretch
-	padding: 12px $padding
+	padding: 0 $padding
+
+// For vertical align
+.text-field__labelGroup
+	display: flex
+	align-items: center
+	justify-content: center
+	height: 100%
 
 .text-field__placeholder
 	display: inline-block
 	color: $text-color-tertiary
 
-.text-field__label--inputed
-	opacity: 0.2
-
 .text-field__placeholder--zh
-	font-size: $font-size-large
 	font-family: $font-family-zh
+	font-size: $font-size-large
+	+mq(widescreen)
+		font-size: $font-size-medium
 
 .text-field__placeholder--en
-	font-size: $font-size-regular
 	font-family: $font-family-en
+	font-size: $font-size-regular
+	+mq(widescreen)
+		font-size: $font-size-small
 
 .text-field__reset
 	+clearInputStyle
@@ -102,6 +119,12 @@ $padding: percentage($panel-padding/$panel-width)
 	width: 2em
 	background: transparent
 	cursor: pointer
+
+	img
+		+img-responsive
+
+	+mq(widescreen)
+		width: 1.6em
 
 	&:hover
 		filter: brightness(0.9)

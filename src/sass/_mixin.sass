@@ -1,5 +1,19 @@
 @import 'variables'
 
+=mq($alias)
+	$query: map-get($breakpoints, $alias)
+
+	@if $query
+		@media #{$query}
+			@content
+	@else
+		@error "No breakpoint found for #{$alias}"
+
+=img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
 =stretch($offset: 0)
 	position: absolute
 	top: $offset
@@ -20,11 +34,3 @@
 	padding: 0
 	outline: 0
 
-=mq($alias)
-	$query: map-get($breakpoints, $alias)
-
-	@if $query
-		@media #{$query}
-			@content
-	@else
-		@error "No breakpoint found for #{$alias}"
