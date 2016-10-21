@@ -1,10 +1,12 @@
 <template lang="jade">
 .text-field
 	input.text-field__input(type="text", :id="id", :value="value", @input="onInput")
-	label.text-field__label(:for="id", :class="{ 'text-field__label--inputed' : hasValue }")
-		span.text-field__placeholder.text-field__placeholder--zh {{placeholder.zh}}
-		span.text-field__placeholder.text-field__placeholder--en {{placeholder.en}}
-	transition(name="fadeAndScale", v-on:after-enter="addHoverTransition", v-on:before-leave="removeHoverTransition")
+	p.text-field__display {{value}}
+	transition(name="fade")
+		label.text-field__label(:for="id", v-show="!hasValue")
+			span.text-field__placeholder.text-field__placeholder--zh {{placeholder.zh}}
+			span.text-field__placeholder.text-field__placeholder--en {{placeholder.en}}
+	transition(name="fadeAndScale", @after-enter="addHoverTransition", @before-leave="removeHoverTransition")
 		button.text-field__reset(v-show="hasValue", @click="reset")
 			img(src="../assets/images/cross.svg")
 	divider
@@ -58,9 +60,15 @@ $padding: percentage($panel-padding/$panel-width)
 
 .text-field__input
 	+clearInputStyle
+	position: absolute
+	height: 0
+
+.text-field__display
 	box-sizing: border-box
 	width: 100%
+	height: #{(64/42)}em
 	padding: 0 $padding
+	margin: 0
 	color: $primary-color
 	font-size: 42px
 	line-height: #{(64/42)}em
