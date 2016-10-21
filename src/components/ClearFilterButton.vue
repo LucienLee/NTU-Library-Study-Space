@@ -19,6 +19,7 @@ export default {
 
 <style lang="sass">
 @import '../sass/variables'
+@import '../sass/mixin'
 
 .clear-filter-button
 	width: 100%
@@ -33,7 +34,7 @@ export default {
 	color: #fff
 	cursor: pointer
 
-	@media #{$widescreen}
+	+mq(widescreen)
 		font-size: $font-size-small
 
 	&:hover

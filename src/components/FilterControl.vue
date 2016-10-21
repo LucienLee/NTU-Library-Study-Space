@@ -26,6 +26,7 @@ export default {
 
 <style lang="sass">
 @import '../sass/variables'
+@import '../sass/mixin'
 
 $leading: $panel-leading + 2px
 
@@ -43,7 +44,7 @@ $leading: $panel-leading + 2px
 	font-weight: 300
 	color: $text-color-tertiary
 
-	@media #{$widescreen}
+	+mq(widescreen)
 		font-size: $font-size-small
 
 .filter-aspectKeeper

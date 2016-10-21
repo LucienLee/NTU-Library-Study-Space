@@ -25,6 +25,7 @@ export default {
 
 <style lang="sass">
 @import '../sass/variables'
+@import '../sass/mixin'
 
 .panel-header
 	padding: $panel-leading percentage($panel-padding/$panel-width)
@@ -36,7 +37,7 @@ export default {
 	margin: 0
 	color: $text-color-primary
 
-	@media #{$widescreen}
+	+mq(widescreen)
 		font-size: $font-size-large
 
 .panel-title--en
@@ -47,6 +48,6 @@ export default {
 	margin: 2px 0 -2px
 	color: $text-color-secondary
 
-	@media #{$widescreen}
+	+mq(widescreen)
 		font-size: $font-size-regular
 </style>>

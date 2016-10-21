@@ -1,3 +1,5 @@
+@import 'variables'
+
 =stretch($offset: 0)
 	position: absolute
 	top: $offset
@@ -17,3 +19,12 @@
 	border-radius: 0
 	padding: 0
 	outline: 0
+
+=mq($alias)
+	$query: map-get($breakpoints, $alias)
+
+	@if $query
+		@media #{$query}
+			@content
+	@else
+		@error "No breakpoint found for #{$alias}"
