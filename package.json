@@ -18,6 +18,7 @@
     "lodash": "^4.16.3",
     "normalize.css": "^5.0.0",
     "vue": "^2.0.1",
+    "vue-popup": "^0.2.9",
     "vuex": "^2.0.0",
     "whatwg-fetch": "^1.0.0"
   },
