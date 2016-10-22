@@ -29,7 +29,7 @@ export default {
 	width: 100%
 	background: #FFFFFF
 	box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.18)
-	border-radius: $button-border-radius
+	border-radius: $border-radius
 	font-size: $font-size-regular
 	+mq(widescreen)
 		font-size: $font-size-small

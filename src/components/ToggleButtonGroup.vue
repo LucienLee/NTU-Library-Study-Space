@@ -27,9 +27,9 @@ export default {
 	margin: 0 (-$button-border) 0 0
 
 	&:first-of-type
-		border-radius: $button-border-radius 0 0 $button-border-radius
+		border-radius: $border-radius 0 0 $border-radius
 	&:last-of-type
-		border-radius: 0 $button-border-radius $button-border-radius 0
+		border-radius: 0 $border-radius $border-radius 0
 
 .checkbox-button-group
 	height: 100%

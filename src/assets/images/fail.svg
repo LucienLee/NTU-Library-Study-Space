@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path id="a" d="M240,36 C228.95828,36 219.53129,39.90621 211.71875,47.71875 C203.906211,55.53129 200,64.95828 200,76 C200,87.04172 203.906211,96.46871 211.71875,104.28125 C219.53129,112.093789 228.95828,116 240,116 C251.04172,116 260.46871,112.093789 268.28125,104.28125 C276.09379,96.46871 280,87.04172 280,76 C280,64.95828 276.09379,55.53129 268.28125,47.71875 C260.46871,39.90621 251.04172,36 240,36 L240,36 Z M240,111 C230.31245,111 222.05733,107.588576 215.23438,100.76562 C208.411424,93.94267 205,85.68755 205,76 C205,66.31245 208.411424,58.05733 215.23438,51.23438 C222.05733,44.41142 230.31245,41 240,41 C249.68755,41 257.94267,44.41142 264.76562,51.23438 C271.58858,58.05733 275,66.31245 275,76 C275,85.68755 271.58858,93.94267 264.76562,100.76562 C257.94267,107.588576 249.68755,111 240,111 L240,111 Z M240,51 C238.64583,51 237.47396,51.49479 236.48438,52.48438 C235.49479,53.47396 235,54.64583 235,56 L235,81 C235,82.35417 235.49479,83.52604 236.48438,84.51562 C237.47396,85.50521 238.64583,86 240,86 C241.35417,86 242.52604,85.50521 243.51562,84.51562 C244.50521,83.52604 245,82.35417 245,81 L245,56 C245,54.64583 244.50521,53.47396 243.51562,52.48438 C242.52604,51.49479 241.35417,51 240,51 L240,51 Z M235,95.92188 C235,97.32813 235.49479,98.5 236.48438,99.4375 C237.47396,100.375 238.64583,100.84375 240,100.84375 C241.35417,100.84375 242.52604,100.375 243.51562,99.4375 C244.50521,98.5 245,97.32813 245,95.92188 C245,94.51562 244.50521,93.31771 243.51562,92.32812 C242.52604,91.33854 241.35417,90.84375 240,90.84375 C238.64583,90.84375 237.47396,91.33854 236.48438,92.32812 C235.49479,93.31771 235,94.51562 235,95.92188 L235,95.92188 Z"/>
+    <filter id="b" width="200%" height="200%" x="-50%" y="-50%" filterUnits="objectBoundingBox">
+      <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner1"/>
+      <feOffset dy="2" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.105978261 0" in="shadowInnerInner1" result="shadowMatrixInner1"/>
+      <feGaussianBlur stdDeviation=".5" in="SourceAlpha" result="shadowBlurInner2"/>
+      <feOffset dy="-1" in="shadowBlurInner2" result="shadowOffsetInner2"/>
+      <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.17113904 0" in="shadowInnerInner2" result="shadowMatrixInner2"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixInner1"/>
+        <feMergeNode in="shadowMatrixInner2"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(-200 -36)">
+    <use fill="#D7D7D7" xlink:href="#a"/>
+    <use fill="black" filter="url(#b)" xlink:href="#a"/>
+  </g>
+</svg>

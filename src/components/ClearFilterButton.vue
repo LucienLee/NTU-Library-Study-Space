@@ -29,7 +29,7 @@ export default {
 	border: 0
 	padding: 0
 	outline: none
-	border-radius: 0 0 $button-border-radius $button-border-radius
+	border-radius: 0 0 $border-radius $border-radius
 	background: $button-color-primary
 	color: #fff
 	cursor: pointer

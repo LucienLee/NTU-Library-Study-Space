@@ -14,19 +14,22 @@
 	max-width: 100%
 	height: auto
 
-=stretch($offset: 0)
-	position: absolute
-	top: $offset
-	bottom: $offset
-	left: $offset
-	right: $offset
+=stretch($offset-top: 0, $offset-right: 0, $offset-bottom: 0, $offset-left: 0, $position: absolute)
+	position: $position
+	@if $offset-top
+	    top: $offset-top
+	@if $offset-bottom
+		bottom: $offset-bottom
+	@if $offset-left
+		left: $offset-left
+	@if $offset-right
+		right: $offset-right
 
-=stretch($offset-v: 0, $offset-h: 0)
-	position: absolute
-	top: $offset-v
-	bottom: $offset-v
-	left: $offset-h
-	right: $offset-h
+=stretch-x($offset-left: 0, $offset-right: 0, $position: null)
+	@if $position
+		+strench(false, $offset-right, false, $offset-left, $position)
+	@else
+		+strench(false, $offset-right, false, $offset-left)
 
 =clearInputStyle
 	border: none
