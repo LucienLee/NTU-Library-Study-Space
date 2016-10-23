@@ -1,21 +1,22 @@
 <template lang="jade">
-.modal-wrapper(v-show="value", @click.self="onOverlayClick")
-	.modal
-		.modal-header
-			img.modal-icon(:src="title.image")
-			h1.modal-title.modal-title--zh {{title.zh}}
-			h2.modal-title.modal-title--en {{title.en}}
-		divider(type="strong")
-		.modal-body
-			p.userID {{message.studentID}}
-			.message--success(v-if="this.type === 'success'")
-				.seatInfo
-					p.seatInfo-desc.seatInfo-desc--zh 你登記的座位為
-					p.seatInfo-desc.seatInfo-desc--en Your registered seat is
-				.seatID {{message.seatID}}
-			.message--failure(v-if="this.type === 'failure'")
-				p.error-desc.error-desc--zh {{message.zh}}
-				p.error-desc.error-desc--en {{message.en}}
+transition(name="modal-transition")
+	.modal-wrapper(v-show="value", @click.self="onOverlayClick")
+		.modal
+			.modal-header(v-if="title")
+				img.modal-icon(:src="title.image")
+				h1.modal-title.modal-title--zh {{title.zh}}
+				h2.modal-title.modal-title--en {{title.en}}
+			divider(type="strong")
+			.modal-body(v-if="message")
+				p.userID {{message.studentID}}
+				.message--success(v-if="this.type === 'success'")
+					.seatInfo
+						p.seatInfo-desc.seatInfo-desc--zh 你登記的座位為
+						p.seatInfo-desc.seatInfo-desc--en Your registered seat is
+					.seatID {{message.seatID}}
+				.message--failure(v-if="this.type === 'failure'")
+					p.error-desc.error-desc--zh {{message.zh}}
+					p.error-desc.error-desc--en {{message.en}}
 
 </template>
 
@@ -56,39 +57,24 @@ export default {
 		lockScroll: {
 			type: Boolean,
 			default: true
-		},
-		type: {
-			type: String,
-			required: true
-		},
-		message: Object
+		}
+	},
+	data () {
+		return {
+			type: '',
+			message: {}
+		}
 	},
 	computed: {
 		title () {
 			return heading[this.type]
 		}
 	},
-	watch: {
-		value(val) {
-			if(val) {
-				this.$emit('open')
-			}else{
-				this.$emit('close')
-			}
-		}
-	},
 	methods: {
 		onOverlayClick() {
 			if(this.closeOnClickModal) {
 				this.$emit('input', false)
-				this.$emit('close')
 			}
-		}
-	},
-	mounted() {
-		if (this.value) {
-			this.rendered = true
-			this.open()
 		}
 	}
 }
@@ -98,6 +84,7 @@ export default {
 <style lang="sass">
 @import '../sass/variables'
 @import '../sass/mixin'
+@import '../sass/transition'
 
 .modal-wrapper
 	+stretch($position: fixed)
@@ -143,9 +130,8 @@ export default {
 
 .userID
 	$IDLength: 10
-	box-sizing: border-sizing
-	width: #{$IDLength * 1.2/2}em
-	// divide two for halfwidth charactors
+	box-sizing: border-box
+	width: #{$IDLength * 1.2/2}em // divide two for halfwidth charactors
 	margin: 0 auto
 	text-align: center
 	font-size: 30px

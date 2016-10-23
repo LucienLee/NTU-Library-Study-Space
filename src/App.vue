@@ -4,8 +4,9 @@
 	.controlsContainer
 		seat-register
 		seat-filter
-	button(@click="open = !open") open!!!
-	modal(v-model="open", type="failure", :message="message")
+	button(@click="hello") open!!!
+	br
+	button(@click="bb") error!!!
 </template>
 
 <script>
@@ -30,6 +31,20 @@ export default {
 				zh: '違規管制期間，您無法使用自習室!',
 				en: 'You are temporarily banned from using the Study Room due to violation of library regulations.'
 			}
+		}
+	},
+	methods: {
+		hello () {
+			this.$modal({
+				type: 'success',
+				message: this.message
+			})
+		},
+		bb() {
+			this.$modal({
+				type: 'failure',
+				message: this.message
+			})
 		}
 	}
 }

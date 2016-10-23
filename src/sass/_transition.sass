@@ -20,3 +20,15 @@
 
 .fadeAndScale-leave-active
 	transition: opacity $medium $easeOut, transform $fast $easeInOutBack
+
+//
+.modal-transition-enter
+	opacity: 0
+	transform: scale(0.94)
+
+.modal-transition-leave-active
+	opacity: 0
+
+.modal-transition-enter-active,
+.modal-transition-leave-active
+	transition: opacity $slow $easeIn, transform $medium $easeOut
