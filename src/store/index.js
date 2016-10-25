@@ -5,6 +5,7 @@ import * as mutations from './mutations'
 import * as getters from './getters'
 import filters from './modules/filters'
 import seats from './modules/seats'
+import register from './modules/register'
 import createLogger from 'vuex/dist/logger'
 
 Vue.use(Vuex)
@@ -17,6 +18,7 @@ export default new Vuex.Store({
 	mutations,
 	modules: {
 		filters,
+		register,
 		seats,
 	},
 	strict: debug,

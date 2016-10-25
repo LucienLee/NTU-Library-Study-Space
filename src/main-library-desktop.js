@@ -52,8 +52,8 @@ apolloClient.watchQuery({
 		// const obj = arr2obj(data.all_seats, 'seat_id')
 		updateSeats(store, data.all_seats)
 	},
-	// error (err) {
-	// 	console.error(err)
-	// }
+	error (err) {
+		console.error(err)
+	}
 })
 
