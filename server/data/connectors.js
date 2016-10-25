@@ -120,10 +120,10 @@ function arr2obj(arr, key) {
 
 const API = {
 	getSeatInfo () {
-		return lib.seatsArray
-		// const ret =  require('./fake.json')
-		// delete require.cache[require.resolve('./fake.json')]
-		// return ret
+		// return lib.seatsArray
+		const ret =  require('./fake.json')
+		delete require.cache[require.resolve('./fake.json')]
+		return ret
 	}
 }
 
