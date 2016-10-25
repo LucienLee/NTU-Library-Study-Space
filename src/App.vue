@@ -35,4 +35,5 @@ body
 .controlsContainer
 	position: absolute
 	left: ($panel-margin/$max-width)*100%
+	top: 0
 </style>
