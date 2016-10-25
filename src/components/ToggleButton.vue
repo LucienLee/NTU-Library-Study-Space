@@ -42,7 +42,7 @@ export default {
 
 	background: #FFFFFF
 	border: 2px solid $primary-dark-color
-	border-radius: $button-border-radius
+	border-radius: $border-radius
 	cursor: pointer
 
 	&:hover

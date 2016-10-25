@@ -1,6 +1,6 @@
 <template lang="jade">
 #app
-	map-container
+	//- map-container
 	.controlsContainer
 		seat-register
 		seat-filter
@@ -10,12 +10,14 @@
 import MapContainer from './components/MapContainer'
 import SeatFilter from './components/SeatFilter'
 import SeatRegister from './components/SeatRegister'
+import Modal from './components/Modal'
 
 export default {
 	components: {
 		MapContainer,
 		SeatFilter,
-		SeatRegister
+		SeatRegister,
+		Modal
 	}
 }
 </script>
