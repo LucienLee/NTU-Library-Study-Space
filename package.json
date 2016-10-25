@@ -30,6 +30,7 @@
     "graphql": "^0.7.2",
     "graphql-tag": "^0.1.15",
     "graphql-tools": "^0.8.0",
+    "d3": "^3.0.0",
     "gsap": "^1.19.0",
     "lodash": "^4.16.4",
     "mongodb": "^2.2.11",
