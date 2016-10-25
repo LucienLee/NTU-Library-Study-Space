@@ -11,6 +11,9 @@ const GRAPHQL_PORT = 3000;
 
 const graphQLServer = express();
 
+import cors from 'cors'
+graphQLServer.use(cors())
+
 const executableSchema = makeExecutableSchema({
   typeDefs: Schema,
   resolvers: Resolvers,

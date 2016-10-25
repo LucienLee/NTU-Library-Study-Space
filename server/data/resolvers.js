@@ -21,11 +21,6 @@ const resolvers = {
 			return Student.findOne({ student_id: args.student_id })
 		},
 	},
-	// Seat: {
-	// 	status() {
-	// 		return 1
-	// 	}
-	// }
 }
 
 export default resolvers
