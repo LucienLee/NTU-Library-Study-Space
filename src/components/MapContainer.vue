@@ -25,40 +25,65 @@ store.watch(state => state.seats, (newSeats, oldSeats) => {
 })
 export default {
   mounted() {
-    // let x = 0
-    // let y = 0
-    // let s = 0
-    // const w = 841.9
-    // const h = 595.3
+
+    const w = 841.9
+    const h = 595.3
     const objectMap = document.getElementById('map_com')
+
+    let zooming = false
     objectMap.addEventListener('load', () => {
 
-        const zoom = d3.behavior.zoom()
-                            .scale(0.5)
-                            .translate([400, 100])
-                            .scaleExtent([0.5, 10])
-                            .on('zoom', zoomed)
+        const hover = d3.select(document.getElementById('map_com').contentDocument).selectAll('.Hover')
+        hover.style('opacity', '0')
 
-        const getSvg = d3.select(document.getElementById('map_com').contentDocument).select('#map')
-        window.getSvg = getSvg
-        getSvg.call(zoom)
-        const innerGroup = d3.select(document.getElementById('map_com').contentDocument).select('#wrap')
-        window.innerGroup = innerGroup
-
-        window.d3 = d3
-
-        function zoomed () {
-            console.log('zoomedzoomedzoomedzoomedzoomed')
-          // x = d3.event.translate[0]
-          // y = d3.event.translate[1]
-          // s = d3.event.scale
+        const zoomed = () => {
+            zooming = true
+            console.log('zoom')
             innerGroup.attr('transform', 'translate(' + d3.event.translate + ') scale(' + d3.event.scale + ')')
         }
+
+
+        const zoom = d3.behavior.zoom()
+        .scale(0.5)
+        .translate([400, 100])
+        .scaleExtent([0.5, 10])
+        .on('zoomstart', ()=>{
+            zooming = false
+        })
+        .on('zoomend', ()=>{
+        })
+        .on('zoom', zoomed)
+
+        const getSvg = d3.select(document.getElementById('map_com').contentDocument).select('#map')
+        getSvg.call(zoom)
+        const innerGroup = d3.select(document.getElementById('map_com').contentDocument).select('#wrap')
+
+        const areas = d3.select(document.getElementById('map_com').contentDocument).selectAll('.Hover')
+        areas.on('click', (d, i) => {
+            if(zooming) return
+            const bbox = areas[0][i].getBBox()
+            const x = bbox.x + bbox.width / 2
+            const y = bbox.y + bbox.height / 2
+            const scale = Math.max(1, Math.min(8, 0.9 / Math.max(bbox.width / w, bbox.height / h)))
+            const translate = [w / 2 - scale * x, h / 2 - scale * y]
+            console.log(scale)
+            innerGroup.transition()
+                      .duration(750)
+                      .call(zoom.translate(translate).scale(scale).event)
+        })
+        areas.on('mouseover', (d, i) => {
+            const hoverArea = areas.filter((e, j) => {
+                return j == i
+            })
+            hoverArea.style('opacity', '100')
+        })
+        areas.on('mouseleave', (d, i) => {
+            const hoverArea = areas.filter((e, j) => {
+                return j == i
+            })
+            hoverArea.style('opacity', '0')
+        })
 	})
-
-
-
-
   }
 }
 </script>
