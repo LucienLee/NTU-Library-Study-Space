@@ -1,9 +1,10 @@
 <template lang="jade">
-transition(name="modal-transition")
+transition(name="modal-transition", @after-leave="resetTimer")
 	.modal-wrapper(v-show="value", @click.self="onOverlayClick")
 		.modal
 			.modal-header(v-if="title")
-				img.modal-icon(:src="title.image")
+				.animation.iconPop
+					img.modal-icon.animation(:src="title.image", :class="iconAnimationClass")
 				h1.modal-title.modal-title--zh {{title.zh}}
 				h2.modal-title.modal-title--en {{title.en}}
 			divider(type="strong")
@@ -18,9 +19,10 @@ transition(name="modal-transition")
 					p.error-desc.error-desc--zh {{message.zh}}
 					p.error-desc.error-desc--en {{message.en}}
 			.modal-close(@click="onCloseClick", @mouseover="hovered = true", @mouseleave="hovered = false")
-				transition(name="fadeFast", mode="out-in")
-					span(v-if="showCounter") {{timer}}
-					Icon(v-else, symbol="cross")
+				transition(name="fade")
+					span.modal-closeCounter(v-show="showCounter") {{timer}}
+				transition(name="fade")
+					Icon(symbol="cross", v-show="!showCounter")
 
 </template>
 
@@ -81,7 +83,12 @@ export default {
 			return heading[this.type]
 		},
 		showCounter () {
-			return this.timer > -1 && !this.hovered ? true : false
+			return this.timer >= 0 && !this.hovered ? true : false
+		},
+		iconAnimationClass (){
+			return {
+				errorShake: this.type === 'failure'
+			}
 		}
 	},
 	watch: {
@@ -101,8 +108,6 @@ export default {
 					}
 				}, 1000)
 			} else {
-				// reset timer
-				this.timer = timerDefault
 				clearInterval(intervalId)
 			}
 		}
@@ -115,6 +120,9 @@ export default {
 		},
 		onCloseClick() {
 			this.$emit('input', false)
+		},
+		resetTimer() {
+			this.timer = timerDefault
 		}
 	}
 }
@@ -143,10 +151,7 @@ $font-infofit-size: 26px
 	+stretch($position: fixed)
 
 .modal
-	position: absolute
-	top: calc(50% - #{$modal-close-button-margin/2})
-	left: calc(50% - #{$modal-close-button-margin/2})
-	transform: translate(-50%, -50%)
+	+centerAbsolute($modal-close-button-margin/2, $modal-close-button-margin/2)
 	width: percentage($modal-width/$max-width)
 	min-width: $modal-min-width
 	background: #fff
@@ -202,6 +207,8 @@ $font-infofit-size: 26px
 	color: #fff
 	cursor: pointer
 
+.modal-closeCounter
+	position: absolute
 
 .userID
 	$IDLength: 10

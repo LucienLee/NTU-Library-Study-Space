@@ -37,6 +37,18 @@
 	padding: 0
 	outline: 0
 
+=centerAbsolute($offset-x: 0, $offset-y: 0)
+	position: absolute
+	@if $offset-x != 0
+		top: calc(50% + #{$offset-x})
+	@else
+		top: 50%
+	@if $offset-y != 0
+		left: calc(50% + #{$offset-y})
+	@else
+		left: 50%
+	transform: translate(-50%, -50%)
+
 @function em($pixels, $context: $font-size-regular)
 	@return #{$pixels/$context}em
 

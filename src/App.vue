@@ -38,7 +38,7 @@ export default {
 			this.$modal({
 				type: 'success',
 				message: this.message,
-				timer: 99
+				timer: 20
 			})
 		},
 		bb() {
