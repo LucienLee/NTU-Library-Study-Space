@@ -18,3 +18,42 @@ new Vue({
   render: h => h(App)
 })
 
+
+
+
+
+
+/**
+ * graphql client with vuex sync
+ */
+import gql from 'graphql-tag'
+import apolloClient from './apolloClient'
+import { updateSeats } from './store/actions'
+
+// function arr2obj(arr, key) {
+// 	return arr.reduce((o, v) => {
+// 		o[v[key]] = v
+// 		return o
+// 	}, {})
+// }
+
+apolloClient.watchQuery({
+	query: gql`
+		{
+			all_seats {
+				seat_id
+				status
+			}
+		}
+	`,
+	pollInterval: 300, // ms
+}).subscribe({
+	next ({ data }) {
+		// const obj = arr2obj(data.all_seats, 'seat_id')
+		updateSeats(store, data.all_seats)
+	},
+	// error (err) {
+	// 	console.error(err)
+	// }
+})
+
