@@ -28,11 +28,6 @@ export default {
 		Divider,
 		Icon
 	},
-	data () {
-		return {
-			validated: false
-		}
-	},
 	computed: {
 		hasValue () {
 			return this.value !== '' ? true : false
@@ -42,11 +37,8 @@ export default {
 		value (val) {
 			// Validate Input
 			if( this.pattern ) {
-				if( this.pattern.test(val) ){
-					this.validated = true
-				} else {
-					this.validated = false
-				}
+				let validated = this.pattern.test(val)
+				this.$emit('validate', this.id, validated)
 			}
 		}
 	},

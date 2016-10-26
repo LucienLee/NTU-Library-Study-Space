@@ -2,7 +2,7 @@
 .seat-register
 	panel(:headerTitle="title")
 		div(slot="panel-body")
-			text-field(v-for="field in fields", :id="field.id", :placeholder="field.placeholder", :pattern="field.pattern", v-model="field.value")
+			text-field(v-for="field in fields", :id="field.id", :placeholder="field.placeholder", :pattern="field.pattern", v-model="field.value", @validate="onValidate")
 
 	div(style="border: 1px solid red; background: #fff; padding: 10px; width: 200%")
 		h2 register api playground!
@@ -40,12 +40,12 @@
 </template>
 
 <script>
+import _ from 'lodash'
+
 import { mapActions, mapState } from 'vuex'
 import Panel from './Panel'
 import TextField from './TextField'
 import Divider from './Divider'
-
-
 
 export default {
 	components: {
@@ -62,7 +62,8 @@ export default {
 			{
 				id: 'studentID',
 				value: '',
-				pattern: /[a-zA-Z]+\d{8}$/,
+				pattern: /[a-zA-Z]+\d{9}$/,
+				validated: false,
 				placeholder: {
 					zh: '刷卡輸入學生證號',
 					en: 'Scan student card to enter ID'
@@ -71,7 +72,8 @@ export default {
 			{
 				id: 'seatNumber',
 				value: '',
-				pattern: /[A-Z]+\d{3}$/,
+				pattern: /[A-C]+\d{3}$/,
+				validated: false,
 				placeholder: {
 					zh: '點選地圖來選擇座位',
 					en: 'Select seat from the map'
@@ -85,6 +87,11 @@ export default {
 			error: state => state.register.error,
 			result: state => state.register.result,
 		}),
+		ready () {
+			return _.reduce(this.fields, (result, item) => {
+				return result && item.validated
+			}, true)
+		}
 	},
 	methods: {
 		...mapActions([
@@ -92,7 +99,17 @@ export default {
 			'checkOut',
 			'resetRegister',
 		]),
+		onValidate (id, validated) {
+			let index = _.findIndex(this.fields, {'id': id})
+			this.fields[index].validated = validated
+		}
 	},
+	watch: {
+		ready (val) {
+			if( !val ) return
+			this.checkIn({ user_id: this.fields[0].value, seat_id: this.fields[1].value })
+		}
+	}
 }
 </script>
 
