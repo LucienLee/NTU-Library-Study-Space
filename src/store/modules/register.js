@@ -43,13 +43,17 @@ const actions = {
 			})
 			.then(res => res.json())
 			.then(json => {
+				// not valid
+				if (json.affected === '0') throw json
+
+				// valid
 				commit('REGISTER_LOADING', false)
 				commit('REGISTER_DONE', json)
 			})
 			.catch(err => {
 				console.error(err)
 				commit('REGISTER_LOADING', false)
-				commit('REGISTER_ERROR', err.message)
+				commit('REGISTER_ERROR', err)
 			})
 	},
 	checkOut ({ commit }, { user_id }) {
@@ -66,13 +70,17 @@ const actions = {
 			})
 			.then(res => res.json())
 			.then(json => {
+				// not valid
+				if (json.affected === '0') throw json
+
+				// valid
 				commit('REGISTER_LOADING', false)
 				commit('REGISTER_DONE', json)
 			})
 			.catch(err => {
 				console.error(err)
 				commit('REGISTER_LOADING', false)
-				commit('REGISTER_ERROR', err.message)
+				commit('REGISTER_ERROR', err)
 			})
 	},
 	resetRegister ({ commit }) {
