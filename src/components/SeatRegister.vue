@@ -2,7 +2,7 @@
 .seat-register
 	panel(:headerTitle="title")
 		div(slot="panel-body")
-			text-field(v-for="field in fields", :id="field.id", :placeholder="field.placeholder", v-model="field.value")
+			text-field(v-for="field in fields", :id="field.id", :placeholder="field.placeholder", :pattern="field.pattern", v-model="field.value")
 
 	div(style="border: 1px solid red; background: #fff; padding: 10px; width: 200%")
 		h2 register api playground!
@@ -46,6 +46,7 @@ import TextField from './TextField'
 import Divider from './Divider'
 
 
+
 export default {
 	components: {
 		Panel,
@@ -55,12 +56,13 @@ export default {
 	data: () => ({
 		title: {
 			zh: '登記你的自習座位',
-			en: 'Register your Seat'
+			en: 'Register your Seat',
 		},
 		fields: [
 			{
 				id: 'studentID',
 				value: '',
+				pattern: /[a-zA-Z]+\d{8}$/,
 				placeholder: {
 					zh: '刷卡輸入學生證號',
 					en: 'Scan student card to enter ID'
@@ -68,6 +70,7 @@ export default {
 			}, {
 				id: 'seatNumber',
 				value: '',
+				pattern: /[A-Z]+\d{3}$/,
 				placeholder: {
 					zh: '點選地圖來選擇座位',
 					en: 'Select seat from the map'

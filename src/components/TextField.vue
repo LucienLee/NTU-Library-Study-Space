@@ -21,15 +21,33 @@ export default {
 	props: {
 		id: String,
 		placeholder: Object,
-		value: String
+		value: String,
+		pattern: RegExp
 	},
 	components: {
 		Divider,
 		Icon
 	},
+	data () {
+		return {
+			validated: false
+		}
+	},
 	computed: {
 		hasValue () {
 			return this.value !== '' ? true : false
+		}
+	},
+	watch: {
+		value (val) {
+			// Validate Input
+			if( this.pattern ) {
+				if( this.pattern.test(val) ){
+					this.validated = true
+				} else {
+					this.validated = false
+				}
+			}
 		}
 	},
 	methods: {
