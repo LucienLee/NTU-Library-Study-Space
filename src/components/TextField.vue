@@ -1,15 +1,16 @@
 <template lang="jade">
 .text-field
-	input.text-field__input(type="text", :id="id", :value="value", @input="onInput")
-	label.text-field__label(:for="id")
-		span.text-field__display {{value}}
-		transition(name="fade")
-			span.text-field__placeholderGroup(v-show="!hasValue"): span
-				span.text-field__placeholder.text-field__placeholder--zh {{placeholder.zh}}
-				span.text-field__placeholder.text-field__placeholder--en {{placeholder.en}}
-	transition(name="fadeAndScale", @after-enter="addHoverTransition", @before-leave="removeHoverTransition")
-		button.text-field__reset(v-show="hasValue", @click="reset")
-			img(src="../assets/images/cross.svg")
+	.text-field__inner
+		input.text-field__input(type="text", :id="id", :value="value", @input="onInput")
+		label.text-field__label(:for="id")
+			span.text-field__display {{value}}
+			transition(name="fade")
+				span.text-field__placeholderGroup(v-show="!hasValue"): span
+					span.text-field__placeholder.text-field__placeholder--zh {{placeholder.zh}}
+					span.text-field__placeholder.text-field__placeholder--en {{placeholder.en}}
+		transition(name="fadeAndScale", @after-enter="addHoverTransition", @before-leave="removeHoverTransition")
+			button.text-field__reset(v-show="hasValue", @click="reset")
+				img(src="../assets/images/cross.svg")
 	divider
 </template>
 
@@ -70,7 +71,7 @@ $line-height-billboard: 64px
 $padding: percentage($panel-padding/$panel-width)
 $leading: percentage( 12px / $line-height-billboard)
 
-.text-field
+.text-field__inner
 	position: relative
 	width: 100%
 	// set height responsively
