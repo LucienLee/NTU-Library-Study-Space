@@ -1,5 +1,5 @@
 <template lang="jade">
-transition(name="modal-transition", @after-leave="resetTimer")
+transition(name="modal-transition", @after-leave="onCloseEnd")
 	.modal-wrapper(v-show="value", @click.self="onOverlayClick")
 		.modal
 			.modal-header(v-if="title")
@@ -121,8 +121,9 @@ export default {
 		onCloseClick() {
 			this.$emit('input', false)
 		},
-		resetTimer() {
-			this.timer = timerDefault
+		onCloseEnd() {
+			this.timer = timerDefault // reset timer
+			this.$emit('closed') // notify entirely closing
 		}
 	}
 }

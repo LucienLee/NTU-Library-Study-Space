@@ -5,6 +5,7 @@ let ModalConstructor = Vue.extend(Modal)
 let instance
 
 let messageModal = function(options){
+	let deferred = {}
 	// Initialize Modal
 	if (!instance) {
 		instance = new ModalConstructor({
@@ -12,8 +13,12 @@ let messageModal = function(options){
 		})
 		document.body.appendChild(instance.$el)
 
-		instance.$on('input', (val)=>{
+		instance.$on('input', (val) => {
 			instance.value = val
+		})
+
+		instance.$on('closed', () => {
+			deferred.resolve()
 		})
 	}
 
@@ -24,6 +29,10 @@ let messageModal = function(options){
 
 	Vue.nextTick(() => {
 		instance.value = true
+	})
+
+	return new Promise( ( resolve ) => {
+		deferred.resolve = resolve
 	})
 }
 
