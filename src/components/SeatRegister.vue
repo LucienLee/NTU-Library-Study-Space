@@ -32,7 +32,8 @@ export default {
 					zh: '刷卡輸入學生證號',
 					en: 'Scan student card to enter ID'
 				}
-			}, {
+			},
+			{
 				id: 'seatNumber',
 				value: '',
 				pattern: /[A-Z]+\d{3}$/,
