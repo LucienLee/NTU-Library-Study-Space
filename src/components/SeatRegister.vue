@@ -3,9 +3,44 @@
 	panel(:headerTitle="title")
 		div(slot="panel-body")
 			text-field(v-for="field in fields", :id="field.id", :placeholder="field.placeholder", v-model="field.value")
+
+	div(style="border: 1px solid red; background: #fff; padding: 10px; width: 200%")
+		h2 register api playground!
+		h3(v-show="loading", style="color:red") LOADING!!
+		hr
+		br
+		h3(style="color: blue") these are some computed properties to watch:
+		pre(style="margin-top: 0")
+			| loading: {{ loading }}
+			| error: {{ error }}
+			| result: {{ result }}
+
+		hr
+		h3(style="color: blue") and here are some actions for you to call:
+		p (fill in the TextField above to checkIn/checkOut)
+
+		div
+			button(
+				style="padding: 10px; margin: 10px",
+				@click="checkIn({ user_id: fields[0].value, seat_id: fields[1].value })",
+				:disabled="!fields[0].value || !fields[1].value")
+				| checkIn({ user_id: "{{fields[0].value}}", seat_id: "{{fields[1].value}}" })
+			span(v-show="!fields[0].value || !fields[1].value") (disabled)
+
+		div
+			button(
+				style="padding: 10px; margin: 10px",
+				@click="checkOut({ user_id: fields[0].value })",
+				:disabled="!fields[0].value") checkOut({ user_id: "{{fields[0].value}}" })
+			span(v-show="!fields[0].value") (disabled)
+
+		button(
+			style="display: block; padding: 10px; margin: 10px",
+			@click="resetRegister") resetRegister()
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 import Panel from './Panel'
 import TextField from './TextField'
 import Divider from './Divider'
@@ -39,7 +74,21 @@ export default {
 				}
 			}
 		]
-	})
+	}),
+	computed: {
+		...mapState({
+			loading: state => state.register.loading,
+			error: state => state.register.error,
+			result: state => state.register.result,
+		}),
+	},
+	methods: {
+		...mapActions([
+			'checkIn',
+			'checkOut',
+			'resetRegister',
+		]),
+	},
 }
 </script>
 
