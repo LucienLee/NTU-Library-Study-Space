@@ -8,7 +8,8 @@
   "private": true,
   "scripts": {
     "start": "npm run dev",
-    "dev": "node build/dev-server.js",
+	"dev": "npm run dev-client | npm run dev-server",
+    "dev-client": "node build/dev-server.js",
     "dev-server": "nodemon server/server.js --exec babel-node",
     "build-client": "node build/build.js",
     "babel-server": "babel ./server --out-dir ./dist-server --source-maps",
