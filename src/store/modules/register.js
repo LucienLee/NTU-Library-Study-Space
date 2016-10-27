@@ -1,13 +1,19 @@
-// import * as types from '../mutation-types'
 import 'whatwg-fetch'
+import _ from 'lodash'
 
 const url = 'http://140.112.113.35:8080/StudyRoom/api/'
 
 const initialStateFactory = () => ({
 	loading: false,
-	error: {},
 	result: {},
+	error: {}
 })
+
+const getters = {
+	doneRequest: state => {
+		return !_.isEmpty(state.result) || !_.isEmpty(state.error)
+	}
+}
 
 // mutations
 const mutations = {
@@ -30,13 +36,13 @@ const mutations = {
 
 const actions = {
 	checkIn ({ commit }, { user_id, seat_id }) {
-		if (!user_id || !seat_id) throw `user_id: "${user_id}" or seat_id: "${seat_id}" empty`
+		if ( !user_id || !seat_id ) throw `user_id: "${user_id}" or seat_id: "${seat_id}" empty`
 		commit('REGISTER_LOADING', true)
 		fetch(`${url}checkUser?user_id=${user_id}`)
 			.then(res => res.json())
 			.then(json => {
 				// not valid
-				if (!json.authority) throw `${json.message} / ${json.message_en}`
+				if (!json.authority) throw _.omit(json, ['authority'])
 
 				// valid
 				return fetch(`${url}checkin?type=1&user_id=${user_id}&seat_id=${seat_id}&token=${json.token}`)
@@ -44,14 +50,13 @@ const actions = {
 			.then(res => res.json())
 			.then(json => {
 				// not valid
-				if (json.affected === '0') throw json
+				if (json.affected === '0') throw _.omit(json, ['affected'])
 
 				// valid
 				commit('REGISTER_LOADING', false)
 				commit('REGISTER_DONE', json)
 			})
 			.catch(err => {
-				console.error(err)
 				commit('REGISTER_LOADING', false)
 				commit('REGISTER_ERROR', err)
 			})
@@ -63,7 +68,7 @@ const actions = {
 			.then(res => res.json())
 			.then(json => {
 				// not valid
-				if (!json.authority) throw `${json.message} / ${json.message_en}`
+				if (!json.authority) throw _.omit(json, ['authority'])
 
 				// valid
 				return fetch(`${url}checkout?user_id=${user_id}&token=${json.token}`)
@@ -78,7 +83,6 @@ const actions = {
 				commit('REGISTER_DONE', json)
 			})
 			.catch(err => {
-				console.error(err)
 				commit('REGISTER_LOADING', false)
 				commit('REGISTER_ERROR', err)
 			})
@@ -92,7 +96,8 @@ window.store = require('../index.js')
 const state = initialStateFactory()
 export default {
 	state,
+	getters,
 	mutations,
-	actions,
+	actions
 }
 
