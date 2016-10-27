@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb'
 import rp from 'request-promise';
 import _ from 'lodash'
-import 'colors'
+import chalk from 'chalk'
 
 function sanitizeUserId (userId) {
 	// TODO do we pop the last digit or what???
@@ -92,7 +92,7 @@ class LibraryAPI {
 let Student, Record
 const lib = new LibraryAPI()
 const mongo = MongoClient.connect('mongodb://localhost/library', (err, db) => {
-	if (err) throw ' ***Error connecting to MongoDB, make sure you have MongoDB running!!!*** '.red.bgWhite
+	if (err) throw chalk.red.bgWhite.underline.bold(' ***Error connecting to MongoDB, make sure you have MongoDB running!!!*** ')
 
 	console.log('Connected to MongoDB')
 	Student = db.collection('student')
