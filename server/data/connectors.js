@@ -2,6 +2,12 @@ import { MongoClient } from 'mongodb'
 import rp from 'request-promise';
 import _ from 'lodash'
 
+function sanitizeUserId (userId) {
+	// TODO do we pop the last digit or what???
+	// return userId.toUpperCase().slice(0, -1)
+	return userId.toUpperCase()
+}
+
 // Library API
 class LibraryAPI {
 	constructor() {
@@ -27,6 +33,7 @@ class LibraryAPI {
 				this.seatsArray = JSON.parse(res)
 				return this.seatsArray
 			})
+			.catch(err => console.error('rp/JSON.parse error:', err))
 			// .then(() => {
 			// 	this.seats = this.seatsArray.reduce((o, v, i) => {
 			// 		o[v.seat_id] = v;
@@ -37,6 +44,8 @@ class LibraryAPI {
 
 	diffSeatsArray() {
 		const { seatsArray, lastSeatsArray } = this
+		if (seatsArray.length !== lastSeatsArray.length) return
+
 		const timestamp = Date.now()
 		for (let i = 0; i < lastSeatsArray.length; ++i) {
 			if (!_.isEqual(seatsArray[i], lastSeatsArray[i])) { // changed!
@@ -82,7 +91,7 @@ class LibraryAPI {
 let Student, Record
 const lib = new LibraryAPI()
 const mongo = MongoClient.connect('mongodb://localhost/library', (err, db) => {
-	if (err) throw err
+	if (err) console.error(err)
 
 	console.log('Connected to MongoDB')
 	Student = db.collection('student')
@@ -106,7 +115,7 @@ function createRecord(doc) {
 		// increment freq.SEAT_ID
 		operation.$inc[`freq.${doc.seat_id}`] = 1
 
-		Student.update({ student_id: doc.student_id }, operation, { upsert: true })
+		Student.update({ student_id: sanitizeUserId(doc.student_id) }, operation, { upsert: true })
 	}
 }
 
@@ -120,10 +129,10 @@ function arr2obj(arr, key) {
 
 const API = {
 	getSeatInfo () {
-		// return lib.seatsArray
-		const ret =  require('./fake.json')
-		delete require.cache[require.resolve('./fake.json')]
-		return ret
+		return lib.seatsArray || []
+		// const ret =  require('./fake.json')
+		// delete require.cache[require.resolve('./fake.json')]
+		// return ret
 	}
 }
 
