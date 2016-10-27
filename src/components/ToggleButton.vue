@@ -1,7 +1,7 @@
 <template lang="jade">
-label.checkbox-button(:class="{'checkbox-button--active': value}")
+label.ToggleButton(:class="{'ToggleButton--active': value}")
 	input(type="checkbox", :value="value", :checked="value", @change="onChange")
-	span.checkbox-button__icon
+	span.ToggleButton__icon
 		icon(:symbol="label")
 </template>
 
@@ -28,12 +28,12 @@ export default {
 @import '../sass/variables'
 
 // hide native input
-.checkbox-button > input[type="checkbox"]
+.ToggleButton > input[type="checkbox"]
 	position: absolute
 	clip: rect(0,0,0,0)
 	pointer-event: none
 
-.checkbox-button
+.ToggleButton
 	display: inline-block
 	box-sizing: border-box
 	width: percentage($button-width / $panel-inner-width)
@@ -50,15 +50,15 @@ export default {
 	&:last-of-type
 		margin-right: 0
 
-.checkbox-button__icon
+.ToggleButton__icon
 	color: $primary-dark-color
 
 // active style
-.checkbox-button--active
+.ToggleButton--active
 	background: $primary-dark-color
 	&:hover
 		background: darken( $primary-dark-color, 5% )
-	.checkbox-button__icon
+	.ToggleButton__icon
 		color: #fff
 
 

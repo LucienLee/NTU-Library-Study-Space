@@ -1,15 +1,15 @@
 <template lang="jade">
-.text-field
-	.text-field__inner
-		input.text-field__input(type="text", :id="id", :value="value", @input="onInput")
-		label.text-field__label(:for="id")
-			span.text-field__display {{value}}
+.TextField
+	.TextField__inner
+		input.TextField__input(type="text", :id="id", :value="value", @input="onInput")
+		label.TextField__label(:for="id")
+			span.TextField__display {{value}}
 			transition(name="fade")
-				span.text-field__placeholderGroup(v-show="!hasValue"): span
-					span.text-field__placeholder.text-field__placeholder--zh {{placeholder.zh}}
-					span.text-field__placeholder.text-field__placeholder--en {{placeholder.en}}
+				span.TextField__placeholderGroup(v-show="!hasValue"): span
+					span.TextField__placeholder.TextField__placeholder--zh {{placeholder.zh}}
+					span.TextField__placeholder.TextField__placeholder--en {{placeholder.en}}
 		transition(name="fadeAndScale", @after-enter="addHoverTransition", @before-leave="removeHoverTransition")
-			button.text-field__reset(v-show="hasValue", @click="reset")
+			button.TextField__resetButton(v-show="hasValue", @click="reset")
 				img(src="../assets/images/cross.svg")
 	divider
 </template>
@@ -71,7 +71,7 @@ $line-height-billboard: 64px
 $padding: percentage($panel-padding/$panel-width)
 $leading: percentage( 12px / $line-height-billboard)
 
-.text-field__inner
+.TextField__inner
 	position: relative
 	width: 100%
 	// set height responsively
@@ -81,17 +81,17 @@ $leading: percentage( 12px / $line-height-billboard)
 		font-size: $font-size-billboard-shrinked
 
 // hide original input
-.text-field__input
+.TextField__input
 	+clearInputStyle
 	position: absolute
 	height: 0
 
-.text-field__label
+.TextField__label
 	+stretch
 	padding: 0 $padding
 	font-size: 1rem // reset label lineheight
 
-.text-field__display
+.TextField__display
 	+stretch-x($padding, $padding)
 	font-family: $font-family-zh
 	font-size: $font-size-billboard
@@ -102,29 +102,29 @@ $leading: percentage( 12px / $line-height-billboard)
 		font-size: $font-size-billboard-shrinked
 
 // Align grouped label vertically
-.text-field__placeholderGroup
+.TextField__placeholderGroup
 	display: flex
 	align-items: center
 	justify-content: center
 	height: 100%
 
-.text-field__placeholder
+.TextField__placeholder
 	display: inline-block
 	color: $text-color-tertiary
 
-.text-field__placeholder--zh
+.TextField__placeholder--zh
 	font-family: $font-family-zh
 	font-size: $font-size-large
 	+mq(widescreen)
 		font-size: $font-size-medium
 
-.text-field__placeholder--en
+.TextField__placeholder--en
 	font-family: $font-family-en
 	font-size: $font-size-regular
 	+mq(widescreen)
 		font-size: $font-size-small
 
-.text-field__reset
+.TextField__resetButton
 	+clearInputStyle
 	position: absolute
 	top: 0

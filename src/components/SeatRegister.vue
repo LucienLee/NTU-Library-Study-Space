@@ -1,5 +1,5 @@
 <template lang="jade">
-.seat-register
+.SeatRegister
 	panel(:headerTitle="title")
 		div(slot="panel-body")
 			text-field(v-for="field in fields", :id="field.id", :placeholder="field.placeholder", :pattern="field.pattern", v-model="field.value", @validate="onValidate")
@@ -113,7 +113,7 @@ export default {
 <style lang="sass">
 @import '../sass/variables'
 
-.seat-register
+.SeatRegister
 	width: ($panel-width/$max-width)*100vw
 	min-width: 300px
 </style>

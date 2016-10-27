@@ -1,5 +1,5 @@
 <template lang="jade">
-.divider(:class="[ type ? 'divier--' + type : '' ]")
+.Divider(:class="[ type ? 'divier--' + type : '' ]")
 </template>
 
 <script>
@@ -12,13 +12,13 @@ export default {
 </script>
 
 <style lang="sass">
-.divider
+.Divider
 	box-sizing: border-box
 	width: 100%
 	height: 1px
 	border-top: 1px solid #E4E4E4
 	box-shadow: 0px 0.5px 0px 0px rgba(0,0,0,0.12)
 
-.divier--strong
+.Divider--strong
 	box-shadow: 0px -1px 0px 0px rgba(0,0,0,0.19), 0px 1px 0px 0px rgba(137,137,137,0.07)
 </style>>

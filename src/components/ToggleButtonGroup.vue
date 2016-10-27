@@ -1,5 +1,5 @@
 <template lang="jade">
-.checkbox-button-group(:class="[ type ? 'checkbox-button-group--' + type : '' ]")
+.ToggleButtonGroup(:class="[ type ? 'ToggleButtonGroup--' + type : '' ]")
 	toggle-button(v-for="(value, key) in groupData" v-model="groupData[key]", :label="key")
 </template>
 
@@ -22,7 +22,7 @@ export default {
 <style lang="sass">
 @import '../sass/variables'
 
-.checkbox-button-group > .checkbox-button
+.ToggleButtonGroup > .ToggleButton
 	width: calc( 50% + #{$button-border/2} )
 	margin: 0 (-$button-border) 0 0
 
@@ -31,10 +31,10 @@ export default {
 	&:last-of-type
 		border-radius: 0 $border-radius $border-radius 0
 
-.checkbox-button-group
+.ToggleButtonGroup
 	height: 100%
 
-.checkbox-button-group--small
+.ToggleButtonGroup--small
 	display: inline-block
 	width: percentage(($panel-inner-width - $button-width - $panel-padding) / $panel-inner-width)
 	margin-right: percentage($panel-padding/$panel-inner-width)
