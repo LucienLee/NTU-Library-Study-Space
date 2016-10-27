@@ -98,32 +98,35 @@ export default {
 			}
 		},
 		value (val) {
-			if( this.timer < 0 ) return
-			if( val ){
+			if( !val ){
+				// Close Modal
+				clearInterval(intervalId)
+				this.$emit('close')
+			} else {
+				// Prepare Timer
+				if( this.timer < 0 ) return
+
 				intervalId = setInterval( () => {
 					if(this.timer > 0){
 						this.timer--
 					} else {
-						this.$emit('input', false)
+						this.value = false
 					}
 				}, 1000)
-			} else {
-				clearInterval(intervalId)
 			}
 		}
 	},
 	methods: {
 		onOverlayClick() {
 			if(this.closeOnClickModal) {
-				this.$emit('input', false)
+				this.value = false
 			}
 		},
 		onCloseClick() {
-			this.$emit('input', false)
+			this.value = false
 		},
 		onCloseEnd() {
 			this.timer = timerDefault // reset timer
-			this.$emit('closed') // notify entirely closing
 		}
 	}
 }
