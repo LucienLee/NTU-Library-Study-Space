@@ -10,8 +10,8 @@ const resolvers = {
 		},
 	},
 	Student: {
-		recent_seats(student) {
-			return student.recent_seats
+		most_used(student) {
+			return []
 		},
 	},
 	Mutation: {
