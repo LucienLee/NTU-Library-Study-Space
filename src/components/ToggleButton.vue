@@ -44,6 +44,7 @@ export default {
 	border: 2px solid $primary-dark-color
 	border-radius: $border-radius
 	cursor: pointer
+	transition: background $quick $easeOutCubic
 
 	&:hover
 		background: rgba($primary-dark-color, 0.3)
@@ -52,6 +53,7 @@ export default {
 
 .ToggleButton__icon
 	color: $primary-dark-color
+	transition: color $quick $easeOutCubic
 
 // active style
 .ToggleButton--active
