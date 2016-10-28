@@ -38,7 +38,7 @@ class LibAPIConnector {
 	}
 
 	getSeatInfo() {
-		return this.seatsArray = rp('http://140.112.113.35:8080/StudyRoom/api/getSeatInfo')
+		return rp('http://140.112.113.35:8080/StudyRoom/api/getSeatInfo')
 			.then(res => {
 				this.seatsArray = JSON.parse(res)
 				return this.seatsArray
@@ -98,6 +98,6 @@ class LibAPIConnector {
 	}
 }
 
-const lib = new LibAPIConnector
+const lib = new LibAPIConnector()
 
 export default lib

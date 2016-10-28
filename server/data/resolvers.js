@@ -1,9 +1,9 @@
-import { Student, API } from './connectors'
+import { DB, API } from './connectors'
 
 const resolvers = {
 	Query: {
 		student(_, args) {
-			return Student.findOne({ student_id: args.student_id })
+			return DB.Student.findOne({ student_id: args.student_id })
 		},
 		all_seats(_, args) {
 			return API.getSeatInfo()
@@ -11,7 +11,10 @@ const resolvers = {
 	},
 	Student: {
 		most_used(student) {
-			return []
+			return Object.keys(student.freq)
+				.map(key => ({ seat_id: key, times: student.freq[key] }))
+				.sort((a, b) => ((a.times > b.times) ? -1 : ((b.times > a.times) ? 1 : 0)))
+				.slice(0, 3)
 		},
 	},
 	Mutation: {

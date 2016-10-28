@@ -1,4 +1,4 @@
-import { Student } from './mongoConnector'
+import DB from './mongoConnector'
 import lib from './libAPIConnector'
 import { sanitizeUserId, arr2obj } from './utils'
 
@@ -11,5 +11,5 @@ const API = {
 	}
 }
 
-export { API, Student }
+export { API, DB }
 
