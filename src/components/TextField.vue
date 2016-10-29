@@ -1,15 +1,16 @@
 <template lang="jade">
-.text-field
-	input.text-field__input(type="text", :id="id", :value="value", @input="onInput")
-	p.text-field__display {{value}}
-	transition(name="fade")
-		label.text-field__labels(:for="id", v-show="!hasValue")
-			.text-field__labelGroup: div
-				span.text-field__placeholder.text-field__placeholder--zh {{placeholder.zh}}
-				span.text-field__placeholder.text-field__placeholder--en {{placeholder.en}}
-	transition(name="fadeAndScale", @after-enter="addHoverTransition", @before-leave="removeHoverTransition")
-		button.text-field__reset(v-show="hasValue", @click="reset")
-			img(src="../assets/images/cross.svg")
+.TextField
+	.TextField__inner
+		input.TextField__input(type="text", :id="id", :value="value", @input="onInput")
+		label.TextField__label(:for="id")
+			span.TextField__display {{value}}
+			transition(name="fade")
+				span.TextField__placeholderGroup(v-show="!hasValue"): span
+					span.TextField__placeholder.TextField__placeholder--zh {{placeholder.zh}}
+					span.TextField__placeholder.TextField__placeholder--en {{placeholder.en}}
+		transition(name="fadeAndScale", @after-enter="addHoverTransition", @before-leave="removeHoverTransition")
+			button.TextField__resetButton(v-show="hasValue", @click="reset")
+				img(src="../assets/images/cross.svg")
 	divider
 </template>
 
@@ -21,7 +22,8 @@ export default {
 	props: {
 		id: String,
 		placeholder: Object,
-		value: String
+		value: String,
+		pattern: RegExp
 	},
 	components: {
 		Divider,
@@ -30,6 +32,15 @@ export default {
 	computed: {
 		hasValue () {
 			return this.value !== '' ? true : false
+		}
+	},
+	watch: {
+		value (val) {
+			// Validate Input
+			if( this.pattern ) {
+				let validated = this.pattern.test(val)
+				this.$emit('validate', this.id, validated)
+			}
 		}
 	},
 	methods: {
@@ -60,68 +71,73 @@ $line-height-billboard: 64px
 $padding: percentage($panel-padding/$panel-width)
 $leading: percentage( 12px / $line-height-billboard)
 
-.text-field
+.TextField__inner
 	position: relative
+	width: 100%
+	// set height responsively
+	height: #{ $line-height-billboard/$font-size-billboard }em
+	font-size: $font-size-billboard
+	+mq(widescreen)
+		font-size: $font-size-billboard-shrinked
 
 // hide original input
-.text-field__input
+.TextField__input
 	+clearInputStyle
 	position: absolute
 	height: 0
 
-.text-field__display
-	box-sizing: border-box
-	width: 100%
-	height: #{ $line-height-billboard/$font-size-billboard }em
-	line-height: #{ $line-height-billboard/$font-size-billboard }em
-	font-size: $font-size-billboard
-	font-family: $font-family-zh
+.TextField__label
+	+stretch
 	padding: 0 $padding
-	margin: 0
+	font-size: 1rem // reset label lineheight
+
+.TextField__display
+	+stretch-x($padding, $padding)
+	font-family: $font-family-zh
+	font-size: $font-size-billboard
+	line-height: #{ $line-height-billboard/$font-size-billboard }em
 	color: $primary-color
 
 	+mq(widescreen)
 		font-size: $font-size-billboard-shrinked
 
-.text-field__labels
-	+stretch
-	padding: 0 $padding
-
-// For vertical align
-.text-field__labelGroup
+// Align grouped label vertically
+.TextField__placeholderGroup
 	display: flex
 	align-items: center
 	justify-content: center
 	height: 100%
 
-.text-field__placeholder
+.TextField__placeholder
 	display: inline-block
 	color: $text-color-tertiary
 
-.text-field__placeholder--zh
+.TextField__placeholder--zh
 	font-family: $font-family-zh
 	font-size: $font-size-large
 	+mq(widescreen)
 		font-size: $font-size-medium
 
-.text-field__placeholder--en
+.TextField__placeholder--en
 	font-family: $font-family-en
 	font-size: $font-size-regular
 	+mq(widescreen)
 		font-size: $font-size-small
 
-.text-field__reset
+.TextField__resetButton
 	+clearInputStyle
 	position: absolute
 	top: 0
 	bottom: 0
 	right: $padding
+	font-size: 1rem
 	width: 2em
 	background: transparent
 	cursor: pointer
 
 	img
 		+img-responsive
+		margin: 0 auto
 
 	+mq(widescreen)
 		width: 1.6em

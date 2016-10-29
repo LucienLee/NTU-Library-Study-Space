@@ -1,5 +1,5 @@
 <template lang="jade">
-div.panel
+.Panel
 	panel-header(:title="headerTitle")
 	slot(name="panel-body")
 </template>
@@ -25,7 +25,7 @@ export default {
 @import "../sass/variables"
 @import "../sass/mixin"
 
-.panel
+.Panel
 	width: 100%
 	background: #FFFFFF
 	box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.18)

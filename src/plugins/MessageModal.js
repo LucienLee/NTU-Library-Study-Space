@@ -2,18 +2,19 @@ import Vue from 'vue'
 import Modal from '../components/Modal'
 
 let ModalConstructor = Vue.extend(Modal)
-let instance
+let instance // Modal Singleton
+let deferreds = [] // Promise Queue
 
 let messageModal = function(options){
 	// Initialize Modal
 	if (!instance) {
 		instance = new ModalConstructor({
-			el: document.createElement('div'),
+			el: document.createElement('div')
 		})
 		document.body.appendChild(instance.$el)
 
-		instance.$on('input', (val)=>{
-			instance.value = val
+		instance.$on('close', () => {
+			deferreds.shift().resolve()
 		})
 	}
 
@@ -24,6 +25,10 @@ let messageModal = function(options){
 
 	Vue.nextTick(() => {
 		instance.value = true
+	})
+
+	return new Promise( ( resolve ) => {
+		deferreds.push({ resolve: resolve })
 	})
 }
 

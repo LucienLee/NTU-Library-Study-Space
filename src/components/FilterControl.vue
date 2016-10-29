@@ -1,9 +1,9 @@
 <template lang="jade">
-.filterWrapper
-	fieldset.filter
-		legend.filter-legend {{label}}
-		.filter-aspectKeeper
-			.filter-inputs
+.Filter
+	fieldset.Filter__fieldset
+		legend.Filter__legend {{label}}
+		.Filter__aspectWrapper
+			.Filter__inputs
 				slot
 	divider
 </template>
@@ -30,12 +30,12 @@ export default {
 
 $leading: $panel-leading + 2px
 
-.filter
+.Filter__fieldset
 	padding: $leading percentage($panel-padding/$panel-width)
 	border: none
 	margin: 0
 
-.filter-legend
+.Filter__legend
 	display: block
 	padding-top: $leading
 	margin-bottom: -$leading/2
@@ -47,12 +47,12 @@ $leading: $panel-leading + 2px
 	+mq(widescreen)
 		font-size: $font-size-small
 
-.filter-aspectKeeper
+.Filter__aspectWrapper
 	position: relative
 	width: 100%
 	padding-bottom: percentage($button-height / $panel-inner-width)
 
-.filter-inputs
+.Filter__inputs
 	+stretch
 
 </style>>

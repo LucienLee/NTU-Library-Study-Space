@@ -1,5 +1,5 @@
 <template lang="jade">
-button.clear-filter-button(@click="onClick") 清除・Reset
+button.ClearFilterButton(@click="onClick") 清除・Reset
 </template>
 
 <script>
@@ -21,7 +21,7 @@ export default {
 @import '../sass/variables'
 @import '../sass/mixin'
 
-.clear-filter-button
+.ClearFilterButton
 	width: 100%
 	height: 3.33em
 	font-family: $font-family-zh

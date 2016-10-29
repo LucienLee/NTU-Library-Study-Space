@@ -1,26 +1,26 @@
 <template lang="jade">
-transition(name="modal-transition", @after-leave="resetTimer")
-	.modal-wrapper(v-show="value", @click.self="onOverlayClick")
-		.modal
-			.modal-header(v-if="title")
+transition(name="modal-transition", @after-leave="onCloseEnd")
+	.Modal(v-show="value", @click.self="onOverlayClick")
+		.Modal__inner
+			.Modal__header(v-if="title")
 				.animation.iconPop
-					img.modal-icon.animation(:src="title.image", :class="iconAnimationClass")
-				h1.modal-title.modal-title--zh {{title.zh}}
-				h2.modal-title.modal-title--en {{title.en}}
+					img.Modal__icon.animation(:src="title.image", :class="iconAnimationClass")
+				h1.Modal__title.Modal__title--zh {{title.zh}}
+				h2.Modal__title.Modal__title--en {{title.en}}
 			divider(type="strong")
-			.modal-body(v-if="message")
-				p.userID {{message.studentID}}
-				.message--success(v-if="type === 'success'")
-					.seatInfo
-						p.seatInfo-desc.seatInfo-desc--zh 你登記的座位為
-						p.seatInfo-desc.seatInfo-desc--en Your registered seat is
-					.seatID {{message.seatID}}
-				.message--failure(v-if="type === 'failure'")
-					p.error-desc.error-desc--zh {{message.zh}}
-					p.error-desc.error-desc--en {{message.en}}
-			.modal-close(@click="onCloseClick", @mouseover="hovered = true", @mouseleave="hovered = false")
+			.Modal__body(v-if="message")
+				p.Modal__userID {{message.studentID}}
+				.Modal__message--success(v-if="type === 'success'")
+					.Modal__seatInfo
+						p.Modal__seatDesc.Modal__seatDesc--zh 你登記的座位為
+						p.Modal__seatDesc.Modal__seatDesc--en Your registered seat is
+					.Modal__seatID {{message.seatID}}
+				.Modal__message--failure(v-if="type === 'failure'")
+					p.Modal__errorDesc.Modal__errorDesc--zh {{message.zh}}
+					p.Modal__errorDesc.Modal__errorDesc--en {{message.en}}
+			.Modal__close(@click="onCloseClick", @mouseover="hovered = true", @mouseleave="hovered = false")
 				transition(name="fade")
-					span.modal-closeCounter(v-show="showCounter") {{timer}}
+					span.Modal__closeCounter(v-show="showCounter") {{timer}}
 				transition(name="fade")
 					Icon(symbol="cross", v-show="!showCounter")
 
@@ -98,31 +98,35 @@ export default {
 			}
 		},
 		value (val) {
-			if( this.timer < 0 ) return
-			if( val ){
+			if( !val ){
+				// Close Modal
+				clearInterval(intervalId)
+				this.$emit('close')
+			} else {
+				// Prepare Timer
+				if( this.timer < 0 ) return
+
 				intervalId = setInterval( () => {
 					if(this.timer > 0){
 						this.timer--
 					} else {
-						this.$emit('input', false)
+						this.value = false
 					}
 				}, 1000)
-			} else {
-				clearInterval(intervalId)
 			}
 		}
 	},
 	methods: {
 		onOverlayClick() {
 			if(this.closeOnClickModal) {
-				this.$emit('input', false)
+				this.value = false
 			}
 		},
 		onCloseClick() {
-			this.$emit('input', false)
+			this.value = false
 		},
-		resetTimer() {
-			this.timer = timerDefault
+		onCloseEnd() {
+			this.timer = timerDefault // reset timer
 		}
 	}
 }
@@ -147,10 +151,10 @@ $font-modal-title: 36px
 $font-modal-desc: 20px
 $font-infofit-size: 26px
 
-.modal-wrapper
+.Modal
 	+stretch($position: fixed)
 
-.modal
+.Modal__inner
 	+centerAbsolute($modal-close-button-margin/2, $modal-close-button-margin/2)
 	width: percentage($modal-width/$max-width)
 	min-width: $modal-min-width
@@ -161,38 +165,38 @@ $font-infofit-size: 26px
 		font-size: $font-size-small
 
 
-.modal-header
+.Modal__header
 	width: 100%
 	background: $modal-color
 	text-align: center
 	border-radius: $border-radius $border-radius 0 0
 	padding: em($modal-padding-vertical-large) 0 em($modal-padding-vertical)
 
-.modal-icon
+.Modal__icon
 	margin-bottom: em($modal-padding-vertical)
 
-.modal-title
+.Modal__title
 	margin: 0
 	font-weight: 400
 
-.modal-title--zh
+.Modal__title--zh
 	font-family: $font-family-zh
 	font-size: $font-modal-title
 	color: $text-color-primary
 	+mq(widescreen)
 		font-size: $font-size-extra-large
 
-.modal-title--en
+.Modal__title--en
 	font-family: $font-family-en
 	font-size: $font-modal-desc
 	color: $text-color-secondary
 	+mq(widescreen)
 		font-size: $font-size-medium
 
-.modal-body
+.Modal__body
 	padding: em($modal-padding-vertical) percentage($modal-padding-horizonal/$modal-width) em($modal-padding-vertical-large)
 
-.modal-close
+.Modal__close
 	position: absolute
 	box-sizing: border-box
 	display: flex
@@ -207,14 +211,14 @@ $font-infofit-size: 26px
 	color: #fff
 	cursor: pointer
 
-.modal-closeCounter
+.Modal__closeCounter
 	position: absolute
 
-.userID
+.Modal__userID
 	$IDLength: 10
 	$IDFont-size: 30px
 	box-sizing: border-box
-	width: #{$IDLength * 1.2/2}em // divide two for halfwidth charactors
+	width: #{$IDLength * 1.4/2}em // divide two for halfwidth charactors
 	margin: 0 auto
 	text-align: center
 	font-size: $IDFont-size
@@ -227,48 +231,48 @@ $font-infofit-size: 26px
 	+mq(widescreen)
 		font-size: $font-size-large
 
-.message--success
+.Modal__message--success
 	display: flex
 	align-items: flex-start
 	justify-content: space-around
 
-.seatID
+.Modal__seatID
 	font-size: 64px
 	color: $primary-color
 	+mq(widescreen)
 		font-size: 48px
 
-.seatInfo-desc
+.Modal__seatDesc
 	margin: 0
 	text-align: center
 	line-height: 1.4em
 
-.seatInfo-desc--zh
+.Modal__seatDesc--zh
 	font-family: $font-family-zh
 	color: $text-color-secondary
 	font-size: $font-infofit-size
 	+mq(widescreen)
 		font-size: $font-infofit-size * $modal-min-width / $modal-width
 
-.seatInfo-desc--en
+.Modal__seatDesc--en
 	font-family: $font-family-en
 	color: $text-color-tertiary
 	font-size: $font-size-medium
 	+mq(widescreen)
 		font-size: $font-size-small
 
-.error-desc
+.Modal__errorDesc
 	line-height: 1.32em
 	margin: 0 0 6px 0
 
-.error-desc--zh
+.Modal__errorDesc--zh
 	font-family: $font-family-zh
 	color: $text-color-secondary
 	font-size: $font-size-medium
 	+mq(widescreen)
 		font-size: $font-size-regular
 
-.error-desc--en
+.Modal__errorDesc--en
 	font-family: $font-family-en
 	color: $text-color-tertiary
 	font-size: $font-size-medium

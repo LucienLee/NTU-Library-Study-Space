@@ -1,5 +1,5 @@
 <template lang="jade">
-svg(:class="iconClass")
+svg.Icon(:class="iconClass")
 	use(v-bind:xlink:href="'#' + symbol")
 </template>
 
@@ -16,14 +16,14 @@ export default {
 	computed: {
 		iconClass() {
 			const { symbol, className } = this
-			return className ? `icon icon-${symbol} ${className}` : `icon icon-${symbol}`
+			return className ? `icon-${symbol} ${className}` : `icon-${symbol}`
 		}
 	}
 }
 </script>
 
 <style lang="sass">
-.icon
+.Icon
 	width: 100%
 	height: 100%
 	fill: currentColor

@@ -1,5 +1,5 @@
 <template lang="jade">
-.seat-filter
+.SeatFilter
 	panel(:headerTitle="title")
 		div(slot="panel-body")
 			filter-control(label="使用筆記電腦 / Laptop Allowed")
@@ -98,7 +98,7 @@ export default {
 <style lang="sass">
 @import '../sass/variables'
 
-.seat-filter
+.SeatFilter
 	width: ($panel-width/$max-width)*100vw
 	min-width: 300px
 </style>
