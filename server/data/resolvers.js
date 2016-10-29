@@ -20,8 +20,7 @@ const resolvers = {
 		},
 	},
 	Student: {
-		most_used({ freq }, { num }) {
-			num = num || 3
+		most_used({ freq }, { num = 3 }) {
 			let ret = [], min = 0
 			Object.keys(freq).forEach(key => {
 				if (freq[key] > min) {
@@ -31,13 +30,6 @@ const resolvers = {
 				}
 			})
 			return ret
-		},
-	},
-	Mutation: {
-		addStudent (_, args) {
-			console.log(args)
-			Student.insert({ student_id: args.student_id, recent_seats: [] })
-			return Student.findOne({ student_id: args.student_id })
 		},
 	},
 }

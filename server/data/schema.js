@@ -27,13 +27,8 @@ type Query {
   all_seats: [LiveSeat]!
 }
 
-type Mutation {
-  addStudent(student_id: String!): Student
-}
-
 schema {
   query: Query
-  mutation: Mutation
 }
 `;
 
