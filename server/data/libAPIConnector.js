@@ -1,5 +1,6 @@
-import rp from 'request-promise';
+import fetch from 'node-fetch';
 import _ from 'lodash'
+import chalk from 'chalk'
 import { Record, Student } from './mongoConnector'
 
 function createRecord(doc) {
@@ -25,36 +26,38 @@ class LibAPIConnector {
 		this.lastSeatsArray = []
 	}
 	invalidate() {
-		console.log('now invalidate!')
+		process.stdout.write('now invalidating... ')
 		this.lastSeatsArray = this.seatsArray
 		// this.lastSeats = this.seats
 
 		this.getSeatInfo()
 			.then(() => {
 				this.diffSeatsArray()
-				setTimeout(this.invalidate.bind(this), 10000)
+				setTimeout(this.invalidate.bind(this), 5000)
 			})
 
 	}
 
 	getSeatInfo() {
-		return rp('http://140.112.113.35:8080/StudyRoom/api/getSeatInfo')
+		return fetch('http://140.112.113.35:8080/StudyRoom/api/getSeatInfo')
 			.then(res => {
-				this.seatsArray = JSON.parse(res)
-				return this.seatsArray
+				const contentType = res.headers.get('content-type')
+				if (contentType && contentType.indexOf('applicatioin/json') !== -1)
+					return res.json()
+				throw 'illegal access!'
 			})
-			.catch(err => console.error('rp/JSON.parse error:', err))
-			// .then(() => {
-			// 	this.seats = this.seatsArray.reduce((o, v, i) => {
-			// 		o[v.seat_id] = v;
-			// 		return o;
-			// 	}, {});
-			// })
+			.then(json => {
+				console.log(chalk.green('OK'))
+				this.seatsArray = json
+			})
+			.catch(err => console.error(
+				chalk.red(err=== 'illegal access!' ? 'fetch error:' : 'json error:', err)
+			))
 	}
 
 	diffSeatsArray() {
 		const { seatsArray, lastSeatsArray } = this
-		if (seatsArray.length !== lastSeatsArray.length) return
+		if (!seatsArray || !lastSeatsArray || seatsArray.length !== lastSeatsArray.length) return
 
 		const timestamp = Date.now()
 		for (let i = 0; i < lastSeatsArray.length; ++i) {
