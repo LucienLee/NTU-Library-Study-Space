@@ -1,5 +1,15 @@
 import { DB, API } from './connectors'
 
+function sortedIndex(array, value) {
+    let low = 0, high = array.length;
+    while (low < high) {
+        const mid = (low + high) >>> 1;
+        if (array[mid].times > value) low = mid + 1;
+        else high = mid;
+    }
+    return low;
+}
+
 const resolvers = {
 	Query: {
 		student(_, args) {
@@ -10,11 +20,17 @@ const resolvers = {
 		},
 	},
 	Student: {
-		most_used(student) {
-			return Object.keys(student.freq)
-				.map(key => ({ seat_id: key, times: student.freq[key] }))
-				.sort((a, b) => ((a.times > b.times) ? -1 : ((b.times > a.times) ? 1 : 0)))
-				.slice(0, 3)
+		most_used({ freq }, { num }) {
+			num = num || 3
+			let ret = [], min = 0
+			Object.keys(freq).forEach(key => {
+				if (freq[key] > min) {
+					ret.splice(sortedIndex(ret, freq[key]), 0, { seat_id: key, times: freq[key] })
+					ret = ret.slice(0, num)
+					min = ret[num - 1] ? ret[num - 1].times : 0
+				}
+			})
+			return ret
 		},
 	},
 	Mutation: {
