@@ -7,16 +7,44 @@ Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.
 
 ## Build Setup
 
+#### install dependencies
 ``` bash
-# install dependencies
 npm install
+```
 
+### run for development
+
+First, you need a mongodb running.
+
+```
+mongod
+```
+
+if you get error about permission denied, you can either run it with `sudo`:
+```
+sudo mongod
+```
+
+or you can change the ownership of the default db path (`/data/db`) to yourself:
+```
+sudo chown -R $(whoami) /data/db
+```
+
+now you can run the dev server:
+```
 # serve with hot reload at localhost:8080
+# and graphQL server at localhost:3000/graphql
 npm start
+```
 
+### build for production
+```
 # build for production with minification
 npm run build
+```
 
+### run tests
+```
 # run unit tests
 npm run unit
 
@@ -26,6 +54,8 @@ npm run e2e
 # run all tests
 npm test
 ```
+
+## Documents
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 

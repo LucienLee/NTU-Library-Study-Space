@@ -12,13 +12,6 @@ open a separate terminal to run:
 mongod
 ```
 
-##### in this `server/` directory:
-``` bash
-npm install
-
-npm start
-```
-
 ##### connect to mongo shell
 to debug, run
 

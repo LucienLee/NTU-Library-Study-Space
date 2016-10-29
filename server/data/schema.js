@@ -4,12 +4,13 @@ scalar Date
 type Student {
   _id: ID
   student_id: String!
-  recent_seats: [RecentSeat]!
+  last_used: String
+  most_used(num: Int): [SeatUsedElement]!
 }
 
-type RecentSeat {
+type SeatUsedElement {
   seat_id: String!
-  start_time: Date
+  times: Int!
 }
 
 type LiveSeat {
@@ -26,13 +27,8 @@ type Query {
   all_seats: [LiveSeat]!
 }
 
-type Mutation {
-  addStudent(student_id: String!): Student
-}
-
 schema {
   query: Query
-  mutation: Mutation
 }
 `;
 
