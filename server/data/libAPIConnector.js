@@ -42,16 +42,14 @@ class LibAPIConnector {
 		return fetch('http://140.112.113.35:8080/StudyRoom/api/getSeatInfo')
 			.then(res => {
 				const contentType = res.headers.get('content-type')
-				if (contentType && contentType.indexOf('applicatioin/json') !== -1)
-					return res.json()
-				throw 'illegal access!'
+				return res.json()
 			})
 			.then(json => {
 				console.log(chalk.green('OK'))
 				this.seatsArray = json
 			})
 			.catch(err => console.error(
-				chalk.red(err=== 'illegal access!' ? 'fetch error:' : 'json error:', err)
+				chalk.red(err)
 			))
 	}
 
