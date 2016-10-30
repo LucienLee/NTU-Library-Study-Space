@@ -3,6 +3,7 @@
 	panel(:headerTitle="title")
 		div(slot="panel-body")
 			text-field(v-for="field in fields", :id="field.id", :placeholder="field.placeholder", :pattern="field.pattern", v-model="field.value", @validate="onValidate")
+			seat-history
 </template>
 
 <script>
@@ -12,6 +13,7 @@ import { mapActions, mapState, mapGetters } from 'vuex'
 import Panel from './Panel'
 import TextField from './TextField'
 import Divider from './Divider'
+import SeatHistory from './SeatHistory'
 
 const modalShowTime = 5
 
@@ -19,7 +21,8 @@ export default {
 	components: {
 		Panel,
 		TextField,
-		Divider
+		Divider,
+		SeatHistory
 	},
 	data: () => ({
 		title: {
