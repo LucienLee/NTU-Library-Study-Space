@@ -27,7 +27,7 @@ sudo mongod
 
 or you can change the ownership of the default db path (`/data/db`) to yourself:
 ```
-sudo chown -R $(whoami) /data/db
+sudo chown -R `whoami` /data/db
 ```
 
 now you can run the dev server:
