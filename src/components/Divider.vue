@@ -1,5 +1,5 @@
 <template lang="jade">
-.Divider(:class="[ type ? 'divier--' + type : '' ]")
+.Divider(:class="[ type ? 'Divider--' + type : '' ]")
 </template>
 
 <script>
