@@ -6,7 +6,7 @@
 				.SeatHistory__sectionHeader
 					divider(type="strong")
 					h3.SeatHistory__sectionTitle 上次座位 Last Used
-				history-list-item(:is-empty="isEmpty", :empty-message="emptyMessage[0]")
+				history-list-item(:is-empty="false", :seat="record")
 			.SeatHistory__section
 				.SeatHistory__sectionHeader
 					divider(type="strong")
@@ -39,7 +39,11 @@ export default {
 					en: 'Next time, you can select your past seats here.'
 				}
 			],
-			isCollapsed: false
+			isCollapsed: false,
+			record: {
+				id: 'A001',
+				state: 'left'
+			}
 		}
 	},
 	components: {
