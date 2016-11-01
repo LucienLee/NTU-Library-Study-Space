@@ -6,12 +6,14 @@
 				.SeatHistory__sectionHeader
 					divider(type="strong")
 					h3.SeatHistory__sectionTitle 上次座位 Last Used
-				history-list-item(:is-empty="false", :seat="record")
+				history-list-item(v-if="isEmpty", :empty-message="emptyMessage[0]")
+				history-list-item(v-else, v-for="seat in lastList", :seat="seat", @focus="onFocus")
 			.SeatHistory__section
 				.SeatHistory__sectionHeader
 					divider(type="strong")
 					h3.SeatHistory__sectionTitle 常用座位 Most Used
-				history-list-item(:is-empty="isEmpty", :empty-message="emptyMessage[1]")
+				history-list-item(v-if="isEmpty", :empty-message="emptyMessage[1]")
+				history-list-item(v-else, v-for="seat in mostList", :seat="seat", @focus="onFocus")
 	divider(type="strong")
 	button.SeatHistory__collapseButton(@click="isCollapsed = !isCollapsed"
 		:class="{ 'SeatHistory__collapseButton--collapsed': isCollapsed}")
@@ -19,6 +21,9 @@
 </template>
 <script>
 import { TweenMax } from 'gsap'
+import _ from 'lodash'
+
+import { mapActions } from 'vuex'
 import Divider from './Divider.vue'
 import HistoryListItem from './HistoryListItem.vue'
 
@@ -26,9 +31,12 @@ export default {
 	props: {
 		isShown: Boolean
 	},
+	components: {
+		Divider,
+		HistoryListItem
+	},
 	data () {
 		return {
-			isEmpty: true,
 			emptyMessage: [
 				{
 					zh: '歡迎來到自習區，希望你學習愉快！',
@@ -40,17 +48,45 @@ export default {
 				}
 			],
 			isCollapsed: false,
-			record: {
-				id: 'A001',
+			lastUsed: [{
+				id: 'A003',
+				state: 'empty'
+			}],
+			mostUsed: [{
+				id: 'A028',
+				state: 'used'
+			}, {
+				id: 'B002',
 				state: 'left'
-			}
+			}, {
+				id: 'A003',
+				state: 'empty'
+			}]
 		}
 	},
-	components: {
-		Divider,
-		HistoryListItem
+	computed: {
+		isEmpty () {
+			return _.isEmpty( this.lastUsed )
+		},
+		lastList () {
+			return _.map(this.lastUsed, (el) => {
+				el.key = 'last' + el.id
+				this.registerList(el.key)
+				return el
+			})
+		},
+		mostList () {
+			return _.map(this.mostUsed, (el) => {
+				el.key = 'most' + el.id
+				this.registerList(el.key)
+				return el
+			})
+		}
 	},
 	methods: {
+		...mapActions([
+			'registerList'
+		]),
 		expand (el, done) {
 			TweenMax.to(el, 0.4, {
 				height: el.dataset.height,
@@ -63,6 +99,9 @@ export default {
 				height: 0,
 				onComplete: done
 			})
+		},
+		onFocus (val) {
+			console.log(val)
 		}
 	}
 }
@@ -83,6 +122,8 @@ export default {
 .SeatHistory__sectionHeader
 	width: 100%
 	background: $section-color
+	border-bottom: 1px solid $hover-color
+	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.14)
 
 .SeatHistory__sectionTitle
 	font-family: $font-family-zh
@@ -106,9 +147,6 @@ export default {
 	cursor: pointer
 	& img
 		transition: transform $medium
-
-	// &:hover
-	// 	background: $hover-color
 
 .SeatHistory__collapseButton--collapsed img
 	transform: rotate3d(1,0,0,180deg)

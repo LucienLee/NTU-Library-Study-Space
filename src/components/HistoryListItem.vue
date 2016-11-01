@@ -2,32 +2,36 @@
 .HistoryListItem
 	divider
 	.HistoryListItem__inner
-		.HistoryListItem__emptyState(v-if="isEmpty"): div
-				p.HistoryListItem__emptyMessage.HistoryListItem__emptyMessage--zh {{emptyMessage.zh}}
-				p.HistoryListItem__emptyMessage.HistoryListItem__emptyMessage--en {{emptyMessage.en}}
+		.HistoryListItem__emptyState(v-if="emptyMessage"): div
+			p.HistoryListItem__emptyMessage.HistoryListItem__emptyMessage--zh {{emptyMessage.zh}}
+			p.HistoryListItem__emptyMessage.HistoryListItem__emptyMessage--en {{emptyMessage.en}}
 		.HistoryListItem__content(v-else, @click="onClick")
 			.HistoryListItem__seatID {{seat.id}}
 			.HistoryListItem__seatState
+				morphing-button(v-if="available", :show="morphing", @click="confirm")
 				.HistoryListItem__stateIcon
 					Icon(:symbol="label.state")
 				.HistoryListItem__stateLabel
 					p.HistoryListItem__stateDesc.HistoryListItem__stateDesc--zh {{label.zh}}
 					p.HistoryListItem__stateDesc.HistoryListItem__stateDesc--en {{label.en}}
+		pre {{morphing}}
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 import Divider from './Divider.vue'
 import Icon from './Icon.vue'
+import MorphingButton from './MorphingButton.vue'
 
 export default {
 	props: {
-		isEmpty: Boolean,
 		emptyMessage: Object,
 		seat: Object
 	},
 	components: {
 		Divider,
-		Icon
+		Icon,
+		MorphingButton
 	},
 	data () {
 		return {
@@ -48,12 +52,28 @@ export default {
 		}
 	},
 	computed: {
+		...mapState({
+			morphing (state) {
+				return state.list.expandinglist[this.seat.key]
+			}
+		}),
 		label () {
-			return {...this.labelSet[this.seat.state], state:this.seat.state}
+			return {...this.labelSet[this.seat.state], state: this.seat.state}
+		},
+		available () {
+			return (this.label.state === 'empty')
 		}
 	},
 	methods: {
-		onClick () {}
+		...mapActions([
+			'focusListItem'
+		]),
+		onClick () {
+			this.focusListItem(this.seat.key)
+			this.$emit('focus', this.seat.id)
+		},
+		confirm () {
+		}
 	}
 }
 </script>
@@ -63,10 +83,11 @@ export default {
 @import '../sass/mixin'
 
 $item-height: 52px
+$icon-size: 32px
 
 .HistoryListItem__inner
 	width: 100%
-	height: 52px
+	height: $item-height
 
 .HistoryListItem__emptyState
 	display: flex
@@ -102,6 +123,7 @@ $item-height: 52px
 	background: #FEFCF8
 	height: 100%
 	cursor: pointer
+	transition: background $fast $easeIn
 
 	&:hover
 		background: $hover-color
@@ -113,20 +135,23 @@ $item-height: 52px
 	margin-left: $padding-padding-percentage * 1.6
 
 .HistoryListItem__seatState
+	position: relative
+	display: flex
+	align-items: center
 	margin-right: $padding-padding-percentage
 
 .HistoryListItem__stateIcon
-	display: inline-block
-	vertical-align: middle
-	width: 32px
-	height: 32px
+	width: $icon-size
+	height: $icon-size
 
 .HistoryListItem__stateLabel
-	display: inline-block
-	vertical-align: middle
+	font-size: $font-size-medium
 	text-align: center
-	margin-left: 8px
+	margin-left: em(8px, $font-size-medium)
 	width: 88px
+
+	+mq(widescreen)
+		font-size: $font-size-regular
 
 .HistoryListItem__stateDesc
 	margin: 0
@@ -135,6 +160,9 @@ $item-height: 52px
 	font-family: $font-family-zh
 	font-size: $font-size-medium
 	color: $text-color-primary
+
+	+mq(widescreen)
+		font-size: $font-size-regular
 
 .HistoryListItem__stateDesc--en
 	font-family: $font-family-en
