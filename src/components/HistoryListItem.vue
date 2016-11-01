@@ -14,7 +14,6 @@
 				.HistoryListItem__stateLabel
 					p.HistoryListItem__stateDesc.HistoryListItem__stateDesc--zh {{label.zh}}
 					p.HistoryListItem__stateDesc.HistoryListItem__stateDesc--en {{label.en}}
-		pre {{morphing}}
 </template>
 
 <script>
@@ -54,7 +53,7 @@ export default {
 	computed: {
 		...mapState({
 			morphing (state) {
-				return state.list.expandinglist[this.seat.key]
+				return state.list.expandinglist[this.seat && this.seat.key]
 			}
 		}),
 		label () {

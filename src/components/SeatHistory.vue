@@ -48,20 +48,8 @@ export default {
 				}
 			],
 			isCollapsed: false,
-			lastUsed: [{
-				id: 'A003',
-				state: 'empty'
-			}],
-			mostUsed: [{
-				id: 'A028',
-				state: 'used'
-			}, {
-				id: 'B002',
-				state: 'left'
-			}, {
-				id: 'A003',
-				state: 'empty'
-			}]
+			lastUsed: [],
+			mostUsed: []
 		}
 	},
 	computed: {
@@ -70,16 +58,28 @@ export default {
 		},
 		lastList () {
 			return _.map(this.lastUsed, (el) => {
-				el.key = 'last' + el.id
-				this.registerList(el.key)
-				return el
+				return Object.assign({}, el, { key: `last${el.id}` })
 			})
 		},
 		mostList () {
+			console.log('mostList updated')
 			return _.map(this.mostUsed, (el) => {
-				el.key = 'most' + el.id
-				this.registerList(el.key)
-				return el
+				return Object.assign({}, el, { key: `most${el.id}` })
+			})
+		}
+	},
+	watch: {
+		lastUsed () {
+			return _.map(this.lastUsed, (el) => {
+				this.registerList(`last${el.id}`)
+				return Object.assign({}, el, { key: `last${el.id}` })
+			})
+		},
+		mostUsed () {
+			console.log('mostUsed updated')
+			return _.map(this.mostUsed, (el) => {
+				this.registerList(`most${el.id}`)
+				return Object.assign({}, el, { key: `most${el.id}` })
 			})
 		}
 	},
