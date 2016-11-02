@@ -14,6 +14,9 @@ const mutations = {
 const actions = {
 	focusListItem ({ commit }, val) {
 		commit('ACTIVATE_LIST', val)
+	},
+	blurListItem({ commit }) {
+		commit('ClEAR_LIST')
 	}
 }
 

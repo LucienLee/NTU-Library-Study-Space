@@ -14,22 +14,25 @@
 					h3.SeatHistory__sectionTitle 常用座位 Most Used
 				history-list-item(v-if="isEmpty", :empty-message="emptyMessage[1]")
 				history-list-item(v-else, v-for="seat in mostList", :seat="seat", @focus="onFocus")
-	divider(type="strong")
-	button.SeatHistory__collapseButton(@click="isCollapsed = !isCollapsed"
-		:class="{ 'SeatHistory__collapseButton--collapsed': isCollapsed}")
-		img(src="../assets/images/triangle.svg")
+	transition(@enter="slideDown", @leave="slideUp", @after-enter="isCollapsed = false", @before-leave="isCollapsed = true")
+		.SeatHistory__collapseButton(v-show="show")
+			divider(type="strong")
+			button.SeatHistory__collapseButtonInner(@click="onCollapseButtonClick"
+				:class="{ 'SeatHistory__collapseButtonInner--collapsed': isCollapsed}")
+				img(src="../assets/images/triangle.svg")
 </template>
 <script>
-import { TweenMax } from 'gsap'
+import { TweenMax, TimelineMax, Sine } from 'gsap'
 import _ from 'lodash'
 
+import { mapActions } from 'vuex'
 import Divider from './Divider.vue'
 import HistoryListItem from './HistoryListItem.vue'
 
+const time = 0.4
+const fast = time / 2
+
 export default {
-	props: {
-		isShown: Boolean
-	},
 	components: {
 		Divider,
 		HistoryListItem
@@ -46,7 +49,9 @@ export default {
 					en: 'Next time, you can select your past seats here.'
 				}
 			],
-			isCollapsed: false,
+			show: false,
+			isCollapsed: true,
+			doneCollaped: false,
 			lastUsed: [],
 			mostUsed: []
 		}
@@ -63,18 +68,68 @@ export default {
 		}
 	},
 	methods: {
+		...mapActions([
+			'blurListItem'
+		]),
 		expand (el, done) {
-			TweenMax.to(el, 0.4, {
-				height: el.dataset.height,
+			el.style.height = 0
+			el.style.display = 'block'
+			TweenMax.to(el, time, {
+				height: el.scrollHeight,
+				ease: Sine.easeOut,
+				clearProps: 'height',
 				onComplete: done
 			})
 		},
 		collapse (el, done) {
-			el.dataset.height = el.offsetHeight
-			TweenMax.to(el, 0.4, {
+			TweenMax.to(el, time, {
 				height: 0,
-				onComplete: done
+				ease: Sine.easeIn,
+				clearProps: 'height',
+				onComplete: () => {
+					// has prepared for sliding up
+					this.doneCollaped = true
+					done()
+				}
 			})
+		},
+		slideDown(el, done) {
+			el.style.height = 0
+			el.style.display = 'block'
+
+			let timeline = new TimelineMax({ onComplete: done })
+
+			timeline.from( el, fast, {
+				y: -el.scrollHeight,
+				ease: Sine.easeIn
+			}, 0).to(el, fast, {
+				height: el.scrollHeight,
+				ease: Sine.easeIn
+			}, 0).set(el, {
+				clearProps: 'all'
+			})
+		},
+		slideUp(el, done) {
+			let slideUpTransition = () => {
+				// waiting for collapsing
+				if( !this.doneCollaped ) return
+
+				TweenMax.to(el, fast, {
+					height: 0,
+					y: -el.clientHeight,
+					ease: Sine.easeOut,
+					clearProps: 'all',
+					onComplete: done,
+				})
+				this.doneCollaped = false
+				TweenMax.ticker.removeEventListener('tick', slideUpTransition)
+			}
+
+			TweenMax.ticker.addEventListener('tick', slideUpTransition)
+		},
+		onCollapseButtonClick () {
+			this.isCollapsed = !this.isCollapsed
+			this.blurListItem()
 		},
 		onFocus (val) {
 			console.log(val)
@@ -87,6 +142,7 @@ export default {
 @import '../sass/variables'
 @import '../sass/mixin'
 
+.SeatHistory,
 .SeatHistory__inner
 	position: relative
 	overflow: hidden
@@ -114,7 +170,7 @@ export default {
 		font-size: $font-size-medium
 		line-height: 30px
 
-.SeatHistory__collapseButton
+.SeatHistory__collapseButtonInner
 	+clearInputStyle
 	border-radius: 0 0 $border-radius $border-radius
 	width: 100%
@@ -124,6 +180,6 @@ export default {
 	& img
 		transition: transform $medium
 
-.SeatHistory__collapseButton--collapsed img
+.SeatHistory__collapseButtonInner--collapsed img
 	transform: rotate3d(1,0,0,180deg)
 </style>
