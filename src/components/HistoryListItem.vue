@@ -53,7 +53,7 @@ export default {
 	computed: {
 		...mapState({
 			morphing (state) {
-				return state.list.expandinglist[this.seat && this.seat.key]
+				return state.list.focused === this.seat.key
 			}
 		}),
 		label () {

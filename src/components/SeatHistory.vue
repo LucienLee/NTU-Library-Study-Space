@@ -23,7 +23,6 @@
 import { TweenMax } from 'gsap'
 import _ from 'lodash'
 
-import { mapActions } from 'vuex'
 import Divider from './Divider.vue'
 import HistoryListItem from './HistoryListItem.vue'
 
@@ -63,18 +62,7 @@ export default {
 			return _.map(this.mostUsed, el => Object.assign({}, el, { key: `most${el.id}` }))
 		}
 	},
-	watch: {
-		lastUsed () {
-			_.forEach(this.lastUsed, el => this.registerList(`last${el.id}`))
-		},
-		mostUsed () {
-			_.forEach(this.mostUsed, el => this.registerList(`most${el.id}`))
-		}
-	},
 	methods: {
-		...mapActions([
-			'registerList'
-		]),
 		expand (el, done) {
 			TweenMax.to(el, 0.4, {
 				height: el.dataset.height,
