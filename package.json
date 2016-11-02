@@ -7,10 +7,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "npm run dev",
-    "dev": "npm run dev-client & npm run dev-server",
+    "start": "npm run dev-client",
+    "dev-both": "npm run dev-client & npm run dev-server",
     "dev-client": "node build/dev-server.js",
-    "dev-server": "nodemon server/server.js --exec babel-node",
+    "dev-server": "DEV_SERVER=true nodemon server/server.js --exec babel-node",
     "build-client": "node build/build.js",
     "babel-server": "babel ./server --out-dir ./dist-server --source-maps",
     "clean-server": "rm -rf dist-server && mkdir dist-server",

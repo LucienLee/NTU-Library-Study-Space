@@ -20,6 +20,9 @@ const resolvers = {
 		},
 	},
 	Student: {
+		last_used({ last_used }) {
+			return { seat_id: last_used, status: API.getSeatStatus(last_used) }
+		},
 		most_used({ freq }, { num = 3 }) {
 			let ret = [], min = 0
 			Object.keys(freq).forEach(key => {
@@ -31,6 +34,11 @@ const resolvers = {
 			})
 			return ret
 		},
+	},
+	SeatUsedElement: {
+		status({ seat_id }) {
+			return API.getSeatStatus(seat_id)
+		}
 	},
 }
 

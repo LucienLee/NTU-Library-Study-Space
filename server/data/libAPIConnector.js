@@ -2,6 +2,7 @@ import fetch from 'node-fetch';
 import _ from 'lodash'
 import chalk from 'chalk'
 import { Record, Student } from './mongoConnector'
+import { arr2obj } from './utils'
 
 function createRecord(doc) {
 	Record.insert(doc)
@@ -22,13 +23,13 @@ function createRecord(doc) {
 // Library API
 class LibAPIConnector {
 	constructor() {
+		this.seats = {}
 		this.seatsArray = []
 		this.lastSeatsArray = []
 	}
 	invalidate() {
 		process.stdout.write('now invalidating... ')
 		this.lastSeatsArray = this.seatsArray
-		// this.lastSeats = this.seats
 
 		this.getSeatInfo()
 			.then(() => {
@@ -41,12 +42,12 @@ class LibAPIConnector {
 	getSeatInfo() {
 		return fetch('http://140.112.113.35:8080/StudyRoom/api/getSeatInfo')
 			.then(res => {
-				const contentType = res.headers.get('content-type')
 				return res.json()
 			})
 			.then(json => {
 				console.log(chalk.green('OK'))
 				this.seatsArray = json
+				this.seats = arr2obj(json)
 			})
 			.catch(err => console.error(
 				chalk.red(err)
