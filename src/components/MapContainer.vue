@@ -33,12 +33,47 @@ export default {
     let zooming = false
     objectMap.addEventListener('load', () => {
 
+        d3.select(document.getElementById('map_com').contentDocument).select('#A001 #used-seat').append('text').attr('font-size', '3').attr('fill', 'black').attr('text-anchor', 'middle').text('A001')
+
         const hover = d3.select(document.getElementById('map_com').contentDocument).selectAll('.Hover')
         hover.style('opacity', '0')
 
+
         const zoomed = () => {
             zooming = true
-            console.log('zoom')
+            console.log(d3.event.scale)
+            if(d3.event.scale > 1.05) {
+                hover.style('opacity', '0')
+                hover.style('pointer-events', 'none')
+                const tables = d3.select(document.getElementById('map_com').contentDocument).selectAll('.Table')
+                tables.on('mouseover', (d, i) => {
+                    const hoverTable = tables.filter((e, j) => {
+                        return j == i
+                    })
+                    hoverTable.style('stroke', 'red')
+                })
+                tables.on('mouseleave', (d, i) => {
+                    const hoverTable = tables.filter((e, j) => {
+                        return j == i
+                    })
+                    hoverTable.style('stroke', 'none')
+                })
+                tables.on('click', (d, i) => {
+                    const bbox = tables[0][i].getBBox()
+                    const x = bbox.x + bbox.width / 2
+                    const y = bbox.y + bbox.height / 2
+                    const scale = Math.max(1, Math.min(8, 0.9 / Math.max(bbox.width / w, bbox.height / h)))
+                    const translate = [w / 2 - scale * x, h / 2 - scale * y]
+                    innerGroup.transition()
+                              .duration(750)
+                              .call(zoom.translate(translate).scale(scale).event)
+                })
+            }
+            if(d3.event.scale > 8) {
+                //zoom to seat scale
+                const seats = d3.select(document.getElementById('map_com').contentDocument).selectAll('g[id^=A\d\d\d]')
+                console.log(seats)
+            }
             innerGroup.attr('transform', 'translate(' + d3.event.translate + ') scale(' + d3.event.scale + ')')
         }
 
@@ -66,7 +101,7 @@ export default {
             const y = bbox.y + bbox.height / 2
             const scale = Math.max(1, Math.min(8, 0.9 / Math.max(bbox.width / w, bbox.height / h)))
             const translate = [w / 2 - scale * x, h / 2 - scale * y]
-            console.log(scale)
+            // console.log(scale)
             innerGroup.transition()
                       .duration(750)
                       .call(zoom.translate(translate).scale(scale).event)

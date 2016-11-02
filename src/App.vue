@@ -1,6 +1,6 @@
 <template lang="jade">
 #app
-	//- map-container
+	map-container
 	.controlsContainer
 		seat-register
 		seat-filter
