@@ -20,22 +20,24 @@ export default {
 	},
 	mounted () {
 		let button = this.$el,
-			icon = this.$refs.icon
+			icon = this.$refs.icon.$el
+
+		const time = 0.4
 
 		this.timeline = new TimelineMax({ paused: true })
 
-		this.timeline.from(button, 0.4, {
+		this.timeline.from(button, time, {
 			width: iconSize,
 			height: iconSize,
 			borderRadius: iconSize/2,
 			borderWidth: 4,
 			ease: Back.easeOut.config(2)
-		}).from(icon, 0.4, {
-			autoAlpha: 0
-		}, 0).from(icon, 0.2, {
+		}).from(icon, time/2, {
+			opacity: 0
+		}, 0).from(icon, time/2, {
 			scale: 0.8,
 			ease: Back.easeOut.config(1.6)
-		}, '-=0.2')
+		}, `-=${time/2}`)
 	},
 	methods: {
 		expand (el, done) { // eslint-disable-line no-unused-vars
