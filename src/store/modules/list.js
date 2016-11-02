@@ -6,8 +6,7 @@ const state = {
 
 const mutations = {
 	REGISTER_LIST (state, key) {
-		console.log('REGISTER_LIST: key=', key)
-		if (!(key in state.expandinglist)) {
+		if (!state.expandinglist.hasOwnProperty(key)) {
 			Vue.set(state.expandinglist, key, false)
 		}
 		state.expandinglist[key] = false

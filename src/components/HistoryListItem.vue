@@ -57,7 +57,7 @@ export default {
 			}
 		}),
 		label () {
-			return {...this.labelSet[this.seat.state], state: this.seat.state}
+			return {...this.labelSet[this.seat && this.seat.state], state: this.seat && this.seat.state}
 		},
 		available () {
 			return (this.label.state === 'empty')
