@@ -2,8 +2,14 @@
 .SeatRegister
 	panel(:headerTitle="title")
 		div(slot="panel-body")
-			text-field(v-for="field in fields", :id="field.id", :placeholder="field.placeholder", :pattern="field.pattern", v-model="field.value", @validate="onValidate")
-			seat-history
+			text-field(
+				v-for="field in fields",
+				:id="field.id",
+				:placeholder="field.placeholder",
+				:pattern="field.pattern",
+				v-model="field.value",
+				@validate="onValidate")
+			seat-history(:studentId="fields[0].value")
 </template>
 
 <script>
@@ -65,13 +71,17 @@ export default {
 			return _.reduce(this.fields, (result, item) => {
 				return result && item.validated
 			}, true)
-		}
+		},
+		studentIdValidated () {
+			return this.fields[0].validated
+		},
 	},
 	methods: {
 		...mapActions([
 			'checkIn',
 			'checkOut',
 			'resetRegister',
+			'checkUser',
 		]),
 		onValidate (id, validated) {
 			let index = _.findIndex(this.fields, {'id': id})
@@ -108,7 +118,12 @@ export default {
 				this.fields[1].value = ''
 				this.resetRegister()
 			})
-		}
+		},
+		studentIdValidated (val) {
+			if (val) {
+				this.checkUser({ user_id: this.fields[0].value })
+			}
+		},
 	}
 }
 </script>

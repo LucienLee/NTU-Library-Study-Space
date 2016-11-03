@@ -25,9 +25,12 @@
 import { TweenMax, TimelineMax, Sine } from 'gsap'
 import _ from 'lodash'
 
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import Divider from './Divider.vue'
 import HistoryListItem from './HistoryListItem.vue'
+
+import gql from 'graphql-tag'
+import apolloClient from '../apolloClient'
 
 const time = 0.4
 const fast = time / 2
@@ -36,6 +39,9 @@ export default {
 	components: {
 		Divider,
 		HistoryListItem
+	},
+	props: {
+		studentId: String,
 	},
 	data () {
 		return {
@@ -57,6 +63,10 @@ export default {
 		}
 	},
 	computed: {
+		...mapState({
+			user_id: state => state.register.user.id,
+			userIsValid: state => state.register.user.isValid,
+		}),
 		isEmpty () {
 			return _.isEmpty( this.lastUsed )
 		},
@@ -66,6 +76,13 @@ export default {
 		mostList () {
 			return _.map(this.mostUsed, el => Object.assign({}, el, { key: `most${el.id}` }))
 		}
+	},
+	watch: {
+		user_id () {
+			if (this.userIsValid) {
+				this.getHistory()
+			}
+		},
 	},
 	methods: {
 		...mapActions([
@@ -93,7 +110,7 @@ export default {
 				}
 			})
 		},
-		slideDown(el, done) {
+		slideDown (el, done) {
 			el.style.height = 0
 			el.style.display = 'block'
 
@@ -109,7 +126,7 @@ export default {
 				clearProps: 'all'
 			})
 		},
-		slideUp(el, done) {
+		slideUp (el, done) {
 			let slideUpTransition = () => {
 				// waiting for collapsing
 				if( !this.doneCollaped ) return
@@ -133,7 +150,42 @@ export default {
 		},
 		onFocus (val) {
 			console.log(val)
-		}
+		},
+		getHistory () {
+			apolloClient.query({
+				query: gql`
+					query StudentHistory($student_id: String!){
+						student(student_id: $student_id) {
+							last_used {
+								seat_id
+								status
+							}
+							most_used {
+								seat_id
+								status
+							}
+						}
+					}
+				`,
+				variables: {
+					student_id: this.studentId,
+				},
+			}).then(({ data }) => {
+				this.show = true
+
+				if (!data.student) return
+
+				this.mostUsed = data.student.most_used.map(x => ({
+					id: x.seat_id,
+					state: x.status
+				}))
+				this.lastUsed = [{
+					id: data.student.last_used.seat_id,
+					state: data.student.last_used.status
+				}]
+			})
+
+		},
 	}
 }
 
