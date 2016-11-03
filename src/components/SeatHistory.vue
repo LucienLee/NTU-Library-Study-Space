@@ -35,6 +35,18 @@ import apolloClient from '../apolloClient'
 const time = 0.4
 const fast = time / 2
 
+function mapStatusToState(status) {
+	switch (status) {
+		case '0':
+			return 'empty'
+		case '1':
+			return 'used'
+		case '2':
+			return 'left'
+		default:
+			return 'error'
+	}
+}
 export default {
 	components: {
 		Divider,
@@ -174,11 +186,11 @@ export default {
 
 				this.mostUsed = data.student.most_used.map(x => ({
 					id: x.seat_id,
-					state: x.status
+					state: mapStatusToState(x.status)
 				}))
 				this.lastUsed = [{
 					id: data.student.last_used.seat_id,
-					state: data.student.last_used.status
+					state: mapStatusToState(data.student.last_used.status)
 				}]
 			})
 
