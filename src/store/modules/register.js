@@ -37,6 +37,7 @@ const mutations = {
 		state.loading = is.loading
 		state.error = is.error
 		state.result = is.result
+		state.user = is.user
 	},
 	USER_CHECKED (state, val) {
 		state.user = Object.assign(state.user, val)
