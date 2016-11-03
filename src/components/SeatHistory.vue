@@ -165,7 +165,7 @@ export default {
 					}
 				`,
 				variables: {
-					student_id: this.studentId,
+					student_id: this.user_id,
 				},
 			}).then(({ data }) => {
 				this.show = true
