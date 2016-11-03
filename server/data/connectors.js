@@ -9,7 +9,7 @@ const API = {
 		// return ret
 	},
 	getSeatStatus (seat_id) {
-		return (lib.seats[seat_id] && lib.seats[seat_id].status) || 'empty'
+		return (lib.seats[seat_id] && lib.seats[seat_id].status) || 'error'
 	}
 }
 
