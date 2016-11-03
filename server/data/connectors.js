@@ -1,6 +1,5 @@
 import DB from './mongoConnector'
 import lib from './libAPIConnector'
-import { sanitizeUserId, arr2obj } from './utils'
 
 const API = {
 	getSeatInfo () {

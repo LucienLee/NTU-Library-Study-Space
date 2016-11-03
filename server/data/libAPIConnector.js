@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import _ from 'lodash'
 import chalk from 'chalk'
 import DB from './mongoConnector'
-import { arr2obj } from './utils'
+import { arr2obj, sanitizeUserId } from './utils'
 
 function createRecord(doc) {
 	DB.Record.insert(doc)
