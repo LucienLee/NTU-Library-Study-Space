@@ -45,7 +45,7 @@ class LibAPIConnector {
 			})
 			.then(json => {
 				this.seatsArray = json
-				this.seats = arr2obj(json)
+				this.seats = arr2obj(json, 'seat_id')
 			})
 			.catch(err => console.error(
 				chalk.red(err)
