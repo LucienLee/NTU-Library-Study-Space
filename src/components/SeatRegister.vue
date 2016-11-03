@@ -9,7 +9,7 @@
 				:pattern="field.pattern",
 				v-model="field.value",
 				@validate="onValidate")
-			seat-history(:studentId="fields[0].value")
+			seat-history
 </template>
 
 <script>

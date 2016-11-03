@@ -40,9 +40,6 @@ export default {
 		Divider,
 		HistoryListItem
 	},
-	props: {
-		studentId: String,
-	},
 	data () {
 		return {
 			emptyMessage: [
