@@ -28,13 +28,12 @@ class LibAPIConnector {
 		this.lastSeatsArray = []
 	}
 	invalidate() {
-		process.stdout.write('now invalidating... ')
 		this.lastSeatsArray = this.seatsArray
 
 		this.getSeatInfo()
 			.then(() => {
 				this.diffSeatsArray()
-				setTimeout(this.invalidate.bind(this), 5000)
+				setTimeout(this.invalidate.bind(this), 1000)
 			})
 
 	}
@@ -45,7 +44,6 @@ class LibAPIConnector {
 				return res.json()
 			})
 			.then(json => {
-				console.log(chalk.green('OK'))
 				this.seatsArray = json
 				this.seats = arr2obj(json)
 			})
