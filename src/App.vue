@@ -25,11 +25,7 @@ export default {
 <style lang="sass">
 @import 'sass/variables'
 
-html
-	height: 100%
-
 body
-	height: 100%
 	background: $background-color
 
 .controlsContainer
