@@ -83,10 +83,11 @@ const actions = {
 		// first check if there is already a token to use
 		if (state.user.id === user_id && state.user.isValid && state.user.token) {
 			// erase the token
+			const token = state.user.token
 			commit('CONSUME_TOKEN')
 
 			// send out the request
-			fetch(`${url}checkin?type=1&user_id=${user_id}&seat_id=${seat_id}&token=${state.user.token}`)
+			fetch(`${url}checkin?type=1&user_id=${user_id}&seat_id=${seat_id}&token=${token}`)
 				.then(res => res.json())
 				.then(json => {
 					// nothing affected
@@ -135,10 +136,11 @@ const actions = {
 		// first check if there is already a token to use
 		if (state.user.id === user_id && state.user.isValid && state.user.token) {
 			// erase the token
+			const token = state.user.token
 			commit('CONSUME_TOKEN')
 
 			// send out the request
-			fetch(`${url}checkout?user_id=${user_id}&token=${state.user.token}`)
+			fetch(`${url}checkout?user_id=${user_id}&token=${token}`)
 				.then(res => res.json())
 				.then(json => {
 					// not valid
