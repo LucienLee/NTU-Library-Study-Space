@@ -90,7 +90,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// nothing affected
-					if (json.affected === '0') throw _.omit(json, ['affected'])
+					if (json.affected !== '1') throw json
 
 					// ok
 					commit('REGISTER_LOADING', false)
@@ -114,7 +114,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// nothing affected
-					if (json.affected === '0') throw _.omit(json, ['affected'])
+					if (json.affected !== '1') throw json
 
 					// ok
 					commit('REGISTER_LOADING', false)
@@ -142,7 +142,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// not valid
-					if (json.affected === '0') throw _.omit(json, ['affected'])
+					if (json.affected !== '1') throw json
 
 					// valid
 					commit('REGISTER_LOADING', false)
@@ -166,7 +166,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// not valid
-					if (json.affected === '0') throw _.omit(json, ['affected'])
+					if (json.affected !== '1') throw json
 
 					// valid
 					commit('REGISTER_LOADING', false)
