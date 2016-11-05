@@ -6,23 +6,78 @@
 <script>
 import * as d3 from 'd3'
 window.d3 = d3
-//MARK- d3 usage: zoom
+//MARK- d3 usage: zoom, transition
 
 // import _ from 'lodash'
 // import store from '../store'
 
-const controlsClass = 'controlsContainer'
+// Create the box to contain map dynamically
+class MapBox {
+	constructor(svg){
+		this.map = {
+			width: 928,
+			height: 594,
+			get ratio () {
+				return this.width / this.height
+			}
+		}
 
-const mapWidth = 928
-const mapHeight = 594
-const mapRatio = mapWidth / mapHeight
+		this.view = {
+			width: window.innerWidth,
+			height: window.innerHeight,
+			get ratio () {
+				return this.width / this.height
+			}
+		}
 
-let viewWidth = window.innerWidth
-let viewHeight = window.innerHeight
-let viewRatio = viewWidth / viewHeight
+		this.box = svg.append('rect')
+			.attr('id', 'MapBox')
+			.attr('x', this.x)
+			.attr('y', this.y)
+			.attr('width', this.width )
+			.attr('height', this.height )
+			.attr('pointer-events', 'none')
+			.style('fill', '#888')
+			.style('opacity', '0.5')
+	}
 
-let scaleFactor = (mapRatio > viewRatio) ? ( viewWidth / mapWidth ) : (viewHeight / mapHeight)
-let marginLeft = (viewWidth - mapWidth*scaleFactor) / 2
+	static get controlsClass () {
+		return 'controlsContainer'
+	}
+
+	get scaleFactor () {
+		return (this.map.ratio > this.view.ratio) ? ( this.view.width / this.map.width ) : (this.view.height / this.map.height)
+	}
+
+	get margin () {
+		return document.getElementsByClassName(this.constructor.controlsClass)[0].offsetLeft / this.scaleFactor
+	}
+
+	get x () {
+		let controls = document.getElementsByClassName(this.constructor.controlsClass)[0]
+		return (controls.offsetWidth + controls.offsetLeft * 2) / this.scaleFactor
+	}
+
+	get y () {
+		return (this.view.height / this.scaleFactor - this.height) / 4
+	}
+
+	get width () {
+		return (this.view.width / this.scaleFactor) - this.x - this.margin
+	}
+
+	get height () {
+		return this.width / this.map.ratio
+	}
+
+	get scale () {
+		return this.width / this.map.width
+	}
+}
+
+let traverse = ( selection, pattern, callback ) => {
+	callback( selection.selectAll(`g[id^=${pattern}]`) )
+}
 
 // store.watch(state => state.seats, (newSeats, oldSeats) => {
 // 	// this function will be triggered whenever *any* seat changes
@@ -42,35 +97,44 @@ let marginLeft = (viewWidth - mapWidth*scaleFactor) / 2
 // })
 
 export default {
+	data () {
+		return {
+			svg: '',
+			map: '',
+			mapBox: '',
+			zooming: false
+		}
+	},
 	mounted() {
 		let embed = document.getElementById('mapObject')
-		let svg, map
-
-		let controls = document.getElementsByClassName(controlsClass)[0]
-		let leftPadding = controls.offsetWidth + controls.offsetLeft * 2
 
 		let zoom = d3.zoom()
 			.scaleExtent([0.5, 10])
 			.on('start', ()=>{
 				console.log('start')
+				// zooming = false
 			})
 			.on('end', ()=>{
 				console.log('end')
 			})
 			.on('zoom', ()=>{
-				map.attr('transform', d3.event.transform )
+				// zooming = true
+				this.map.attr('transform', d3.event.transform )
 			})
 
 		// initialize after map loaded
 		embed.addEventListener('load', () => {
-			svg = d3.select(embed.contentDocument.getElementsByTagName('svg')[0])
-			map = svg.select('#Map')
+			this.svg = d3.select(embed.contentDocument.getElementsByTagName('svg')[0])
+			this.svg.attr('preserveAspectRatio', 'xMinYMin meet')
+			this.map = this.svg.select('#Map')
+			this.mapBox = new MapBox(this.svg)
 
-			svg.call( zoom.transform,
-				d3.zoomIdentity.translate( (leftPadding - marginLeft) / scaleFactor, 0 )
-				.scale( (viewWidth - leftPadding) / viewWidth )
+
+			this.svg.call( zoom.transform,
+				d3.zoomIdentity.translate( this.mapBox.x, this.mapBox.y )
+				.scale( this.mapBox.scale )
 			)
-			svg.call(zoom)
+			this.svg.call(zoom)
 		})
 	}
 }
