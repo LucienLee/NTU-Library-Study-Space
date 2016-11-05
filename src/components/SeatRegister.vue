@@ -156,8 +156,14 @@ export default {
 
 <style lang="sass">
 @import '../sass/variables'
+@import "../sass/mixin"
 
 .SeatRegister
 	width: ($panel-width/$max-width)*100vw
 	min-width: 300px
+	font-size: $font-size-regular
+	+mq(widescreen)
+		font-size: $font-size-small
+	margin-top: 2.5em
+	margin-bottom: 4em
 </style>
