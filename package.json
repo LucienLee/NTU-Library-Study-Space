@@ -36,6 +36,7 @@
     "mongodb": "^2.2.11",
     "node-fetch": "^1.6.3",
     "normalize.css": "^5.0.0",
+    "svg-injector": "^1.1.3",
     "vue": "^2.0.1",
     "vue-popup": "^0.2.9",
     "vuex": "^2.0.0",

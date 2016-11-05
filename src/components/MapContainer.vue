@@ -1,9 +1,10 @@
 <template lang="jade">
-.MapContainer
-	object(data="./static/map-compressed.svg", type="image/svg+xml" ,id="mapObject")
+.SeatMap
+	img.SeatMap__map(src="/static/map-compressed.svg")
 </template>
 
 <script>
+import SVGInjector from 'svg-injector'
 import * as d3 from 'd3'
 window.d3 = d3
 
@@ -28,6 +29,12 @@ window.d3 = d3
 // 		}
 // 	}
 // })
+
+const className = {
+	area: 'SeatMap__area',
+	table: 'SeatMap__table',
+	seat: 'SeatMap__seat'
+}
 
 // Create the box to contain map dynamically
 class MapBox {
@@ -108,7 +115,8 @@ let getBounds = (node) => {
 	return box
 }
 
-let zoomTranstion = function (node, svg, viewBox, zoom) {
+let zoomTranstion = function (node, svg, viewBox, zoom, zooming) {
+	if(zooming) return
 	const bbox = getBounds(node)
 	const x = bbox.x + bbox.width / 2
 	const y = bbox.y + bbox.height / 2
@@ -116,11 +124,14 @@ let zoomTranstion = function (node, svg, viewBox, zoom) {
 	const width = viewBox.width
 	const height = viewBox.height
 
-	const scale = Math.max(1, Math.min(8, 0.9 / Math.max(bbox.width / width, bbox.height / height) ))
+	const proportion = 0.95
+	const time = 750
+
+	const scale = Math.max(1, Math.min(8, proportion / Math.max(bbox.width / width, bbox.height / height) ))
 	const t = d3.zoomIdentity.translate(viewBox.x + width/2 - scale*x, viewBox.y + height/2 - scale*y).scale(scale)
 
 	svg.transition()
-		.duration(750)
+		.duration(time)
 		.call(zoom.transform, t)
 }
 
@@ -137,54 +148,50 @@ export default {
 		}
 	},
 	mounted() {
-		let embed = document.getElementById('mapObject')
+		let svgInjectPoint = document.querySelectorAll('img.SeatMap__map')
 
 		let zoom = d3.zoom()
 			.scaleExtent([0.5, 10])
 			.on('start', ()=>{
-				console.log('start')
-				// zooming = false
+				this.zooming = false
 			})
 			.on('end', ()=>{
-				console.log('end')
+				document.body.style.cursor = 'default'
 			})
 			.on('zoom', ()=>{
-				// zooming = true
+				this.zooming = true
+				document.body.style.cursor = 'move'
 				this.map.attr('transform', d3.event.transform )
 			})
 
 		// initialize after map loaded
-		embed.addEventListener('load', () => {
-			this.svg = d3.select(embed.contentDocument.getElementsByTagName('svg')[0])
-			this.svg.attr('preserveAspectRatio', 'xMinYMin meet')
-			this.map = this.svg.select('#Map')
-			this.mapBox = new MapBox(this.svg)
+		SVGInjector(svgInjectPoint, {}, () => {
+			let svg = d3.select('svg.SeatMap__map')
+			let map = svg.select('#Map')
+			let mapBox = new MapBox(svg)
+			svg.attr('preserveAspectRatio', 'xMinYMin meet')
 
-			// let styleElement = embed.contentDocument.createElementNS('http://www.w3.org/2000/svg', 'style')
-			// styleElement.textContent = '.hover { opacity: 0}'
-			// embed.contentDocument.getElementById('Map').appendChild(styleElement)
+			this.svg = svg
+			this.map = map
+			this.mapBox =mapBox
 
-			let svg = this.svg
-			let mapBox = this.mapBox
-
-			traverse(this.svg, 'Hover-', (selection) => {
-				this.hover = selection.classed('hover', true)
+			traverse(svg, 'Hover-', (selection) => {
+				this.hover = selection.classed(className.area, true)
 			})
 
-			traverse(this.svg, 'Table-', (selection) => {
-				this.table = selection.classed('table', true)
-				this.seat = selection.selectAll('.table > g').classed('seat', true)
+			traverse(svg, 'Table-', (selection) => {
+				this.table = selection.classed(className.table, true)
+				this.seat = selection.selectAll(`.${className.table} > g`).classed(className.seat, true)
 			})
 
 			this.hover.on('click', function () {
-				zoomTranstion(this, svg, mapBox, zoom)
+				zoomTranstion(this, svg, mapBox, zoom, this.zooming)
 			})
-
 
 			// init resize
 			this.svg.call(zoom.transform,
-				d3.zoomIdentity.translate( this.mapBox.x, this.mapBox.y )
-				.scale( this.mapBox.scale )
+				d3.zoomIdentity.translate( mapBox.x, mapBox.y )
+				.scale( mapBox.scale )
 			)
 
 			this.svg.call(zoom)
@@ -194,15 +201,22 @@ export default {
 </script>
 
 <style lang="sass">
-.MapContainer
+.SeatMap
 	width: 100vw
 	height: 100vh
 	max-width: 100%
 	max-height: 100%
 	overflow: hidden
 
-#mapObject
+.SeatMap__map
 	width: 100%
 	height: 100%
+
+.SeatMap__area
+	opacity: 0
+	cursor: pointer
+
+	&:hover
+		opacity: 1
 
 </style>
