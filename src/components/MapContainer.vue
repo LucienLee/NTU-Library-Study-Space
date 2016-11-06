@@ -30,7 +30,10 @@ window.d3 = d3
 // 	}
 // })
 
+const scaleExtent = [0.9, 10]
+
 const className = {
+	map: 'SeatMap__map',
 	area: 'SeatMap__area',
 	table: 'SeatMap__table',
 	seat: 'SeatMap__seat'
@@ -141,42 +144,52 @@ export default {
 			svg: '',
 			map: '',
 			mapBox: '',
-			hover: '',
+			area: '',
 			table: '',
 			seat: '',
+			scale: 1,
 			zooming: false
 		}
 	},
-	mounted() {
-		let svgInjectPoint = document.querySelectorAll('img.SeatMap__map')
-
+	computed: {
+		isAreaActived () {
+			return this.scale < 1 ? true : false
+		}
+	},
+	mounted () {
+		let svgInjectPoint = document.querySelectorAll(`img.${className.map}`)
 		let zoom = d3.zoom()
-			.scaleExtent([0.5, 10])
-			.on('start', ()=>{
+			.on('start', () => {
 				this.zooming = false
 			})
-			.on('end', ()=>{
+			.on('end', () => {
 				document.body.style.cursor = 'default'
+				if( this.isAreaActived ){
+					this.area.classed('SeatMap__area--inactive', false)
+				} else {
+					this.area.classed('SeatMap__area--inactive', true)
+				}
 			})
-			.on('zoom', ()=>{
+			.on('zoom', () => {
 				this.zooming = true
+				this.scale = d3.event.transform.k
 				document.body.style.cursor = 'move'
 				this.map.attr('transform', d3.event.transform )
 			})
 
 		// initialize after map loaded
 		SVGInjector(svgInjectPoint, {}, () => {
-			let svg = d3.select('svg.SeatMap__map')
+			let svg = d3.select(`svg.${className.map}`)
 			let map = svg.select('#Map')
-			let mapBox = new MapBox(svg)
+			let mapBox = new MapBox()
 			svg.attr('preserveAspectRatio', 'xMinYMin meet')
 
 			this.svg = svg
 			this.map = map
-			this.mapBox =mapBox
+			this.mapBox = mapBox
 
 			traverse(svg, 'Hover-', (selection) => {
-				this.hover = selection.classed(className.area, true)
+				this.area = selection.classed(className.area, true)
 			})
 
 			traverse(svg, 'Table-', (selection) => {
@@ -184,7 +197,7 @@ export default {
 				this.seat = selection.selectAll(`.${className.table} > g`).classed(className.seat, true)
 			})
 
-			this.hover.on('click', function () {
+			this.area.on('click', function () {
 				zoomTranstion(this, svg, mapBox, zoom, this.zooming)
 			})
 
@@ -194,6 +207,9 @@ export default {
 				.scale( mapBox.scale )
 			)
 
+			// set scale constraint
+			zoom.scaleExtent(scaleExtent.map( bound => bound * mapBox.scale ))
+
 			this.svg.call(zoom)
 		})
 	}
@@ -201,6 +217,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../sass/variables"
+
 .SeatMap
 	width: 100vw
 	height: 100vh
@@ -215,8 +233,23 @@ export default {
 .SeatMap__area
 	opacity: 0
 	cursor: pointer
+	transition: opacity $fast $easeIn
 
 	&:hover
 		opacity: 1
+		transition: opacity $fast $easeIn
+
+.SeatMap__area--inactive
+	opacity: 0
+	pointer-events: none
+
+	&:hover
+		opacity: 0
+
+.SeatMap__table
+	cursor: pointer
+	&:hover
+		stroke: green
+
 
 </style>
