@@ -6,7 +6,7 @@ const url = 'http://140.112.113.35:8080/StudyRoom/api/'
 const initialStateFactory = () => ({
 	loading: false,
 	result: {},
-	error: {},
+	error: null,
 	user: {
 		id: '',
 		isValid: false,
@@ -17,7 +17,7 @@ const initialStateFactory = () => ({
 
 const getters = {
 	doneRequest: state => {
-		return !_.isEmpty(state.result) || !_.isEmpty(state.error)
+		return !_.isEmpty(state.result) || state.error
 	}
 }
 
@@ -44,6 +44,9 @@ const mutations = {
 	},
 	CONSUME_TOKEN (state) {
 		state.user.token = null
+	},
+	CHECK_USER_ERROR (state, val) {
+		state.user.error = val
 	},
 }
 
@@ -75,6 +78,9 @@ const actions = {
 					})
 				}
 			})
+			.catch(err => {
+				commit('CHECK_USER_ERROR', err.toString())
+			})
 
 	},
 	checkIn ({ commit, state }, { user_id, seat_id }) {
@@ -94,7 +100,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// nothing affected
-					if (json.affected !== '1') throw json
+					if (json.affected !== '1') throw `${json.message} / ${json.message_en}`
 
 					// ok
 					commit('REGISTER_LOADING', false)
@@ -102,7 +108,7 @@ const actions = {
 				})
 				.catch(err => {
 					commit('REGISTER_LOADING', false)
-					commit('REGISTER_ERROR', err)
+					commit('REGISTER_ERROR', err.toString())
 				})
 		} else {
 			// no token, so get one first
@@ -110,7 +116,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// not a valid user
-					if (!json.authority) throw _.omit(json, ['authority'])
+					if (!json.authority) throw json.message
 
 					// valid user
 					return fetch(`${url}checkin?type=1&user_id=${user_id}&seat_id=${seat_id}&token=${json.token}`)
@@ -118,7 +124,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// nothing affected
-					if (json.affected !== '1') throw json
+					if (json.affected !== '1') throw `${json.message} / ${json.message_en}`
 
 					// ok
 					commit('REGISTER_LOADING', false)
@@ -126,7 +132,7 @@ const actions = {
 				})
 				.catch(err => {
 					commit('REGISTER_LOADING', false)
-					commit('REGISTER_ERROR', err)
+					commit('REGISTER_ERROR', err.toString())
 				})
 		}
 	},
@@ -147,7 +153,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// not valid
-					if (json.affected !== '1') throw json
+					if (json.affected !== '1') throw `${json.message} / ${json.message_en}`
 
 					// valid
 					commit('REGISTER_LOADING', false)
@@ -155,7 +161,7 @@ const actions = {
 				})
 				.catch(err => {
 					commit('REGISTER_LOADING', false)
-					commit('REGISTER_ERROR', err)
+					commit('REGISTER_ERROR', err.toString())
 				})
 		} else {
 			// no token, so get one first
@@ -163,7 +169,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// not valid
-					if (!json.authority) throw _.omit(json, ['authority'])
+					if (!json.authority) throw json.message
 
 					// valid
 					return fetch(`${url}checkout?user_id=${user_id}&token=${json.token}`)
@@ -171,7 +177,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// not valid
-					if (json.affected !== '1') throw json
+					if (json.affected !== '1') throw `${json.message} / ${json.message_en}`
 
 					// valid
 					commit('REGISTER_LOADING', false)
@@ -179,7 +185,7 @@ const actions = {
 				})
 				.catch(err => {
 					commit('REGISTER_LOADING', false)
-					commit('REGISTER_ERROR', err)
+					commit('REGISTER_ERROR', err.toString())
 				})
 		}
 	},
