@@ -6,11 +6,11 @@
 <script>
 import SVGInjector from 'svg-injector'
 import * as d3 from 'd3'
+import _ from 'lodash'
 window.d3 = d3
 
 //MARK- d3 usage: zoom, transition
 
-// import _ from 'lodash'
 // import store from '../store'
 
 // store.watch(state => state.seats, (newSeats, oldSeats) => {
@@ -36,7 +36,9 @@ const className = {
 	map: 'SeatMap__map',
 	area: 'SeatMap__area',
 	table: 'SeatMap__table',
-	seat: 'SeatMap__seat'
+	seat: 'SeatMap__seat',
+	placeholder: 'SeatMap__tablePlaceholder',
+	seatId: 'SeatMap__seatId'
 }
 
 // Create the box to contain map dynamically
@@ -56,6 +58,12 @@ class MapBox {
 			get ratio () {
 				return this.width / this.height
 			}
+		}
+
+
+		this.controls = {
+			offsetWidth: document.getElementsByClassName('controlsContainer')[0].offsetWidth,
+			offsetLeft: document.getElementsByClassName('controlsContainer')[0].offsetLeft
 		}
 
 		if(svg){
@@ -80,12 +88,11 @@ class MapBox {
 	}
 
 	get margin () {
-		return document.getElementsByClassName(this.constructor.controlsClass)[0].offsetLeft / this.scaleFactor
+		return this.controls.offsetLeft / this.scaleFactor
 	}
 
 	get x () {
-		let controls = document.getElementsByClassName(this.constructor.controlsClass)[0]
-		return (controls.offsetWidth + controls.offsetLeft * 2) / this.scaleFactor
+		return (this.controls.offsetWidth + this.controls.offsetLeft * 2) / this.scaleFactor
 	}
 
 	get y () {
@@ -109,28 +116,22 @@ let traverse = ( selection, pattern, callback ) => {
 	callback( selection.selectAll(`g[id^=${pattern}]`) )
 }
 
-let getBounds = (node) => {
-	let box = node.getBBox()
-	let transform = node.getAttribute('transform')
-	let translate = transform.substring( transform.indexOf('(')+1, transform.indexOf(')') ).split(' ')
-	box.x = translate[0]
-	box.y = translate[1]
-	return box
-}
-
 let zoomTranstion = function (node, svg, viewBox, zoom, zooming) {
 	if(zooming) return
-	const bbox = getBounds(node)
+	const bbox = node.getBBox()
 	const x = bbox.x + bbox.width / 2
 	const y = bbox.y + bbox.height / 2
 
 	const width = viewBox.width
 	const height = viewBox.height
+	const maximum = scaleExtent[1] / viewBox.scale
+	const minimum = scaleExtent[0] / viewBox.scale
 
 	const proportion = 0.95
 	const time = 750
 
-	const scale = Math.max(1, Math.min(8, proportion / Math.max(bbox.width / width, bbox.height / height) ))
+
+	const scale = Math.max(minimum, Math.min(maximum, proportion / Math.max(bbox.width / width, bbox.height / height) ))
 	const t = d3.zoomIdentity.translate(viewBox.x + width/2 - scale*x, viewBox.y + height/2 - scale*y).scale(scale)
 
 	svg.transition()
@@ -153,7 +154,19 @@ export default {
 	},
 	computed: {
 		isAreaActived () {
-			return this.scale < 1 ? true : false
+			return this.scale < 1.4 * this.mapBox.scale ? true : false
+		},
+		isTableActived () {
+			return this.scale < 4 * this.mapBox.scale ? true : false
+		}
+	},
+	watch: {
+		isAreaActived (val) {
+			this.area.classed('SeatMap__area--inactive', !val)
+		},
+		isTableActived (val) {
+			this.table.classed('SeatMap__table--inactive', !val)
+			this.seat.classed('SeatMap__seat--active', !val)
 		}
 	},
 	mounted () {
@@ -163,17 +176,12 @@ export default {
 				this.zooming = false
 			})
 			.on('end', () => {
-				document.body.style.cursor = 'default'
-				if( this.isAreaActived ){
-					this.area.classed('SeatMap__area--inactive', false)
-				} else {
-					this.area.classed('SeatMap__area--inactive', true)
-				}
+				// document.body.style.cursor = 'default'
 			})
 			.on('zoom', () => {
 				this.zooming = true
 				this.scale = d3.event.transform.k
-				document.body.style.cursor = 'move'
+				// document.body.style.cursor = 'move'
 				this.map.attr('transform', d3.event.transform )
 			})
 
@@ -195,6 +203,34 @@ export default {
 			traverse(svg, 'Table-', (selection) => {
 				this.table = selection.classed(className.table, true)
 				this.seat = selection.selectAll(`.${className.table} > g`).classed(className.seat, true)
+
+				// create placeholder
+				selection.append(function(){
+					let bounds = this.getBBox()
+					let rect = document.createElementNS(d3.namespaces.svg, 'rect')
+					_.forIn(bounds, (value, key) => {
+						rect.setAttributeNS(null, key, value)
+					})
+					return rect
+				}).attr('class', className.placeholder)
+				.attr('rx', 5)
+				.attr('rx', 5)
+			})
+
+			this.seat.append(function(){
+				let bounds = this.getBBox()
+				let text = document.createElementNS(d3.namespaces.svg, 'text')
+				text.textContent = this.getAttribute('id')
+				text.setAttributeNS(null, 'x', bounds.x + bounds.width/2)
+				text.setAttributeNS(null, 'y', bounds.y + bounds.height/2)
+				text.setAttributeNS(null, 'text-anchor', 'middle')
+				text.setAttributeNS(null, 'dy', '1.5')
+
+				return text
+			}).attr('class', className.seatId )
+
+			this.table.on('click', function () {
+				zoomTranstion(this, svg, mapBox, zoom, this.zooming)
 			})
 
 			this.area.on('click', function () {
@@ -219,12 +255,17 @@ export default {
 <style lang="sass">
 @import "../sass/variables"
 
+#Map
+	// opacity: 0
+	// will-change: transform
+
 .SeatMap
 	width: 100vw
 	height: 100vh
 	max-width: 100%
 	max-height: 100%
 	overflow: hidden
+	position: absolute
 
 .SeatMap__map
 	width: 100%
@@ -248,8 +289,33 @@ export default {
 
 .SeatMap__table
 	cursor: pointer
-	&:hover
-		stroke: green
+	&:hover .SeatMap__tablePlaceholder
+		opacity: 0.2
+
+.SeatMap__table--inactive
+	.SeatMap__tablePlaceholder
+		pointer-events: none
+		visibility: hidden
+
+.SeatMap__tablePlaceholder
+	fill: $text-color-secondary
+	opacity: 0
+	transition: opacity $fast $easeIn
+
+
+.SeatMap__seat
+	cursor: pointer
+
+.SeatMap__seat--active
+	.SeatMap__seatId
+		opacity: 1
+
+.SeatMap__seatId
+	fill: #fff
+	font-size: 3px
+	text-rendering: optimizeSpeed
+	opacity: 0
+
 
 
 </style>
