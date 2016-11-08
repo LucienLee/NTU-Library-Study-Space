@@ -7,13 +7,13 @@
 					divider(type="strong")
 					h3.SeatHistory__sectionTitle 上次座位 Last Used
 				history-list-item(v-if="isEmpty", :empty-message="emptyMessage[0]")
-				history-list-item(v-else, v-for="seat in lastList", :seat="seat", @focus="onFocus")
+				history-list-item(v-else, v-for="seat in lastList", :seat="seat", @confirm="onConfirm")
 			.SeatHistory__section
 				.SeatHistory__sectionHeader
 					divider(type="strong")
 					h3.SeatHistory__sectionTitle 常用座位 Most Used
 				history-list-item(v-if="isEmpty", :empty-message="emptyMessage[1]")
-				history-list-item(v-else, v-for="seat in mostList", :seat="seat", @focus="onFocus")
+				history-list-item(v-else, v-for="seat in mostList", :seat="seat", @confirm="onConfirm")
 	transition(@enter="slideDown", @leave="slideUp", @after-enter="isCollapsed = false", @before-leave="isCollapsed = true")
 		.SeatHistory__collapseButton(v-show="show")
 			divider(type="strong")
@@ -29,24 +29,9 @@ import { mapActions, mapState } from 'vuex'
 import Divider from './Divider.vue'
 import HistoryListItem from './HistoryListItem.vue'
 
-import gql from 'graphql-tag'
-import apolloClient from '../apolloClient'
-
 const time = 0.4
 const fast = time / 2
 
-function mapStatusToState(status) {
-	switch (status) {
-		case '0':
-			return 'empty'
-		case '1':
-			return 'used'
-		case '2':
-			return 'left'
-		default:
-			return 'error'
-	}
-}
 export default {
 	components: {
 		Divider,
@@ -64,17 +49,15 @@ export default {
 					en: 'Next time, you can select your past seats here.'
 				}
 			],
-			show: false,
 			isCollapsed: true,
 			doneCollaped: false,
-			lastUsed: [],
-			mostUsed: []
 		}
 	},
 	computed: {
 		...mapState({
-			user_id: state => state.register.user.id,
-			userIsValid: state => state.register.user.isValid,
+			show: state => state.history.show,
+			lastUsed: state => state.history.lastUsed,
+			mostUsed: state => state.history.mostUsed,
 		}),
 		isEmpty () {
 			return _.isEmpty( this.lastUsed )
@@ -85,13 +68,6 @@ export default {
 		mostList () {
 			return _.map(this.mostUsed, el => Object.assign({}, el, { key: `most${el.id}` }))
 		}
-	},
-	watch: {
-		user_id () {
-			if (this.userIsValid) {
-				this.getHistory()
-			}
-		},
 	},
 	methods: {
 		...mapActions([
@@ -157,43 +133,8 @@ export default {
 			this.isCollapsed = !this.isCollapsed
 			this.blurListItem()
 		},
-		onFocus (val) {
-			console.log(val)
-		},
-		getHistory () {
-			apolloClient.query({
-				query: gql`
-					query StudentHistory($student_id: String!){
-						student(student_id: $student_id) {
-							last_used {
-								seat_id
-								status
-							}
-							most_used {
-								seat_id
-								status
-							}
-						}
-					}
-				`,
-				variables: {
-					student_id: this.user_id,
-				},
-			}).then(({ data }) => {
-				this.show = true
-
-				if (!data.student) return
-
-				this.mostUsed = data.student.most_used.map(x => ({
-					id: x.seat_id,
-					state: mapStatusToState(x.status)
-				}))
-				this.lastUsed = [{
-					id: data.student.last_used.seat_id,
-					state: mapStatusToState(data.student.last_used.status)
-				}]
-			})
-
+		onConfirm (val) {
+			this.$emit('historySeatConfirm', val)
 		},
 	}
 }

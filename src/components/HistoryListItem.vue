@@ -69,9 +69,10 @@ export default {
 		]),
 		onClick () {
 			this.focusListItem(this.seat.key)
-			this.$emit('focus', this.seat.id)
+			// this.$emit('focus', this.seat.id)
 		},
 		confirm () {
+			this.$emit('confirm', this.seat.id)
 		}
 	}
 }

@@ -48,7 +48,7 @@ const mutations = {
 }
 
 const actions = {
-	checkUser({ commit }, { user_id }) {
+	checkUser({ commit, dispatch }, { user_id }) {
 		if (!user_id) throw `user_id: "${user_id}" empty`
 
 		fetch(`${url}checkUser?user_id=${user_id}`)
@@ -62,6 +62,9 @@ const actions = {
 						token: json.token,
 						error: null,
 					})
+
+					// because valid, dispatch getHistory action
+					dispatch('getHistory', { user_id })
 				} else {
 					// not valid
 					commit('USER_CHECKED', {
@@ -180,8 +183,12 @@ const actions = {
 				})
 		}
 	},
-	resetRegister ({ commit }) {
+	resetRegister ({ commit, dispatch }) {
 		commit('RESET_REGISTER')
+
+		// since every time reset register is followed by reset history, let's
+		// call it here for simplicity
+		dispatch('resetHistory')
 	},
 }
 

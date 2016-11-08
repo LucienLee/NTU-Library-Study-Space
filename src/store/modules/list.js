@@ -6,7 +6,7 @@ const mutations = {
 	ACTIVATE_LIST (state, key) {
 		state.focused = key
 	},
-	ClEAR_LIST (state) {
+	CLEAR_LIST (state) {
 		state.focused = ''
 	}
 }
@@ -16,7 +16,7 @@ const actions = {
 		commit('ACTIVATE_LIST', val)
 	},
 	blurListItem({ commit }) {
-		commit('ClEAR_LIST')
+		commit('CLEAR_LIST')
 	}
 }
 

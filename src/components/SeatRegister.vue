@@ -9,7 +9,7 @@
 				:pattern="field.pattern",
 				v-model="field.value",
 				@validate="onValidate")
-			seat-history
+			seat-history(@historySeatConfirm="onHistorySeatConfirm")
 </template>
 
 <script>
@@ -72,8 +72,8 @@ export default {
 				return result && item.validated
 			}, true)
 		},
-		studentIdValidated () {
-			return this.fields[0].validated
+		readyToCheckUser () {
+			return this.fields[0].validated && !this.readyToCheckIn
 		},
 	},
 	methods: {
@@ -84,14 +84,25 @@ export default {
 			'checkUser',
 		]),
 		onValidate (id, validated) {
-			let index = _.findIndex(this.fields, {'id': id})
+			const index = _.findIndex(this.fields, { id })
 			this.fields[index].validated = validated
-		}
+		},
+		onHistorySeatConfirm (seatID) {
+			this.fields[1].value = seatID
+		},
 	},
 	watch: {
 		readyToCheckIn (val) {
 			if(!val) return
 			this.checkIn({ user_id: this.fields[0].value, seat_id: this.fields[1].value })
+		},
+		readyToCheckUser (newVal, oldVal) {
+			if (!newVal && oldVal) {
+				return this.resetRegister()
+			}
+			if (newVal) {
+				return this.checkUser({ user_id: this.fields[0].value })
+			}
 		},
 		doneCheckIn (val) {
 			if(!val) return
@@ -116,13 +127,10 @@ export default {
 			.then(() => {
 				this.fields[0].value = ''
 				this.fields[1].value = ''
-				this.resetRegister()
+
+				// no need to call reset here since resetting TextField.value will trigger reset automatically
+				// this.resetRegister()
 			})
-		},
-		studentIdValidated (val) {
-			if (val) {
-				this.checkUser({ user_id: this.fields[0].value })
-			}
 		},
 	}
 }
