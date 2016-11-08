@@ -25,7 +25,7 @@ function errorFactory({ message, message_en }) {
 const getters = {
 	doneRequest: state => {
 		return !_.isEmpty(state.result) || !_.isEmpty(state.error)
-	}
+	},
 }
 
 // mutations
@@ -59,7 +59,7 @@ const mutations = {
 
 const actions = {
 	checkUser({ commit, dispatch }, { user_id }) {
-		if (!user_id) throw `user_id: "${user_id}" empty`
+		if (!user_id) throw new Error(`user_id: "${user_id}" empty`)
 
 		fetch(`${url}checkUser?user_id=${user_id}`)
 			.then(res => res.json())
@@ -91,7 +91,7 @@ const actions = {
 
 	},
 	checkIn ({ commit, state }, { user_id, seat_id }) {
-		if ( !user_id || !seat_id ) throw `user_id: "${user_id}" or seat_id: "${seat_id}" empty`
+		if ( !user_id || !seat_id ) throw new Error(`user_id: "${user_id}" or seat_id: "${seat_id}" empty`)
 
 		// start the loading flag
 		commit('REGISTER_LOADING', true)
@@ -107,7 +107,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// nothing affected
-					if (json.affected !== '1') throw `${json.message} / ${json.message_en}`
+					if (json.affected !== '1') throw json
 
 					// ok
 					commit('REGISTER_LOADING', false)
@@ -123,7 +123,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// not a valid user
-					if (!json.authority) throw json.message
+					if (!json.authority) throw json
 
 					// valid user
 					return fetch(`${url}checkin?type=1&user_id=${user_id}&seat_id=${seat_id}&token=${json.token}`)
@@ -131,7 +131,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// nothing affected
-					if (json.affected !== '1') throw `${json.message} / ${json.message_en}`
+					if (json.affected !== '1') throw json
 
 					// ok
 					commit('REGISTER_LOADING', false)
@@ -144,7 +144,7 @@ const actions = {
 		}
 	},
 	checkOut ({ commit, state }, { user_id }) {
-		if (!user_id) throw `user_id: "${user_id}" empty`
+		if (!user_id) throw new Error(`user_id: "${user_id}" empty`)
 
 		// set loading flag
 		commit('REGISTER_LOADING', true)
@@ -160,7 +160,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// not valid
-					if (json.affected !== '1') throw `${json.message} / ${json.message_en}`
+					if (json.affected !== '1') throw json
 
 					// valid
 					commit('REGISTER_LOADING', false)
@@ -176,7 +176,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// not valid
-					if (!json.authority) throw json.message
+					if (!json.authority) throw json
 
 					// valid
 					return fetch(`${url}checkout?user_id=${user_id}&token=${json.token}`)
@@ -184,7 +184,7 @@ const actions = {
 				.then(res => res.json())
 				.then(json => {
 					// not valid
-					if (json.affected !== '1') throw `${json.message} / ${json.message_en}`
+					if (json.affected !== '1') throw json
 
 					// valid
 					commit('REGISTER_LOADING', false)
