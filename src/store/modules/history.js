@@ -60,6 +60,7 @@ const actions = {
 			variables: {
 				student_id: user_id,
 			},
+			forceFetch: true,
 		}).then(({ data }) => {
 			commit('SET_SHOW', true)
 			if (!data.student) return
