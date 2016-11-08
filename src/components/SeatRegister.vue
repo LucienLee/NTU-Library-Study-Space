@@ -63,9 +63,10 @@ export default {
 			loading: state => state.register.loading,
 			error: state => state.register.error,
 			result: state => state.register.result,
+			checkUserError: state => state.register.user.error,
 		}),
 		...mapGetters({
-			doneCheckIn: 'doneRequest'
+			doneCheckIn: 'doneRequest',
 		}),
 		readyToCheckIn () {
 			return _.reduce(this.fields, (result, item) => {
@@ -73,7 +74,7 @@ export default {
 			}, true)
 		},
 		readyToCheckUser () {
-			return this.fields[0].validated && !this.readyToCheckIn
+			return this.fields[0].validated
 		},
 	},
 	methods: {
@@ -100,7 +101,7 @@ export default {
 			if (!newVal && oldVal) {
 				return this.resetRegister()
 			}
-			if (newVal) {
+			if (newVal && !this.fields[1].validated) {
 				return this.checkUser({ user_id: this.fields[0].value })
 			}
 		},
@@ -131,6 +132,23 @@ export default {
 				// no need to call reset here since resetting TextField.value will trigger reset automatically
 				// this.resetRegister()
 			})
+		},
+		checkUserError (newVal, oldVal) {
+			if(!_.isEmpty(newVal) && _.isEmpty(oldVal)) {
+				this.$modal({
+					type: 'failure',
+					message: {
+						studentID: this.fields[0].value,
+						zh: this.checkUserError.message,
+						en: this.checkUserError.message_en
+					},
+					timer: modalShowTime
+				})
+				.then(() => {
+					this.fields[0].value = ''
+					this.fields[1].value = ''
+				})
+			}
 		},
 	}
 }
