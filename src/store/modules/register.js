@@ -6,12 +6,12 @@ const url = 'http://140.112.113.35:8080/StudyRoom/api/'
 const initialStateFactory = () => ({
 	loading: false,
 	result: {},
-	error: null,
+	error: {},
 	user: {
 		id: '',
 		isValid: false,
 		token: null,
-		error: null,
+		error: {},
 	},
 })
 
