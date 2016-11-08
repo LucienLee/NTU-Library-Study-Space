@@ -15,9 +15,16 @@ const initialStateFactory = () => ({
 	},
 })
 
+function errorFactory({ message, message_en }) {
+	return {
+		message: message || message_en,
+		message_en,
+	}
+}
+
 const getters = {
 	doneRequest: state => {
-		return !_.isEmpty(state.result) || state.error
+		return !_.isEmpty(state.result) || !_.isEmpty(state.error)
 	}
 }
 
@@ -27,7 +34,7 @@ const mutations = {
 		state.loading = val
 	},
 	REGISTER_ERROR (state, val) {
-		state.error = val
+		state.error = errorFactory(val)
 	},
 	REGISTER_DONE (state, val) {
 		state.result = val
@@ -46,7 +53,7 @@ const mutations = {
 		state.user.token = null
 	},
 	CHECK_USER_ERROR (state, val) {
-		state.user.error = val
+		state.user.error = errorFactory(val)
 	},
 }
 
@@ -74,12 +81,12 @@ const actions = {
 						id: user_id,
 						isValid: false,
 						token: null,
-						error: json.message,
+						error: json,
 					})
 				}
 			})
 			.catch(err => {
-				commit('CHECK_USER_ERROR', err.toString())
+				commit('CHECK_USER_ERROR', err)
 			})
 
 	},
@@ -108,7 +115,7 @@ const actions = {
 				})
 				.catch(err => {
 					commit('REGISTER_LOADING', false)
-					commit('REGISTER_ERROR', err.toString())
+					commit('REGISTER_ERROR', err)
 				})
 		} else {
 			// no token, so get one first
@@ -132,7 +139,7 @@ const actions = {
 				})
 				.catch(err => {
 					commit('REGISTER_LOADING', false)
-					commit('REGISTER_ERROR', err.toString())
+					commit('REGISTER_ERROR', err)
 				})
 		}
 	},
@@ -161,7 +168,7 @@ const actions = {
 				})
 				.catch(err => {
 					commit('REGISTER_LOADING', false)
-					commit('REGISTER_ERROR', err.toString())
+					commit('REGISTER_ERROR', err)
 				})
 		} else {
 			// no token, so get one first
@@ -185,7 +192,7 @@ const actions = {
 				})
 				.catch(err => {
 					commit('REGISTER_LOADING', false)
-					commit('REGISTER_ERROR', err.toString())
+					commit('REGISTER_ERROR', err)
 				})
 		}
 	},

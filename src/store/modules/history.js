@@ -76,8 +76,9 @@ const actions = {
 			commit('SET_HISTORY', { mostUsed, lastUsed })
 		})
 	},
-	resetHistory ({ commit }) {
+	resetHistory ({ commit, dispatch }) {
 		commit('RESET_HISTORY')
+		dispatch('blurListItem')
 	},
 }
 
