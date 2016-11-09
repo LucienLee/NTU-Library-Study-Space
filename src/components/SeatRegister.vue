@@ -2,7 +2,14 @@
 .SeatRegister
 	panel(:headerTitle="title")
 		div(slot="panel-body")
-			text-field(v-for="field in fields", :id="field.id", :placeholder="field.placeholder", :pattern="field.pattern", v-model="field.value", @validate="onValidate")
+			text-field(
+				v-for="field in fields",
+				:id="field.id",
+				:placeholder="field.placeholder",
+				:pattern="field.pattern",
+				v-model="field.value",
+				@validate="onValidate")
+			seat-history(@historySeatConfirm="onHistorySeatConfirm")
 </template>
 
 <script>
@@ -12,6 +19,7 @@ import { mapActions, mapState, mapGetters } from 'vuex'
 import Panel from './Panel'
 import TextField from './TextField'
 import Divider from './Divider'
+import SeatHistory from './SeatHistory'
 
 const modalShowTime = 5
 
@@ -19,7 +27,8 @@ export default {
 	components: {
 		Panel,
 		TextField,
-		Divider
+		Divider,
+		SeatHistory
 	},
 	data: () => ({
 		title: {
@@ -54,31 +63,47 @@ export default {
 			loading: state => state.register.loading,
 			error: state => state.register.error,
 			result: state => state.register.result,
+			checkUserError: state => state.register.user.error,
 		}),
 		...mapGetters({
-			doneCheckIn: 'doneRequest'
+			doneCheckIn: 'doneRequest',
 		}),
 		readyToCheckIn () {
 			return _.reduce(this.fields, (result, item) => {
 				return result && item.validated
 			}, true)
-		}
+		},
+		readyToCheckUser () {
+			return this.fields[0].validated
+		},
 	},
 	methods: {
 		...mapActions([
 			'checkIn',
 			'checkOut',
 			'resetRegister',
+			'checkUser',
 		]),
 		onValidate (id, validated) {
-			let index = _.findIndex(this.fields, {'id': id})
+			const index = _.findIndex(this.fields, { id })
 			this.fields[index].validated = validated
-		}
+		},
+		onHistorySeatConfirm (seatID) {
+			this.fields[1].value = seatID
+		},
 	},
 	watch: {
 		readyToCheckIn (val) {
 			if(!val) return
 			this.checkIn({ user_id: this.fields[0].value, seat_id: this.fields[1].value })
+		},
+		readyToCheckUser (newVal, oldVal) {
+			if (!newVal && oldVal) {
+				return this.resetRegister()
+			}
+			if (newVal && !this.fields[1].validated) {
+				return this.checkUser({ user_id: this.fields[0].value })
+			}
 		},
 		doneCheckIn (val) {
 			if(!val) return
@@ -103,9 +128,28 @@ export default {
 			.then(() => {
 				this.fields[0].value = ''
 				this.fields[1].value = ''
-				this.resetRegister()
+
+				// no need to call reset here since resetting TextField.value will trigger reset automatically
+				// this.resetRegister()
 			})
-		}
+		},
+		checkUserError (newVal, oldVal) {
+			if(!_.isEmpty(newVal) && _.isEmpty(oldVal)) {
+				this.$modal({
+					type: 'failure',
+					message: {
+						studentID: this.fields[0].value,
+						zh: this.checkUserError.message,
+						en: this.checkUserError.message_en
+					},
+					timer: modalShowTime
+				})
+				.then(() => {
+					this.fields[0].value = ''
+					this.fields[1].value = ''
+				})
+			}
+		},
 	}
 }
 </script>

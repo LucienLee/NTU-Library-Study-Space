@@ -4,13 +4,14 @@ scalar Date
 type Student {
   _id: ID
   student_id: String!
-  last_used: String
+  last_used: SeatUsedElement!
   most_used(num: Int): [SeatUsedElement]!
 }
 
 type SeatUsedElement {
   seat_id: String!
   times: Int!
+  status: String!
 }
 
 type LiveSeat {

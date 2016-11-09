@@ -1,10 +1,11 @@
 import fetch from 'node-fetch';
 import _ from 'lodash'
 import chalk from 'chalk'
-import { Record, Student } from './mongoConnector'
+import DB from './mongoConnector'
+import { arr2obj, sanitizeUserId } from './utils'
 
 function createRecord(doc) {
-	Record.insert(doc)
+	DB.Record.insert(doc)
 
 	// update `Student`
 	if (doc.action = 'NEW') {
@@ -15,25 +16,24 @@ function createRecord(doc) {
 		// increment freq.SEAT_ID
 		operation.$inc[`freq.${doc.seat_id}`] = 1
 
-		Student.update({ student_id: sanitizeUserId(doc.student_id) }, operation, { upsert: true })
+		DB.Student.update({ student_id: sanitizeUserId(doc.student_id) }, operation, { upsert: true })
 	}
 }
 
 // Library API
 class LibAPIConnector {
 	constructor() {
+		this.seats = {}
 		this.seatsArray = []
 		this.lastSeatsArray = []
 	}
 	invalidate() {
-		process.stdout.write('now invalidating... ')
 		this.lastSeatsArray = this.seatsArray
-		// this.lastSeats = this.seats
 
 		this.getSeatInfo()
 			.then(() => {
 				this.diffSeatsArray()
-				setTimeout(this.invalidate.bind(this), 5000)
+				setTimeout(this.invalidate.bind(this), 1000)
 			})
 
 	}
@@ -41,12 +41,11 @@ class LibAPIConnector {
 	getSeatInfo() {
 		return fetch('http://140.112.113.35:8080/StudyRoom/api/getSeatInfo')
 			.then(res => {
-				const contentType = res.headers.get('content-type')
 				return res.json()
 			})
 			.then(json => {
-				console.log(chalk.green('OK'))
 				this.seatsArray = json
+				this.seats = arr2obj(json, 'seat_id')
 			})
 			.catch(err => console.error(
 				chalk.red(err)

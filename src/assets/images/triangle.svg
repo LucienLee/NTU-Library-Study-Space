@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="41" height="13" viewBox="0 0 41 13" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <polygon id="a" points="199.5 11 220 24 179 24"/>
+    <filter id="b" width="200%" height="200%" x="-50%" y="-50%" filterUnits="objectBoundingBox">
+      <feGaussianBlur stdDeviation="1" in="SourceAlpha" result="shadowBlurInner1"/>
+      <feOffset dy="2" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.119678442 0" in="shadowInnerInner1" result="shadowMatrixInner1"/>
+      <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner2"/>
+      <feOffset dy="-1" in="shadowBlurInner2" result="shadowOffsetInner2"/>
+      <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"/>
+      <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.16 0" in="shadowInnerInner2" result="shadowMatrixInner2"/>
+      <feGaussianBlur stdDeviation=".5" in="SourceAlpha" result="shadowBlurInner3"/>
+      <feOffset dy="-1" in="shadowBlurInner3" result="shadowOffsetInner3"/>
+      <feComposite in="shadowOffsetInner3" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner3"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.104223279 0" in="shadowInnerInner3" result="shadowMatrixInner3"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixInner1"/>
+        <feMergeNode in="shadowMatrixInner2"/>
+        <feMergeNode in="shadowMatrixInner3"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(-179 -11)">
+    <use fill="#C3C7C5" xlink:href="#a"/>
+    <use fill="black" filter="url(#b)" xlink:href="#a"/>
+  </g>
+</svg>

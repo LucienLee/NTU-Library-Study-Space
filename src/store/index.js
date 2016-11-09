@@ -6,6 +6,8 @@ import * as getters from './getters'
 import filters from './modules/filters'
 import seats from './modules/seats'
 import register from './modules/register'
+import list from './modules/list'
+import history from './modules/history'
 import createLogger from 'vuex/dist/logger'
 
 Vue.use(Vuex)
@@ -20,6 +22,8 @@ export default new Vuex.Store({
 		filters,
 		register,
 		seats,
+		list,
+		history,
 	},
 	strict: debug,
 	plugins: debug ? [createLogger()] : []
