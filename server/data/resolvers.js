@@ -15,8 +15,11 @@ const resolvers = {
 		student(_, args) {
 			return DB.Student.findOne({ student_id: args.student_id })
 		},
-		all_seats(_, args) {
+		all_seats() {
 			return API.getSeatInfo()
+		},
+		seatInfo() {
+			return API.getSeatInfoObject()
 		},
 	},
 	Student: {
