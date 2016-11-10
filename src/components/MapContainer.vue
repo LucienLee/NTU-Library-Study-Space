@@ -1,13 +1,14 @@
 <template lang="jade">
 .SeatMap
 	img.SeatMap__map(src="/static/map-compressed.svg")
+	h1(style="position:fixed;top:40%;left:30%;color:red;background:#fff;z-index:10000") 有 {{ seatsToShowAfterFilter.length }} 個可show座位
 </template>
 
 <script>
 import SVGInjector from 'svg-injector'
 import * as d3 from 'd3'
 import _ from 'lodash'
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 window.d3 = d3
 
 //MARK- d3 usage: zoom, transition
@@ -154,6 +155,7 @@ export default {
 		}
 	},
 	computed: {
+		...mapGetters([ 'seatsToShowAfterFilter' ]),
 		isAreaActived () {
 			return this.scale < 1.4 * this.mapBox.scale ? true : false
 		},
