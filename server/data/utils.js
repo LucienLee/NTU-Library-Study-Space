@@ -11,3 +11,10 @@ export function arr2obj(arr, key) {
 	}, {});
 }
 
+export function arr2objSelect(arr, key, keys) {
+	return arr.reduce((o, v, i) => {
+		o[v[key]] = {}
+		keys.forEach(k => o[v[key]][k] = v[k])
+		return o
+	}, {})
+}

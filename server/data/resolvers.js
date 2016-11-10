@@ -19,7 +19,7 @@ const resolvers = {
 			return API.getSeatInfo()
 		},
 		seatInfo() {
-			return API.getSeatInfoObject()
+			return API.getSeatInfoObjectJSON()
 		},
 	},
 	Student: {

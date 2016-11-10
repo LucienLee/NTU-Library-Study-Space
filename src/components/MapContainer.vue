@@ -7,6 +7,7 @@
 import SVGInjector from 'svg-injector'
 import * as d3 from 'd3'
 import _ from 'lodash'
+import { mapActions } from 'vuex'
 window.d3 = d3
 
 //MARK- d3 usage: zoom, transition
@@ -169,7 +170,15 @@ export default {
 			this.seat.classed('SeatMap__seat--active', !val)
 		}
 	},
+	methods: {
+		...mapActions([
+			'startSeatQuery',
+		]),
+	},
 	mounted () {
+		// start the seatInfo query
+		this.startSeatQuery()
+
 		let svgInjectPoint = document.querySelectorAll(`img.${className.map}`)
 		let zoom = d3.zoom()
 			.on('start', () => {

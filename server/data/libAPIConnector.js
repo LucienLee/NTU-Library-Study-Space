@@ -1,8 +1,8 @@
 import fetch from 'node-fetch';
 import _ from 'lodash'
 import chalk from 'chalk'
-import DB from './mongoConnector'
-import { arr2obj, sanitizeUserId } from './utils'
+import { Record, Student } from './mongoConnector'
+import { arr2objSelect } from './utils'
 
 function createRecord(doc) {
 	DB.Record.insert(doc)
@@ -26,6 +26,8 @@ class LibAPIConnector {
 		this.seats = {}
 		this.seatsArray = []
 		this.lastSeatsArray = []
+		this.seats = {}
+		this.seatsJSON = JSON.stringify(this.seats)
 	}
 	invalidate() {
 		this.lastSeatsArray = this.seatsArray
@@ -45,7 +47,8 @@ class LibAPIConnector {
 			})
 			.then(json => {
 				this.seatsArray = json
-				this.seats = arr2obj(json, 'seat_id')
+				this.seats = arr2objSelect(json, 'seat_id', ['status'])
+				this.seatsJSON = JSON.stringify(this.seats)
 			})
 			.catch(err => console.error(
 				chalk.red(err)

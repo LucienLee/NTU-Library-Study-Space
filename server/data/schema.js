@@ -32,17 +32,10 @@ type LiveSeat {
   user_id: String
 }
 
-type SeatInfoAll {
-  ${seatInfoAllSchemaFactory('A', 1, 224)}
-  ${seatInfoAllSchemaFactory('A', 231, 300)}
-  ${seatInfoAllSchemaFactory('B', 1, 180)}
-  ${seatInfoAllSchemaFactory('C', 1, 348)}
-}
-
 type Query {
   student(student_id: String!): Student
   all_seats: [LiveSeat]!
-  seatInfo: SeatInfoAll
+  seatInfo: String
 }
 
 schema {

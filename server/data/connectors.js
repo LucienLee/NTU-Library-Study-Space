@@ -1,6 +1,6 @@
 import DB from './mongoConnector'
 import lib from './libAPIConnector'
-import { arr2obj } from './utils'
+import { arr2objSelect } from './utils'
 
 const API = {
 	getSeatInfo () {
@@ -9,11 +9,11 @@ const API = {
 		delete require.cache[require.resolve('./getSeatInfo.json')]
 		return ret
 	},
-	getSeatInfoObject () {
-		// return lib.seats|| {}
+	getSeatInfoObjectJSON () {
+		// return lib.seatsJSON || JSON.stringify({})
 		const ret =  require('./getSeatInfo.json')
 		delete require.cache[require.resolve('./getSeatInfo.json')]
-		return arr2obj(ret, 'seat_id')
+		return JSON.stringify(arr2objSelect(ret, 'seat_id', ['status']))
 	},
 }
 
