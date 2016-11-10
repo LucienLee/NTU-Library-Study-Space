@@ -1,4 +1,7 @@
 // import * as types from '../mutation-types'
+import _ from 'lodash'
+
+const dd = require('../../dd.json')
 
 const initialStateFactory = () => ({
 	laptop: {
@@ -23,6 +26,58 @@ const initialStateFactory = () => ({
 		aisle: false,
 	},
 })
+
+
+const _allseatArray = []
+for (let i = 1; i <= 224; ++i) {
+	_allseatArray.push(`A${`00${i}`.slice(-3)}`)
+}
+for (let i = 231; i <= 300; ++i) {
+	_allseatArray.push(`A${`00${i}`.slice(-3)}`)
+}
+for (let i = 1; i <= 180; ++i) {
+	_allseatArray.push(`B${`00${i}`.slice(-3)}`)
+}
+for (let i = 1; i <= 348; ++i) {
+	_allseatArray.push(`C${`00${i}`.slice(-3)}`)
+}
+function allSeatArrayFactory() {
+	return _allseatArray.slice()
+}
+
+const getters = {
+	seatsToShowAfterFilter (state) {
+		let toShow
+
+		// laptop
+		if (state.laptop.laptopAllow) {
+			toShow = dd.laptop.laptopAllow
+		} else if (state.laptop.laptopForbidden) {
+			toShow = dd.laptop.laptopForbidden
+		} else {
+			toShow = allSeatArrayFactory()
+		}
+
+		// table.seatCount
+		if (state.table.seatCount.seats4) { toShow = _.intersection(toShow, dd.table.seatCount.seats4) }
+		else if (state.table.seatCount.seats6) { toShow = _.difference(toShow, dd.table.seatCount.seats4) }
+
+		// table.partition
+		if (state.table.partition) { toShow = _.intersection(toShow, dd.table.partition) }
+
+		// near
+		if (state.near.wall) { toShow = _.intersection(toShow, dd.near.wall) }
+		else if (state.near.window) { toShow = _.intersection(toShow, dd.near.window) }
+
+		// away
+		if (state.away.vent) { toShow = _.intersection(toShow, dd.away.vent) }
+		if (state.away.toilet) { toShow = _.intersection(toShow, dd.away.toilet) }
+		if (state.away.register) { toShow = _.intersection(toShow, dd.away.register) }
+		if (state.away.aisle) { toShow = _.intersection(toShow, dd.away.aisle) }
+
+		return toShow
+	},
+}
 
 // mutations
 const mutations = {
@@ -102,6 +157,7 @@ const actions = {
 const state = initialStateFactory()
 export default {
 	state,
+	getters,
 	mutations,
 	actions,
 }
