@@ -27,21 +27,25 @@ const initialUIStateFactory = () => ({
 
 // Create seat factory singleton
 const seatsFactory = (function(){
-	const seats = []
+	const seatsArray = []
+	const seatsObject = {}
+
 	for ( let area in ranges ) {
 		let range = ranges[area]
 		for (let section = 0; section < range.length/2; section++ ) {
 			let start = section * 2
 			let end = start + 1
 			for ( let i = range[start]; i <= range[end]; i++ ) {
-				seats.push( `${area}${`00${i}`.slice(-3)}` )
+				seatsArray.push( `${area}${`00${i}`.slice(-3)}` )
+				seatsObject[`${area}${`00${i}`.slice(-3)}`] = false
 			}
 		}
 	}
 
 	return {
-		getSeats () {
-			return seats
+		getSeats (type = 'array') {
+			if ( type === 'array' ) return seatsArray
+			else if (type === 'object') return seatsObject
 		}
 	}
 
@@ -50,6 +54,8 @@ const seatsFactory = (function(){
 const getters = {
 	seatsToShowAfterFilter (state) {
 		let collection = [seatsFactory.getSeats()]
+		let seats = _.clone( seatsFactory.getSeats('object') )
+
 		for ( let category in state ) {
 			for ( let prop in state[category] ) {
 				if ( state[category][prop] === true ) {
@@ -58,7 +64,15 @@ const getters = {
 			}
 		}
 
-		return _.intersection(...collection)
+		Object.keys(seats).forEach(function (key) {
+			seats[key] = false
+		})
+
+		_.intersection(...collection).forEach((key) => {
+			seats[key] = true
+		})
+
+		return seats
 	}
 }
 

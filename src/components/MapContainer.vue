@@ -151,9 +151,12 @@ export default {
 			this.seat.classed('SeatMap__seat--active', !val)
 		},
 		seatsToShowAfterFilter (val) {
-			this.seat.classed('SeatMap__seat--filteredOut', true)
-			val.forEach( (id) => {
-				this.seat.filter(`#${id}`).classed('SeatMap__seat--filteredOut', false)
+			this.seat.each(function(){
+				if( val[this.id] === true ) {
+					this.classList.remove('SeatMap__seat--filteredOut')
+				} else {
+					this.classList.add('SeatMap__seat--filteredOut')
+				}
 			})
 		}
 	},
