@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import ranges from '../../utils/seat-range.js'
 
-const seatFilterConfig = require('../../dd.json')
+const seatFilterConfig = require('../../seat-config.json')
 
 const initialUIStateFactory = () => ({
 	laptop: {
