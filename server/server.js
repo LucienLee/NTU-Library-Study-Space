@@ -6,7 +6,7 @@ import { apolloExpress, graphiqlExpress } from 'apollo-server';
 import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools';
 import bodyParser from 'body-parser';
 
-const GRAPHQL_PORT = 3000;
+const GRAPHQL_PORT = process.env.PORT || 3000;
 
 const graphQLServer = express();
 
