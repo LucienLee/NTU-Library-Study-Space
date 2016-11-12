@@ -1,7 +1,6 @@
 <template lang="jade">
 .SeatMap
 	img.SeatMap__map(src="/static/map-compressed.svg")
-	h1(style="position:fixed;top:40%;left:30%;color:red;background:#fff;z-index:10000") 有 {{ seatsToShowAfterFilter.length }} 個可show座位
 </template>
 
 <script>
@@ -10,27 +9,7 @@ import * as d3 from 'd3'
 import _ from 'lodash'
 import { mapActions, mapGetters } from 'vuex'
 window.d3 = d3
-
 //MARK- d3 usage: zoom, transition
-
-// import store from '../store'
-
-// store.watch(state => state.seats, (newSeats, oldSeats) => {
-// 	// this function will be triggered whenever *any* seat changes
-// 	// so we have to manually diff each seat
-// 	for (let i = 0; i < newSeats.length; ++i) {
-// 		// compare old value with new value
-// 		if (!_.isEqual(newSeats[i], oldSeats[i])) {
-// 			// TODO @kelly, use newSeats[i] to update svg here!
-// 			// eg.
-// 			// if (newSeats[i].status === '0') {
-// 			//     // available
-// 			//     document.getElementById(newSeats[i].seat_id).xxxx
-// 			// }
-// 			console.log(`Seat: ${newSeats[i].seat_id} updated with status: "${newSeats[i].status}"`)
-// 		}
-// 	}
-// })
 
 const scaleExtent = [0.9, 10]
 
@@ -170,6 +149,12 @@ export default {
 		isTableActived (val) {
 			this.table.classed('SeatMap__table--inactive', !val)
 			this.seat.classed('SeatMap__seat--active', !val)
+		},
+		seatsToShowAfterFilter (val) {
+			this.seat.classed('SeatMap__seat--filteredOut', true)
+			val.forEach( (id) => {
+				this.seat.filter(`#${id}`).classed('SeatMap__seat--filteredOut', false)
+			})
 		}
 	},
 	methods: {
@@ -316,10 +301,14 @@ export default {
 
 .SeatMap__seat
 	cursor: pointer
+	transition: opacity $fast $easeIn
 
 .SeatMap__seat--active
 	.SeatMap__seatId
 		opacity: 1
+
+.SeatMap__seat--filteredOut
+	opacity: 0.1
 
 .SeatMap__seatId
 	fill: #fff
