@@ -1,5 +1,5 @@
-// import * as types from '../mutation-types'
 import _ from 'lodash'
+import ranges from '../../utils/seat-range.js'
 
 const dd = require('../../dd.json')
 
@@ -27,23 +27,27 @@ const initialUIStateFactory = () => ({
 	},
 })
 
+// Create seat factory singleton
+const seatsFactory = (function(){
+	const seats = []
+	for ( let area in ranges ) {
+		let range = ranges[area]
+		for (let section = 0; section < range.length/2; section++ ) {
+			let start = section * 2
+			let end = start + 1
+			for ( let i = range[start]; i <= range[end]; i++ ) {
+				seats.push( `${area}${`00${i}`.slice(-3)}` )
+			}
+		}
+	}
 
-const _allseatArray = []
-for (let i = 1; i <= 224; ++i) {
-	_allseatArray.push(`A${`00${i}`.slice(-3)}`)
-}
-for (let i = 231; i <= 300; ++i) {
-	_allseatArray.push(`A${`00${i}`.slice(-3)}`)
-}
-for (let i = 1; i <= 180; ++i) {
-	_allseatArray.push(`B${`00${i}`.slice(-3)}`)
-}
-for (let i = 1; i <= 348; ++i) {
-	_allseatArray.push(`C${`00${i}`.slice(-3)}`)
-}
-function allSeatArrayFactory() {
-	return _allseatArray.slice()
-}
+	return {
+		getSeats () {
+			return seats.slice()
+		}
+	}
+
+})()
 
 const getters = {
 	seatsToShowAfterFilter (state) {
@@ -55,7 +59,7 @@ const getters = {
 		} else if (state.laptop.laptopForbidden) {
 			toShow = dd.laptop.laptopForbidden
 		} else {
-			toShow = allSeatArrayFactory()
+			toShow = seatsFactory.getSeats()
 		}
 
 		// table.seatCount
