@@ -97,7 +97,7 @@ let traverse = ( selection, pattern, callback ) => {
 	callback( selection.selectAll(`g[id^=${pattern}]`) )
 }
 
-let zoomTranstion = function (node, svg, viewBox, zoom, zooming) {
+let zoomTranstion = function (node, svg, viewBox, zoom, zooming, proportion = 0.95) {
 	if(zooming) return
 	const bbox = node.getBBox()
 	const x = bbox.x + bbox.width / 2
@@ -108,7 +108,6 @@ let zoomTranstion = function (node, svg, viewBox, zoom, zooming) {
 	const maximum = scaleExtent[1] / viewBox.scale
 	const minimum = scaleExtent[0] / viewBox.scale
 
-	const proportion = 0.95
 	const time = 750
 
 
@@ -229,7 +228,7 @@ export default {
 			}).attr('class', className.seatId )
 
 			this.table.on('click', function () {
-				zoomTranstion(this, svg, mapBox, zoom, this.zooming)
+				zoomTranstion(this, svg, mapBox, zoom, this.zooming, 0.5)
 			})
 
 			this.area.on('click', function () {
