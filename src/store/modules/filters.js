@@ -3,7 +3,7 @@ import _ from 'lodash'
 
 const dd = require('../../dd.json')
 
-const initialStateFactory = () => ({
+const initialUIStateFactory = () => ({
 	laptop: {
 		laptopAllow: false,
 		laptopForbidden: false,
@@ -107,11 +107,10 @@ const mutations = {
 	},
 	CLEAR_FILTER (state) {
 		// https://github.com/vuejs/vuex/issues/82
-		const is = initialStateFactory()
-		state.laptop = is.laptop
-		state.away = is.away
-		state.near = is.near
-		state.table = is.table
+		const is = initialUIStateFactory()
+		for (let prop in is) {
+			state[prop] = is[prop]
+		}
 	},
 }
 
@@ -154,7 +153,7 @@ const actions = {
 	},
 }
 
-const state = initialStateFactory()
+const state = initialUIStateFactory()
 export default {
 	state,
 	getters,
