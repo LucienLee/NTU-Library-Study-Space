@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import ranges from '../../utils/seat-range.js'
 
-const dd = require('../../dd.json')
+const seatFilterConfig = require('../../dd.json')
 
 const initialUIStateFactory = () => ({
 	laptop: {
@@ -41,7 +41,7 @@ const seatsFactory = (function(){
 
 	return {
 		getSeats () {
-			return seats.slice()
+			return seats
 		}
 	}
 
@@ -49,36 +49,17 @@ const seatsFactory = (function(){
 
 const getters = {
 	seatsToShowAfterFilter (state) {
-		let toShow
-
-		// laptop
-		if (state.laptop.laptopAllow) {
-			toShow = dd.laptop.laptopAllow
-		} else if (state.laptop.laptopForbidden) {
-			toShow = dd.laptop.laptopForbidden
-		} else {
-			toShow = seatsFactory.getSeats()
+		let collection = [seatsFactory.getSeats()]
+		for ( let category in state ) {
+			for ( let prop in state[category] ) {
+				if ( state[category][prop] === true ) {
+					collection.push(seatFilterConfig[category][prop])
+				}
+			}
 		}
 
-		// table.seatCount
-		if (state.table.seats4) { toShow = _.intersection(toShow, dd.table.seats4) }
-		else if (state.table.seats6) { toShow = _.difference(toShow, dd.table.seats4) }
-
-		// table.partition
-		if (state.table.partition) { toShow = _.intersection(toShow, dd.table.partition) }
-
-		// near
-		if (state.near.wall) { toShow = _.intersection(toShow, dd.near.wall) }
-		else if (state.near.window) { toShow = _.intersection(toShow, dd.near.window) }
-
-		// away
-		if (state.away.vent) { toShow = _.intersection(toShow, dd.away.vent) }
-		if (state.away.toilet) { toShow = _.intersection(toShow, dd.away.toilet) }
-		if (state.away.register) { toShow = _.intersection(toShow, dd.away.register) }
-		if (state.away.aisle) { toShow = _.intersection(toShow, dd.away.aisle) }
-
-		return toShow
-	},
+		return _.intersection(...collection)
+	}
 }
 
 // mutations
