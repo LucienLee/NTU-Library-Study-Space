@@ -9,10 +9,8 @@ const initialUIStateFactory = () => ({
 		laptopForbidden: false,
 	},
 	table: {
-		seatCount: {
-			seats4: false,
-			seats6: false,
-		},
+		seats4: false,
+		seats6: false,
 		partition: false,
 	},
 	near: {
@@ -63,8 +61,8 @@ const getters = {
 		}
 
 		// table.seatCount
-		if (state.table.seatCount.seats4) { toShow = _.intersection(toShow, dd.table.seatCount.seats4) }
-		else if (state.table.seatCount.seats6) { toShow = _.difference(toShow, dd.table.seatCount.seats4) }
+		if (state.table.seats4) { toShow = _.intersection(toShow, dd.table.seats4) }
+		else if (state.table.seats6) { toShow = _.difference(toShow, dd.table.seats4) }
 
 		// table.partition
 		if (state.table.partition) { toShow = _.intersection(toShow, dd.table.partition) }
@@ -89,7 +87,9 @@ const mutations = {
 		state.laptop = val
 	},
 	UPDATE_TABLE_SEATCOUNT (state, val) {
-		state.table.seatCount = val
+		for (let prop in val) {
+			state.table[prop] = val[prop]
+		}
 	},
 	UPDATE_TABLE_PARTITION (state, val) {
 		state.table.partition = val
