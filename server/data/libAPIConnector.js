@@ -1,14 +1,14 @@
-import fetch from 'node-fetch';
+import fetch from 'node-fetch'
 import _ from 'lodash'
 import chalk from 'chalk'
-import { Record, Student } from './mongoConnector'
-import { arr2objSelect } from './utils'
+import DB from './mongoConnector'
+import { sanitizeUserId, arr2objSelect } from './utils'
 
 function createRecord(doc) {
 	DB.Record.insert(doc)
 
 	// update `Student`
-	if (doc.action = 'NEW') {
+	if (doc.action === 'NEW') {
 		const operation = {
 			$set: { last_used: doc.seat_id },
 			$inc: {}
@@ -37,7 +37,6 @@ class LibAPIConnector {
 				this.diffSeatsArray()
 				setTimeout(this.invalidate.bind(this), 1000)
 			})
-
 	}
 
 	getSeatInfo() {
@@ -64,7 +63,7 @@ class LibAPIConnector {
 			if (!_.isEqual(seatsArray[i], lastSeatsArray[i])) { // changed!
 				console.log('found diff! old:', lastSeatsArray[i], 'new:', seatsArray[i])
 				// NEW 0 -> 1or2
-				if (lastSeatsArray[i].status === '0' && (seatsArray[i].status === '1') || seatsArray[i].status === '2') {
+				if (lastSeatsArray[i].status === '0' && (seatsArray[i].status === '1' || seatsArray[i].status === '2')) {
 					createRecord({
 						student_id: seatsArray[i].user_id,
 						seat_id: seatsArray[i].seat_id,

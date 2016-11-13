@@ -1,12 +1,3 @@
-
-function seatInfoAllSchemaFactory(prefix, start, end) {
-	let ret = ''
-	for (let i = start; i <= end; ++i) {
-		ret = `${ret}\n${prefix}${(`00${i}`.slice(-3))}: LiveSeat`
-	}
-	return ret
-}
-
 const typeDefinitions = `
 scalar Date
 
@@ -41,6 +32,6 @@ type Query {
 schema {
   query: Query
 }
-`;
+`
 
-export default [typeDefinitions];
+export default [typeDefinitions]
