@@ -339,12 +339,31 @@ export default {
 	cursor: pointer
 	transition: opacity $fast $easeIn
 
+.SeatMap__seat--empty
+	#left,
+	#used
+		opacity: 0
+
+	.SeatMap__seatId
+		fill: $text-color-primary
+
+.SeatMap__seat--left
+	#empty,
+	#used
+		opacity: 0
+
+.SeatMap__seat--used
+	#empty,
+	#left
+		opacity: 0
+
+.SeatMap__seat--filteredOut,
+.SeatMap__seat--banned
+	opacity: 0.1
+
 .SeatMap__seat--active
 	.SeatMap__seatId
 		opacity: 1
-
-.SeatMap__seat--filteredOut
-	opacity: 0.1
 
 .SeatMap__seatId
 	fill: #fff
