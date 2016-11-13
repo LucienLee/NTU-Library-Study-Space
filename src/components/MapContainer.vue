@@ -4,14 +4,16 @@
 </template>
 
 <script>
-import SVGInjector from 'svg-injector'
+//MARK- d3 usage: zoom, transition
 import * as d3 from 'd3'
+
+import SVGInjector from 'svg-injector'
 import _ from 'lodash'
 import { mapActions, mapGetters } from 'vuex'
-window.d3 = d3
-//MARK- d3 usage: zoom, transition
 
 const scaleExtent = [0.9, 10]
+const panThreshold = 10
+const eventPrefix = 'pan'
 
 const className = {
 	map: 'SeatMap__map',
@@ -93,12 +95,23 @@ class MapBox {
 	}
 }
 
+let isOverPanThreshold = (p1, p2) => {
+	let vector = {
+		x: p2.x - p1.x,
+		y: p2.y - p1.y,
+		get sqrMagnitude () {
+			return this.x * this.x + this.y * this.y
+		}
+	}
+
+	return vector.sqrMagnitude >= panThreshold * panThreshold ? true : false
+}
+
 let traverse = ( selection, pattern, callback ) => {
 	callback( selection.selectAll(`g[id^=${pattern}]`) )
 }
 
-let zoomTranstion = function (node, svg, viewBox, zoom, zooming, proportion = 0.95) {
-	if(zooming) return
+let zoomTranstion = function (node, svg, viewBox, zoom, proportion = 0.95) {
 	const bbox = node.getBBox()
 	const x = bbox.x + bbox.width / 2
 	const y = bbox.y + bbox.height / 2
@@ -129,7 +142,10 @@ export default {
 			table: '',
 			seat: '',
 			scale: 1,
-			zooming: false
+			startPoint: {
+				x: 0,
+				y: 0
+			}
 		}
 	},
 	computed: {
@@ -171,16 +187,30 @@ export default {
 		let svgInjectPoint = document.querySelectorAll(`img.${className.map}`)
 		let zoom = d3.zoom()
 			.on('start', () => {
-				this.zooming = false
+				if( d3.event.sourceEvent ) {
+					this.startPoint.x = d3.event.sourceEvent.clientX
+					this.startPoint.y = d3.event.sourceEvent.clientY
+				}
 			})
 			.on('end', () => {
+				if( d3.event.sourceEvent ) {
+					let endPoint = {
+						x: d3.event.sourceEvent.clientX,
+						y: d3.event.sourceEvent.clientY
+					}
+
+					if( !isOverPanThreshold( endPoint, this.startPoint ) ) {
+						// https://github.com/d3/d3-drag/issues/28
+						d3.event.sourceEvent.target.dispatchEvent(new Event(`${eventPrefix}-click`, { 'bubbles': true, 'view': window }))
+					}
+				}
+
 				// document.body.style.cursor = 'default'
 			})
 			.on('zoom', () => {
-				this.zooming = true
 				this.scale = d3.event.transform.k
-				// document.body.style.cursor = 'move'
 				this.map.attr('transform', d3.event.transform )
+				// document.body.style.cursor = 'move'
 			})
 
 		// initialize after map loaded
@@ -227,12 +257,19 @@ export default {
 				return text
 			}).attr('class', className.seatId )
 
+
+			// zooming when click table
 			this.table.on('click', function () {
-				zoomTranstion(this, svg, mapBox, zoom, this.zooming, 0.5)
+				zoomTranstion(this, svg, mapBox, zoom, 0.5)
+			}).on(`${eventPrefix}-click`, function() {
+				zoomTranstion(this, svg, mapBox, zoom, 0.5)
 			})
 
+			// zooming when click seat
 			this.area.on('click', function () {
-				zoomTranstion(this, svg, mapBox, zoom, this.zooming)
+				zoomTranstion(this, svg, mapBox, zoom)
+			}).on(`${eventPrefix}-click`, function () {
+				zoomTranstion(this, svg, mapBox, zoom)
 			})
 
 			// init resize
