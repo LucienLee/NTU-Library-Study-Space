@@ -1,20 +1,20 @@
 <template lang="jade">
 #app
-	map-container
+	seat-map
 	.controlsContainer
 		seat-register
 		seat-filter
 </template>
 
 <script>
-import MapContainer from './components/MapContainer'
+import SeatMap from './components/SeatMap'
 import SeatFilter from './components/SeatFilter'
 import SeatRegister from './components/SeatRegister'
 import Modal from './components/Modal'
 
 export default {
 	components: {
-		MapContainer,
+		SeatMap,
 		SeatFilter,
 		SeatRegister,
 		Modal

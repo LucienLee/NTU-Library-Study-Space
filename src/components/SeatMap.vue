@@ -4,7 +4,7 @@
 </template>
 
 <script>
-//MARK- d3 usage: zoom, transition
+//MARK- d3 usage: selection, zoom, transition
 import * as d3 from 'd3'
 
 import SVGInjector from 'svg-injector'
@@ -14,6 +14,8 @@ import { mapActions, mapGetters } from 'vuex'
 const scaleExtent = [0.9, 10]
 const panThreshold = 10
 const eventPrefix = 'pan'
+const radius = 5
+const textSize = 3
 
 const className = {
 	map: 'SeatMap__map',
@@ -45,8 +47,8 @@ class MapBox {
 
 
 		this.controls = {
-			offsetWidth: document.getElementsByClassName('controlsContainer')[0].offsetWidth,
-			offsetLeft: document.getElementsByClassName('controlsContainer')[0].offsetLeft
+			offsetWidth: document.getElementsByClassName(this.constructor.controlsClass)[0].offsetWidth,
+			offsetLeft: document.getElementsByClassName(this.constructor.controlsClass)[0].offsetLeft
 		}
 
 		if(svg){
@@ -118,11 +120,10 @@ let zoomTranstion = function (node, svg, viewBox, zoom, proportion = 0.95) {
 
 	const width = viewBox.width
 	const height = viewBox.height
-	const maximum = scaleExtent[1] / viewBox.scale
 	const minimum = scaleExtent[0] / viewBox.scale
+	const maximum = scaleExtent[1] / viewBox.scale
 
 	const time = 750
-
 
 	const scale = Math.max(minimum, Math.min(maximum, proportion / Math.max(bbox.width / width, bbox.height / height) ))
 	const t = d3.zoomIdentity.translate(viewBox.x + width/2 - scale*x, viewBox.y + height/2 - scale*y).scale(scale)
@@ -231,31 +232,31 @@ export default {
 			traverse(svg, 'Table-', (selection) => {
 				this.table = selection.classed(className.table, true)
 				this.seat = selection.selectAll(`.${className.table} > g`).classed(className.seat, true)
-
-				// create placeholder
-				selection.append(function(){
-					let bounds = this.getBBox()
-					let rect = document.createElementNS(d3.namespaces.svg, 'rect')
-					_.forIn(bounds, (value, key) => {
-						rect.setAttributeNS(null, key, value)
-					})
-					return rect
-				}).attr('class', className.placeholder)
-				.attr('rx', 5)
-				.attr('rx', 5)
 			})
 
+			// create placeholder
+			this.table.append(function(){
+				let bounds = this.getBBox()
+				let rect = document.createElementNS(d3.namespaces.svg, 'rect')
+				_.forIn(bounds, (value, key) => {
+					rect.setAttributeNS(null, key, value)
+				})
+				return rect
+			}).attr('class', className.placeholder)
+			.attr('rx', radius)
+			.attr('ry', radius)
+
+			// create seat text
 			this.seat.append(function(){
 				let bounds = this.getBBox()
 				let text = document.createElementNS(d3.namespaces.svg, 'text')
 				text.textContent = this.getAttribute('id')
 				text.setAttributeNS(null, 'x', bounds.x + bounds.width/2)
 				text.setAttributeNS(null, 'y', bounds.y + bounds.height/2)
-				text.setAttributeNS(null, 'text-anchor', 'middle')
-				text.setAttributeNS(null, 'dy', '1.5')
-
 				return text
 			}).attr('class', className.seatId )
+			.attr('text-anchor', 'middle')
+			.attr('dy', textSize/2)
 
 
 			// zooming when click table
@@ -289,10 +290,6 @@ export default {
 
 <style lang="sass">
 @import "../sass/variables"
-
-#Map
-	// opacity: 0
-	// will-change: transform
 
 .SeatMap
 	width: 100vw
@@ -354,7 +351,4 @@ export default {
 	font-size: 3px
 	text-rendering: optimizeSpeed
 	opacity: 0
-
-
-
 </style>
