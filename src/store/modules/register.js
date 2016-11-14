@@ -4,6 +4,10 @@ import _ from 'lodash'
 const url = 'http://140.112.113.35:8080/StudyRoom/api/'
 
 const initialStateFactory = () => ({
+	inputFields: {
+		seatIDValue: '',
+		studentIDValue: '',
+	},
 	loading: false,
 	result: {},
 	error: {},
@@ -30,6 +34,9 @@ const getters = {
 
 // mutations
 const mutations = {
+	UPDATE_REGISTER_INPUT_VALUE (state, { key, value }) {
+		state.inputFields[key] = value
+	},
 	REGISTER_LOADING (state, val) {
 		state.loading = val
 	},
@@ -58,7 +65,10 @@ const mutations = {
 }
 
 const actions = {
-	checkUser({ commit, dispatch }, { user_id }) {
+	updateRegisterInputValue ({ commit }, { key, value }) {
+		commit('UPDATE_REGISTER_INPUT_VALUE', { key, value })
+	},
+	checkUser ({ commit, dispatch }, { user_id }) {
 		if (!user_id) throw new Error(`user_id: "${user_id}" empty`)
 
 		fetch(`${url}checkUser?user_id=${user_id}`)

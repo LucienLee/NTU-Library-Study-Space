@@ -71,7 +71,8 @@ export default {
 	},
 	methods: {
 		...mapActions([
-			'blurListItem'
+			'blurListItem',
+			'updateRegisterInputValue',
 		]),
 		expand (el, done) {
 			el.style.height = 0
@@ -133,8 +134,8 @@ export default {
 			this.isCollapsed = !this.isCollapsed
 			this.blurListItem()
 		},
-		onConfirm (val) {
-			this.$emit('historySeatConfirm', val)
+		onConfirm (value) {
+			this.updateRegisterInputValue({ key: 'seatIDValue', value })
 		},
 	}
 }
