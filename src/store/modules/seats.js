@@ -1,15 +1,10 @@
-// import * as types from '../mutation-types'
 import gql from 'graphql-tag'
 import apolloClient from '../../apolloClient'
 
 const state = {
 }
 
-// mutations
 const mutations = {
-	// UPDATE_SEATS (state, val) {
-	// 	state.laptop = val
-	// },
 }
 
 const actions = {
@@ -26,7 +21,7 @@ const actions = {
 				dispatch('updateSeats', JSON.parse(data.seatInfo))
 			},
 			error (err) {
-				console.error(err)
+				console.error(err) // eslint-disable-line no-console
 			}
 		})
 	},
