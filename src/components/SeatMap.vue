@@ -9,7 +9,13 @@ import * as d3 from 'd3'
 
 import SVGInjector from 'svg-injector'
 import _ from 'lodash'
-import { mapActions, mapGetters } from 'vuex'
+import {
+	mapActions,
+	mapGetters,
+	mapState,
+} from 'vuex'
+
+import { mapStatusToState } from '../utils/seat-status'
 
 const scaleExtent = [0.9, 10]
 const panThreshold = 10
@@ -151,6 +157,7 @@ export default {
 	},
 	computed: {
 		...mapGetters([ 'seatsToShowAfterFilter' ]),
+		...mapState([ 'seats' ]),
 		isAreaActived () {
 			return this.scale < 1.4 * this.mapBox.scale ? true : false
 		},
@@ -174,7 +181,21 @@ export default {
 					this.classList.add('SeatMap__seat--filteredOut')
 				}
 			})
-		}
+		},
+		seats (newVal, oldVal) {
+			for (let key in newVal) {
+				let el
+				if (!_.isEqual(newVal[key] !== oldVal[key])) {
+					el = document.querySelector(`#${key}`)
+					if (!el) { continue }
+
+					el.classList.add(`SeatMap__seat--${mapStatusToState(newVal[key].status)}`)
+					if (oldVal[key] && oldVal[key].status) {
+						el.classList.remove(`SeatMap__seat--${mapStatusToState(oldVal[key].status)}`)
+					}
+				}
+			}
+		},
 	},
 	methods: {
 		...mapActions([
@@ -182,9 +203,6 @@ export default {
 		]),
 	},
 	mounted () {
-		// start the seatInfo query
-		this.startSeatQuery()
-
 		let svgInjectPoint = document.querySelectorAll(`img.${className.map}`)
 		let zoom = d3.zoom()
 			.on('start', () => {
@@ -283,6 +301,9 @@ export default {
 			zoom.scaleExtent(scaleExtent.map( bound => bound * mapBox.scale ))
 
 			this.svg.call(zoom)
+
+			// start the seatInfo query after svg is fully loaded
+			this.startSeatQuery()
 		})
 	}
 }
