@@ -200,6 +200,7 @@ export default {
 	methods: {
 		...mapActions([
 			'startSeatQuery',
+			'updateRegisterInputValue',
 		]),
 	},
 	mounted () {
@@ -231,6 +232,9 @@ export default {
 				this.map.attr('transform', d3.event.transform )
 				// document.body.style.cursor = 'move'
 			})
+
+		// extract the action from `this` first
+		const { updateRegisterInputValue } = this
 
 		// initialize after map loaded
 		SVGInjector(svgInjectPoint, {}, () => {
@@ -276,6 +280,11 @@ export default {
 			.attr('text-anchor', 'middle')
 			.attr('dy', textSize/2)
 
+			this.seat.on('click', function () {
+				if (this.classList.contains('SeatMap__seat--empty')) {
+					updateRegisterInputValue({ key: 'seatIDValue', value: this.id })
+				}
+			})
 
 			// zooming when click table
 			this.table.on('click', function () {
