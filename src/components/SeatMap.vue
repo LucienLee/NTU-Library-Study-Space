@@ -207,6 +207,12 @@ export default {
 			'startSeatQuery',
 			'updateRegisterInputValue',
 		]),
+		zoomToInitState (time = 750) {
+			this.svg.transition()
+				.duration(time)
+				.call(this.zoom.transform,
+					d3.zoomIdentity.translate( this.mapBox.x, this.mapBox.y ).scale( this.mapBox.scale ))
+		}
 	},
 	mounted () {
 		let svgInjectPoint = document.querySelectorAll(`img.${className.map}`)
