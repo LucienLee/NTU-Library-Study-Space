@@ -21,7 +21,7 @@ const scaleExtent = [0.9, 10]
 const panThreshold = 10
 const eventPrefix = 'pan'
 const radius = 5
-const textSize = 3
+const textSize = 2
 
 const className = {
 	map: 'SeatMap__map',
@@ -57,7 +57,7 @@ class MapBox {
 			offsetLeft: document.getElementsByClassName(this.constructor.controlsClass)[0].offsetLeft
 		}
 
-		if(svg){
+		if(svg){ // for debugging
 			this.box = svg.append('rect')
 				.attr('id', 'MapBox')
 				.attr('x', this.x)
@@ -163,6 +163,9 @@ export default {
 		},
 		isTableActived () {
 			return this.scale < 4 * this.mapBox.scale ? true : false
+		},
+		isSeatActived () {
+			return !this.isTableActived
 		}
 	},
 	watch: {
@@ -171,7 +174,9 @@ export default {
 		},
 		isTableActived (val) {
 			this.table.classed('SeatMap__table--inactive', !val)
-			this.seat.classed('SeatMap__seat--active', !val)
+		},
+		isSeatActived (val) {
+			this.seat.classed('SeatMap__seat--active', val)
 		},
 		seatsToShowAfterFilter (val) {
 			this.seat.each(function(){
@@ -221,16 +226,21 @@ export default {
 
 					if( !isOverPanThreshold( endPoint, this.startPoint ) ) {
 						// https://github.com/d3/d3-drag/issues/28
-						d3.event.sourceEvent.target.dispatchEvent(new Event(`${eventPrefix}-click`, { 'bubbles': true, 'view': window }))
+						d3.event.sourceEvent.target.dispatchEvent(
+							new Event(`${eventPrefix}-click`, { 'bubbles': true, 'view': window })
+						)
 					}
 				}
 
-				// document.body.style.cursor = 'default'
+				this.svg.classed('cursor--move', false)
 			})
 			.on('zoom', () => {
 				this.scale = d3.event.transform.k
 				this.map.attr('transform', d3.event.transform )
-				// document.body.style.cursor = 'move'
+				// Style cursor as move when dragging
+				if ( d3.event.sourceEvent && d3.event.sourceEvent.type === 'mousemove') {
+					this.svg.classed('cursor--move', true)
+				}
 			})
 
 		// extract the action from `this` first
@@ -280,23 +290,22 @@ export default {
 			.attr('text-anchor', 'middle')
 			.attr('dy', textSize/2)
 
-			this.seat.on('click', function () {
+
+			// fill seat number when click seat
+			this.seat.on(`${eventPrefix}-click`, function () {
+				d3.event.stopPropagation()
 				if (this.classList.contains('SeatMap__seat--empty')) {
 					updateRegisterInputValue({ key: 'seatIDValue', value: this.id })
 				}
 			})
 
 			// zooming when click table
-			this.table.on('click', function () {
-				zoomTranstion(this, svg, mapBox, zoom, 0.5)
-			}).on(`${eventPrefix}-click`, function() {
+			this.table.on(`${eventPrefix}-click`, function() {
 				zoomTranstion(this, svg, mapBox, zoom, 0.5)
 			})
 
 			// zooming when click seat
-			this.area.on('click', function () {
-				zoomTranstion(this, svg, mapBox, zoom)
-			}).on(`${eventPrefix}-click`, function () {
+			this.area.on(`${eventPrefix}-click`, function () {
 				zoomTranstion(this, svg, mapBox, zoom)
 			})
 
@@ -327,15 +336,16 @@ export default {
 	max-width: 100%
 	max-height: 100%
 	overflow: hidden
-	position: absolute
+	// SVG don't support GPU acceleration, so we create graphicsLayer on the wrapper
+	transform: translatez(0)
 
 .SeatMap__map
 	width: 100%
 	height: 100%
 
 .SeatMap__area
-	opacity: 0
 	cursor: pointer
+	opacity: 0
 	transition: opacity $fast $easeIn
 
 	&:hover
@@ -355,27 +365,34 @@ export default {
 		opacity: 0.2
 
 .SeatMap__table--inactive
-	.SeatMap__tablePlaceholder
-		pointer-events: none
-		visibility: hidden
+	pointer-events: none
+	cursor: default
+	&:hover .SeatMap__tablePlaceholder
+		opacity: 0
+
 
 .SeatMap__tablePlaceholder
 	fill: $text-color-secondary
 	opacity: 0
 	transition: opacity $fast $easeIn
 
-
 .SeatMap__seat
-	cursor: pointer
 	transition: opacity $fast $easeIn
 
 .SeatMap__seat--empty
+	cursor: pointer
+	transform-origin: center
+	transition: transform $fast $easeOutCubic
+	&:hover
+		transform: scale(1.06)
+
+	.SeatMap__seatId
+		fill: $text-color-primary
+
 	#left,
 	#used
 		opacity: 0
 
-	.SeatMap__seatId
-		fill: $text-color-primary
 
 .SeatMap__seat--left
 	#empty,
@@ -392,12 +409,23 @@ export default {
 	opacity: 0.1
 
 .SeatMap__seat--active
+	pointer-events: all
 	.SeatMap__seatId
 		opacity: 1
 
 .SeatMap__seatId
 	fill: #fff
-	font-size: 3px
+	font-size: 2px
 	text-rendering: optimizeSpeed
 	opacity: 0
+	transition: opacity $fast $easeIn
+
+.cursor--move
+	cursor: move
+
+	.SeatMap__area,
+	.SeatMap__table,
+	.SeatMap__seat--empty
+		cursor: move
+
 </style>
