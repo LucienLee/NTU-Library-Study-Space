@@ -404,8 +404,13 @@ export default {
 	#left
 		opacity: 0
 
-.SeatMap__seat--filteredOut,
 .SeatMap__seat--banned
+	opacity: 0.1
+	#empty,
+	#left
+		opacity: 0
+
+.SeatMap__seat--filteredOut
 	opacity: 0.1
 
 .SeatMap__seat--active
