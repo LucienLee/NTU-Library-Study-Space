@@ -190,7 +190,7 @@ export default {
 		seats (newVal, oldVal) {
 			for (let key in newVal) {
 				let el
-				if (!_.isEqual(newVal[key] !== oldVal[key])) {
+				if (!_.isEqual(newVal[key], oldVal[key])) {
 					el = document.querySelector(`#${key}`)
 					if (!el) { continue }
 
