@@ -22,3 +22,7 @@ export function startSeatQuery ({ dispatch }) {
 		}
 	})
 }
+
+export function setResetMapToInitState ({ commit }, val) {
+	commit('SET_RESET_MAP_TO_INIT_STATE', val)
+}

@@ -212,6 +212,9 @@ const actions = {
 		// since every time reset register is followed by reset history, let's
 		// call it here for simplicity
 		dispatch('resetHistory')
+
+		// zoom the map back to initial state
+		dispatch('setResetMapToInitState', true)
 	},
 }
 

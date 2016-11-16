@@ -14,7 +14,8 @@ Vue.use(Vuex)
 const debug = process.env.NODE_ENV !== 'production'
 
 const state = {
-	seats: {}
+	seats: {},
+	resetMapToInitState: false
 }
 
 export default new Vuex.Store({

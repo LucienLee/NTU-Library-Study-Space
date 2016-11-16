@@ -157,7 +157,10 @@ export default {
 	},
 	computed: {
 		...mapGetters([ 'seatsToShowAfterFilter' ]),
-		...mapState([ 'seats' ]),
+		...mapState([
+			'seats',
+			'resetMapToInitState'
+		]),
 		isAreaActived () {
 			return this.scale < 1.4 * this.mapBox.scale ? true : false
 		},
@@ -201,16 +204,27 @@ export default {
 				}
 			}
 		},
+		resetMapToInitState (newVal) {
+			if (newVal) {
+				// zoom the map
+				this.zoomToInitState()
+
+				// reset the flag
+				this.setResetMapToInitState(false)
+			}
+		}
 	},
 	methods: {
 		...mapActions([
 			'startSeatQuery',
 			'updateRegisterInputValue',
+			'setResetMapToInitState'
 		]),
 		zoomToInitState (time = 750) {
 			this.svg.transition()
 				.duration(time)
 				.call(this.zoom.transform,
+				// TODO    ^^^^ undefined @lucien
 					d3.zoomIdentity.translate( this.mapBox.x, this.mapBox.y ).scale( this.mapBox.scale ))
 		}
 	},
