@@ -46,16 +46,22 @@ class MapBox {
 		this.view = {
 			width: window.innerWidth,
 			height: window.innerHeight,
+			maxWidth: 1920,
 			get ratio () {
 				return this.width / this.height
 			}
 		}
 
-
 		this.controls = {
-			offsetWidth: document.getElementsByClassName(this.constructor.controlsClass)[0].offsetWidth,
-			offsetLeft: document.getElementsByClassName(this.constructor.controlsClass)[0].offsetLeft
+			width: 400,
+			minWidth: 300,
+			margin: 60
 		}
+
+		window.addEventListener('resize', () => {
+			this.view.width = window.innerWidth
+			this.view.height = window.innerHeight
+		})
 
 		if(svg){ // for debugging
 			this.box = svg.append('rect')
@@ -70,20 +76,24 @@ class MapBox {
 		}
 	}
 
-	static get controlsClass () {
-		return 'controlsContainer'
-	}
-
 	get scaleFactor () {
 		return (this.map.ratio > this.view.ratio) ? ( this.view.width / this.map.width ) : (this.view.height / this.map.height)
 	}
 
+	get offsetLeft () {
+		return this.controls.margin / this.view.maxWidth * this.view.width
+	}
+
+	get offsetWidth () {
+		return Math.max(this.controls.width / this.view.maxWidth * this.view.width, this.controls.minWidth)
+	}
+
 	get margin () {
-		return this.controls.offsetLeft / this.scaleFactor
+		return this.offsetLeft / this.scaleFactor
 	}
 
 	get x () {
-		return (this.controls.offsetWidth + this.controls.offsetLeft * 2) / this.scaleFactor
+		return (this.offsetWidth + this.offsetLeft * 3) / this.scaleFactor
 	}
 
 	get y () {
@@ -91,7 +101,7 @@ class MapBox {
 	}
 
 	get width () {
-		return (this.view.width / this.scaleFactor) - this.x - this.margin
+		return (this.view.width / this.scaleFactor) - this.x - this.margin * 3
 	}
 
 	get height () {
@@ -144,10 +154,11 @@ export default {
 		return {
 			svg: '',
 			map: '',
-			mapBox: '',
 			area: '',
 			table: '',
 			seat: '',
+			mapBox: new MapBox(),
+			zoom: d3.zoom(),
 			scale: 1,
 			startPoint: {
 				x: 0,
@@ -207,7 +218,7 @@ export default {
 		resetMapToInitState (newVal) {
 			if (newVal) {
 				// zoom the map
-				this.zoomToInitState()
+				this.transitionToMapBox()
 
 				// reset the flag
 				this.setResetMapToInitState(false)
@@ -220,19 +231,23 @@ export default {
 			'updateRegisterInputValue',
 			'setResetMapToInitState'
 		]),
-		zoomToInitState (time = 840) {
+		transitionToMapBox (time = 840) {
 			this.svg.transition()
 				.duration(time)
 				.call(this.zoom.transform,
 					d3.zoomIdentity.translate( this.mapBox.x, this.mapBox.y ).scale( this.mapBox.scale ))
+		},
+		zoomToMapBox () {
+			this.svg.call(this.zoom.transform,
+				d3.zoomIdentity.translate( this.mapBox.x, this.mapBox.y ).scale( this.mapBox.scale )
+			)
 		}
 	},
 	mounted () {
-		// extract the action from vue for bind in the d3
-		const { updateRegisterInputValue } = this
+		// extract the action and data from vue for bind in the d3
+		const { updateRegisterInputValue, mapBox, zoom } = this
 		let svgInjectPoint = document.querySelectorAll(`img.${className.map}`)
-		let zoom = d3.zoom()
-			.on('start', () => {
+		zoom.on('start', () => {
 				if( d3.event.sourceEvent ) {
 					this.startPoint.x = d3.event.sourceEvent.clientX
 					this.startPoint.y = d3.event.sourceEvent.clientY
@@ -263,18 +278,15 @@ export default {
 					this.svg.classed('cursor--move', true)
 				}
 			})
-		this.zoom = zoom
 
 		// initialize after map loaded
 		SVGInjector(svgInjectPoint, {}, () => {
 			let svg = d3.select(`svg.${className.map}`)
 			let map = svg.select('#Map')
-			let mapBox = new MapBox()
 			svg.attr('preserveAspectRatio', 'xMinYMin meet')
 
 			this.svg = svg
 			this.map = map
-			this.mapBox = mapBox
 
 			traverse(svg, 'Hover-', (selection) => {
 				this.area = selection.classed(className.area, true)
@@ -329,13 +341,11 @@ export default {
 			})
 
 			// init resize
-			this.svg.call(zoom.transform,
-				d3.zoomIdentity.translate( mapBox.x, mapBox.y )
-				.scale( mapBox.scale )
-			)
+			this.zoomToMapBox()
+			window.addEventListener('resize', this.zoomToMapBox)
 
 			// set scale constraint
-			zoom.scaleExtent(scaleExtent.map( bound => bound * mapBox.scale ))
+			zoom.scaleExtent(scaleExtent.map( bound => bound * this.mapBox.scale ))
 
 			this.svg.call(zoom)
 
