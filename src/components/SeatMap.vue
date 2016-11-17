@@ -220,15 +220,16 @@ export default {
 			'updateRegisterInputValue',
 			'setResetMapToInitState'
 		]),
-		zoomToInitState (time = 750) {
+		zoomToInitState (time = 840) {
 			this.svg.transition()
 				.duration(time)
 				.call(this.zoom.transform,
-				// TODO    ^^^^ undefined @lucien
 					d3.zoomIdentity.translate( this.mapBox.x, this.mapBox.y ).scale( this.mapBox.scale ))
 		}
 	},
 	mounted () {
+		// extract the action from vue for bind in the d3
+		const { updateRegisterInputValue } = this
 		let svgInjectPoint = document.querySelectorAll(`img.${className.map}`)
 		let zoom = d3.zoom()
 			.on('start', () => {
@@ -262,9 +263,7 @@ export default {
 					this.svg.classed('cursor--move', true)
 				}
 			})
-
-		// extract the action from `this` first
-		const { updateRegisterInputValue } = this
+		this.zoom = zoom
 
 		// initialize after map loaded
 		SVGInjector(svgInjectPoint, {}, () => {
