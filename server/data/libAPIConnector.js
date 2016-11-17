@@ -1,14 +1,14 @@
-import fetch from 'node-fetch';
+import fetch from 'node-fetch'
 import _ from 'lodash'
 import chalk from 'chalk'
 import DB from './mongoConnector'
-import { arr2obj, sanitizeUserId } from './utils'
+import { sanitizeUserId, arr2objSelect } from './utils'
 
 function createRecord(doc) {
 	DB.Record.insert(doc)
 
 	// update `Student`
-	if (doc.action = 'NEW') {
+	if (doc.action === 'NEW') {
 		const operation = {
 			$set: { last_used: doc.seat_id },
 			$inc: {}
@@ -26,6 +26,8 @@ class LibAPIConnector {
 		this.seats = {}
 		this.seatsArray = []
 		this.lastSeatsArray = []
+		this.seats = {}
+		this.seatsJSON = JSON.stringify(this.seats)
 	}
 	invalidate() {
 		this.lastSeatsArray = this.seatsArray
@@ -33,9 +35,8 @@ class LibAPIConnector {
 		this.getSeatInfo()
 			.then(() => {
 				this.diffSeatsArray()
-				setTimeout(this.invalidate.bind(this), 1000)
+				setTimeout(this.invalidate.bind(this), 5000)
 			})
-
 	}
 
 	getSeatInfo() {
@@ -45,7 +46,8 @@ class LibAPIConnector {
 			})
 			.then(json => {
 				this.seatsArray = json
-				this.seats = arr2obj(json, 'seat_id')
+				this.seats = arr2objSelect(json, 'seat_id', ['status'])
+				this.seatsJSON = JSON.stringify(this.seats)
 			})
 			.catch(err => console.error(
 				chalk.red(err)
@@ -61,7 +63,7 @@ class LibAPIConnector {
 			if (!_.isEqual(seatsArray[i], lastSeatsArray[i])) { // changed!
 				console.log('found diff! old:', lastSeatsArray[i], 'new:', seatsArray[i])
 				// NEW 0 -> 1or2
-				if (lastSeatsArray[i].status === '0' && (seatsArray[i].status === '1') || seatsArray[i].status === '2') {
+				if (lastSeatsArray[i].status === '0' && (seatsArray[i].status === '1' || seatsArray[i].status === '2')) {
 					createRecord({
 						student_id: seatsArray[i].user_id,
 						seat_id: seatsArray[i].seat_id,

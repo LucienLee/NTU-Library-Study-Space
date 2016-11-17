@@ -4,7 +4,7 @@ import lib from './libAPIConnector'
 
 const DB = {}
 
-const mongo = MongoClient.connect('mongodb://localhost/library', (err, db) => {
+MongoClient.connect('mongodb://localhost/library', (err, db) => {
 	if (err) throw chalk.red.bgWhite.underline.bold(' ***Error connecting to MongoDB, make sure you have MongoDB running!!!*** ')
 
 	console.log('Connected to MongoDB')

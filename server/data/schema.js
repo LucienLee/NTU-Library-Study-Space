@@ -26,11 +26,12 @@ type LiveSeat {
 type Query {
   student(student_id: String!): Student
   all_seats: [LiveSeat]!
+  seatInfo: String
 }
 
 schema {
   query: Query
 }
-`;
+`
 
-export default [typeDefinitions];
+export default [typeDefinitions]

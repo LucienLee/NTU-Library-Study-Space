@@ -50,9 +50,9 @@ export default {
 				},
 				table: {
 					seatCount: {
-						get seats4 () { return filters.table.seatCount.seats4 },
+						get seats4 () { return filters.table.seats4 },
 						set seats4 (val) { _this.updateSeats4(val) },
-						get seats6 () { return filters.table.seatCount.seats6 },
+						get seats6 () { return filters.table.seats6 },
 						set seats6 (val) { _this.updateSeats6(val) },
 					},
 					get partition () { return filters.table.partition },

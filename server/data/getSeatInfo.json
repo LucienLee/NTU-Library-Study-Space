@@ -1,0 +1,5756 @@
+[{
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 08:03:31:667",
+    "seat_id": "A001",
+    "user_id": "D955220342"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 08:48:17:923",
+    "seat_id": "A002",
+    "user_id": "B047050012"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A003",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 10:20:52:917",
+    "seat_id": "A004",
+    "user_id": "B0222129688"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A005",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 09:45:52:090",
+    "seat_id": "A006",
+    "user_id": "B045020220"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:15:12:023",
+    "seat_id": "A007",
+    "user_id": "B033050083"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A008",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A009",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:57:38:350",
+    "seat_id": "A010",
+    "user_id": "B05B010610"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:49:35:583",
+    "seat_id": "A011",
+    "user_id": "T053021350"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 10:11:58:490",
+    "seat_id": "A012",
+    "user_id": "B053031200"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A013",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A014",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A015",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A016",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A017",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 09:15:53:840",
+    "seat_id": "A018",
+    "user_id": "B036050230"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 08:38:26:850",
+    "seat_id": "A019",
+    "user_id": "R055240021"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 09:24:05:500",
+    "seat_id": "A020",
+    "user_id": "F0227776878"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A021",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A022",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A023",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A024",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A025",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A026",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:35:08:940",
+    "seat_id": "A027",
+    "user_id": "I0200164246"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A028",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A029",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:24:37:510",
+    "seat_id": "A030",
+    "user_id": "H0223422835"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A031",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:40:14:650",
+    "seat_id": "A032",
+    "user_id": "B057021110"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A033",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A034",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A035",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 09:54:23:323",
+    "seat_id": "A036",
+    "user_id": "B035020411"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 09:03:45:497",
+    "seat_id": "A037",
+    "user_id": "H0224158898"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A038",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 09:04:42:480",
+    "seat_id": "A039",
+    "user_id": "R055217130"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 12:02:27:697",
+    "seat_id": "A040",
+    "user_id": "B025070220"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:42:06:537",
+    "seat_id": "A041",
+    "user_id": "B045040561"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A042",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A043",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A044",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A045",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A046",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A047",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A048",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A049",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A050",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A051",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 09:40:31:633",
+    "seat_id": "A052",
+    "user_id": "B054010090"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A053",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A054",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A055",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A056",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A057",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 10:35:11:453",
+    "seat_id": "A058",
+    "user_id": "B022070292"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 09:06:12:080",
+    "seat_id": "A059",
+    "user_id": "B026060081"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 08:06:49:567",
+    "seat_id": "A060",
+    "user_id": "S0222194401"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A061",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A062",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:35:01:050",
+    "seat_id": "A063",
+    "user_id": "B057020570"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A064",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 08:33:07:307",
+    "seat_id": "A065",
+    "user_id": "G0122153383"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A066",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A067",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 09:32:38:790",
+    "seat_id": "A068",
+    "user_id": "S0123577948"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 12:03:22:027",
+    "seat_id": "A069",
+    "user_id": "R059210510"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:01:39:020",
+    "seat_id": "A070",
+    "user_id": "B045020670"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A071",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:17:50:080",
+    "seat_id": "A072",
+    "user_id": "B025070470"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A073",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A074",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:38:00:460",
+    "seat_id": "A075",
+    "user_id": "B029011651"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A076",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 09:49:24:410",
+    "seat_id": "A077",
+    "user_id": "B004040320"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A078",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A079",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:15:23:200",
+    "seat_id": "A080",
+    "user_id": "A057242140"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 09:53:25:047",
+    "seat_id": "A081",
+    "user_id": "B025040401"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:20:56:527",
+    "seat_id": "A082",
+    "user_id": "R053230330"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:56:35:810",
+    "seat_id": "A083",
+    "user_id": "B045010640"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 08:01:31:537",
+    "seat_id": "A084",
+    "user_id": "X0120451280"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A085",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A086",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A087",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A088",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A089",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A090",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:32:25:950",
+    "seat_id": "A091",
+    "user_id": "B057020990"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A092",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A093",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A094",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:37:19:410",
+    "seat_id": "A095",
+    "user_id": "B057020620"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A096",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A097",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:18:31:143",
+    "seat_id": "A098",
+    "user_id": "B025010033"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 09:13:06:773",
+    "seat_id": "A099",
+    "user_id": "R059410020"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 10:47:10:827",
+    "seat_id": "A100",
+    "user_id": "B055070420"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A101",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A102",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A103",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A104",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:09:18:130",
+    "seat_id": "A105",
+    "user_id": "B015040832"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A106",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A107",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A108",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A109",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:01:27:710",
+    "seat_id": "A110",
+    "user_id": "B025021650"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A111",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:41:33:397",
+    "seat_id": "A112",
+    "user_id": "T051021150"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A113",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A114",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:05:57:483",
+    "seat_id": "A115",
+    "user_id": "T052031030"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A116",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A117",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A118",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A119",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A120",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A121",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:18:48:080",
+    "seat_id": "A122",
+    "user_id": "R052231600"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A123",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 10:32:24:867",
+    "seat_id": "A124",
+    "user_id": "B055020030"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A125",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:21:38:870",
+    "seat_id": "A126",
+    "user_id": "B059020010"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A127",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A128",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A129",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 10:18:19:923",
+    "seat_id": "A130",
+    "user_id": "B045020070"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:11:07:410",
+    "seat_id": "A131",
+    "user_id": "A053222080"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A132",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A133",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:38:41:367",
+    "seat_id": "A134",
+    "user_id": "D055410070"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A135",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A136",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:14:38:163",
+    "seat_id": "A137",
+    "user_id": "B015070600"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A138",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A139",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:46:48:857",
+    "seat_id": "A140",
+    "user_id": "B011010131"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A141",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:45:27:627",
+    "seat_id": "A142",
+    "user_id": "B015021620"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:20:24:850",
+    "seat_id": "A143",
+    "user_id": "T051011050"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A144",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A145",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:08:59:270",
+    "seat_id": "A146",
+    "user_id": "B057050150"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A147",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A148",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:39:19:083",
+    "seat_id": "A149",
+    "user_id": "R055223050"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A150",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A151",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 11:13:53:227",
+    "seat_id": "A152",
+    "user_id": "B045021210"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:03:19:277",
+    "seat_id": "A153",
+    "user_id": "R05B430210"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A154",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:45:35:980",
+    "seat_id": "A155",
+    "user_id": "R021210100"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A156",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A157",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A158",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:13:25:163",
+    "seat_id": "A159",
+    "user_id": "B033050360"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A160",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:30:31:457",
+    "seat_id": "A161",
+    "user_id": "H0124219036"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A162",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A163",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A164",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A165",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A166",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:19:33:957",
+    "seat_id": "A167",
+    "user_id": "B044010610"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:17:38:047",
+    "seat_id": "A168",
+    "user_id": "B048010330"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A169",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A170",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 08:52:00:027",
+    "seat_id": "A171",
+    "user_id": "B022070271"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:51:49:493",
+    "seat_id": "A172",
+    "user_id": "B039010450"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:56:56:543",
+    "seat_id": "A173",
+    "user_id": "B044010270"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:14:00:443",
+    "seat_id": "A174",
+    "user_id": "B038010460"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A175",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A176",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A177",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A178",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:48:42:633",
+    "seat_id": "A179",
+    "user_id": "A051251010"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A180",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:38:09:350",
+    "seat_id": "A181",
+    "user_id": "B025040541"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A182",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A183",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A184",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:08:32:227",
+    "seat_id": "A185",
+    "user_id": "A0128283231"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A186",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A187",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A188",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A189",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A190",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:18:49:470",
+    "seat_id": "A191",
+    "user_id": "B029010950"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:57:20:357",
+    "seat_id": "A192",
+    "user_id": "R055223080"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A193",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A194",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 09:05:36:157",
+    "seat_id": "A195",
+    "user_id": "R049421191"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A196",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:57:49:043",
+    "seat_id": "A197",
+    "user_id": "T053032020"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A198",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A199",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:05:01:640",
+    "seat_id": "A200",
+    "user_id": "D0122540749"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 10:37:02:847",
+    "seat_id": "A201",
+    "user_id": "B044060350"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 10:37:51:163",
+    "seat_id": "A202",
+    "user_id": "B047011320"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A203",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:05:45:280",
+    "seat_id": "A204",
+    "user_id": "B044010411"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A205",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 12:04:30:137",
+    "seat_id": "A206",
+    "user_id": "B011090013"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A207",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A208",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:37:05:007",
+    "seat_id": "A209",
+    "user_id": "G0222097748"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A210",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A211",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 09:01:21:050",
+    "seat_id": "A212",
+    "user_id": "B015021710"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 09:53:15:077",
+    "seat_id": "A213",
+    "user_id": "R047250220"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A214",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:48:04:883",
+    "seat_id": "A215",
+    "user_id": "B054011300"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 10:02:56:930",
+    "seat_id": "A216",
+    "user_id": "R052231780"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A217",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A218",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:56:04:920",
+    "seat_id": "A219",
+    "user_id": "B00A012612"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:55:56:450",
+    "seat_id": "A220",
+    "user_id": "B02A012421"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 08:12:35:990",
+    "seat_id": "A221",
+    "user_id": "B057050220"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 12:17:21:030",
+    "seat_id": "A222",
+    "user_id": "SS0000748"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A223",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A224",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:44:16:227",
+    "seat_id": "A231",
+    "user_id": "B036130430"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A232",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 08:20:32:210",
+    "seat_id": "A233",
+    "user_id": "B013031331"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A234",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A235",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A236",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 09:51:32:510",
+    "seat_id": "A237",
+    "user_id": "B025020050"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A238",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:34:06:270",
+    "seat_id": "A239",
+    "user_id": "R057490550"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 08:37:17:910",
+    "seat_id": "A240",
+    "user_id": "N0123019107"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A241",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A242",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A243",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A244",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:34:28:200",
+    "seat_id": "A245",
+    "user_id": "M0121932491"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:21:00:307",
+    "seat_id": "A246",
+    "user_id": "D00B480040"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A247",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A248",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 09:53:44:953",
+    "seat_id": "A249",
+    "user_id": "B025070380"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A250",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:48:49:597",
+    "seat_id": "A251",
+    "user_id": "Q2122517115"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 08:57:29:187",
+    "seat_id": "A252",
+    "user_id": "A0225844298"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A253",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 08:53:46:407",
+    "seat_id": "A254",
+    "user_id": "R02B460200"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:21:18:307",
+    "seat_id": "A255",
+    "user_id": "B054090060"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A256",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 09:50:35:163",
+    "seat_id": "A257",
+    "user_id": "R0124211242"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A258",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A259",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 09:52:03:950",
+    "seat_id": "A260",
+    "user_id": "B012020444"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A261",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A262",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:38:49:243",
+    "seat_id": "A263",
+    "user_id": "B036100391"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:16:46:513",
+    "seat_id": "A264",
+    "user_id": "A0126031033"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A265",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:13:07:710",
+    "seat_id": "A266",
+    "user_id": "H0123719377"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 12:12:53:990",
+    "seat_id": "A267",
+    "user_id": "B023030643"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A268",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A269",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 09:56:36:450",
+    "seat_id": "A270",
+    "user_id": "R046270130"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 11:50:01:880",
+    "seat_id": "A271",
+    "user_id": "R043230310"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A272",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 09:18:23:237",
+    "seat_id": "A273",
+    "user_id": "B048010081"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A274",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:41:47:130",
+    "seat_id": "A275",
+    "user_id": "B012090241"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 09:16:18:357",
+    "seat_id": "A276",
+    "user_id": "B015040414"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A277",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A278",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:10:04:993",
+    "seat_id": "A279",
+    "user_id": "FC002842308"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A280",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 10:33:16:697",
+    "seat_id": "A281",
+    "user_id": "B054010420"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 08:18:45:130",
+    "seat_id": "A282",
+    "user_id": "B021020600"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A283",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A284",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A285",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A286",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A287",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A288",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A289",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A290",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A291",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A292",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A293",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A294",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A295",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A296",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A297",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A298",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A299",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "A300",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B001",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B002",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:57:36:770",
+    "seat_id": "B003",
+    "user_id": "B015040921"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B004",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B005",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B006",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B007",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B008",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B009",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:21:13:213",
+    "seat_id": "B010",
+    "user_id": "B055011120"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:17:08:810",
+    "seat_id": "B011",
+    "user_id": "B057020050"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B012",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B013",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B014",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B015",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B016",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B017",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B018",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B019",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:09:48:983",
+    "seat_id": "B020",
+    "user_id": "B023050030"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B021",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B022",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B023",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B024",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B025",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B026",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B027",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B028",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B029",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B030",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B031",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B032",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B033",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B034",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B035",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B036",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B037",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B038",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B039",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B040",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B041",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B042",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B043",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B044",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B045",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B046",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B047",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:55:29:203",
+    "seat_id": "B048",
+    "user_id": "B035070570"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B049",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:56:31:043",
+    "seat_id": "B050",
+    "user_id": "B05B010450"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B051",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:14:19:150",
+    "seat_id": "B052",
+    "user_id": "B059011430"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B053",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B054",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B055",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B056",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 11:22:55:170",
+    "seat_id": "B057",
+    "user_id": "L0122495898"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B058",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:15:55:917",
+    "seat_id": "B059",
+    "user_id": "B05B010530"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B060",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B061",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B062",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B063",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B064",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B065",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:47:58:743",
+    "seat_id": "B066",
+    "user_id": "B057020690"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B067",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B068",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B069",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B070",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:41:33:007",
+    "seat_id": "B071",
+    "user_id": "B044010790"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B072",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B073",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B074",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B075",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B076",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B077",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B078",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:31:59:723",
+    "seat_id": "B079",
+    "user_id": "B057020500"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B080",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B081",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B082",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B083",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B084",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 09:20:53:913",
+    "seat_id": "B085",
+    "user_id": "R039420911"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B086",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B087",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B088",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B089",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B090",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B091",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B092",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B093",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B094",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 09:13:44:100",
+    "seat_id": "B095",
+    "user_id": "A0229205180"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B096",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B097",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B098",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B099",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B100",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B101",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B102",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B103",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B104",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B105",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B106",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B107",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B108",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B109",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B110",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B111",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B112",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B113",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B114",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B115",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B116",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B117",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B118",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B119",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B120",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B121",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B122",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B123",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B124",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B125",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B126",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B127",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B128",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B129",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B130",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B131",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B132",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:18:57:923",
+    "seat_id": "B133",
+    "user_id": "B039010780"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B134",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B135",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B136",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B137",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B138",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B139",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B140",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B141",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B142",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B143",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B144",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B145",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:04:55:717",
+    "seat_id": "B146",
+    "user_id": "B033030900"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B147",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B148",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B149",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B150",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B151",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B152",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B153",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B154",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B155",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B156",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B157",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B158",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:23:32:267",
+    "seat_id": "B159",
+    "user_id": "B022010040"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:43:04:363",
+    "seat_id": "B160",
+    "user_id": "B015070491"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B161",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B162",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B163",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B164",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:09:35:430",
+    "seat_id": "B165",
+    "user_id": "B051060270"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B166",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B167",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B168",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B169",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B170",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B171",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B172",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B173",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B174",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B175",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B176",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B177",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B178",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B179",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "B180",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:37:07:020",
+    "seat_id": "C001",
+    "user_id": "A0227837906"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C002",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C003",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C004",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C005",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C006",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 10:34:33:780",
+    "seat_id": "C007",
+    "user_id": "B045040830"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C008",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 09:28:25:827",
+    "seat_id": "C009",
+    "user_id": "B045041110"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C010",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C011",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:21:47:840",
+    "seat_id": "C012",
+    "user_id": "B012040371"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C013",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C014",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:56:15:810",
+    "seat_id": "C015",
+    "user_id": "T054011020"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C016",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C017",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 08:54:56:490",
+    "seat_id": "C018",
+    "user_id": "F0127504129"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C019",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C020",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C021",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C022",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C023",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:04:20:370",
+    "seat_id": "C024",
+    "user_id": "B05B010390"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C025",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C026",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C027",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C028",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C029",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C030",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C031",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C032",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C033",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:35:42:300",
+    "seat_id": "C034",
+    "user_id": "B053031181"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C035",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C036",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C037",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C038",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:36:39:753",
+    "seat_id": "C039",
+    "user_id": "B035050460"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C040",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C041",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C042",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C043",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C044",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C045",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C046",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C047",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C048",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C049",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C050",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C051",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C052",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C053",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C054",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C055",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C056",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C057",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C058",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C059",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C060",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C061",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C062",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C063",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C064",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C065",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C066",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C067",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C068",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C069",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C070",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C071",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C072",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C073",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C074",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C075",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C076",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C077",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C078",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C079",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C080",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C081",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C082",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 10:14:33:383",
+    "seat_id": "C083",
+    "user_id": "B057040770"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C084",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C085",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C086",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 12:11:52:960",
+    "seat_id": "C087",
+    "user_id": "B049020720"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C088",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C089",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C090",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C091",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C092",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C093",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C094",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C095",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C096",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C097",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C098",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C099",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C100",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C101",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C102",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C103",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C104",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C105",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C106",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C107",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C108",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C109",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C110",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C111",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C112",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C113",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C114",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C115",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C116",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C117",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C118",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C119",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 11:51:25:430",
+    "seat_id": "C120",
+    "user_id": "B015021284"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C121",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C122",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C123",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C124",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C125",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C126",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C127",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C128",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C129",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C130",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C131",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C132",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C133",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C134",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C135",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C136",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C137",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C138",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C139",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C140",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C141",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C142",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C143",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C144",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C145",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C146",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:04:21:620",
+    "seat_id": "C147",
+    "user_id": "B021070380"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C148",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C149",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C150",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C151",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "65",
+    "status": "2",
+    "start_time": "2016\/10\/25 10:27:27:780",
+    "seat_id": "C152",
+    "user_id": "B045070541"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C153",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C154",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C155",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C156",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C157",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C158",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C159",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C160",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C161",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C162",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C163",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C164",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C165",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C166",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C167",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C168",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C169",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C170",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C171",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C172",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C173",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C174",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C175",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C176",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C177",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C178",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C179",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C180",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C181",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C182",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C183",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C184",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C185",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C186",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C187",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C188",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C189",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C190",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C191",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C192",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C193",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C194",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C195",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C196",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C197",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:01:29:007",
+    "seat_id": "C198",
+    "user_id": "N1200157871"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C199",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C200",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C201",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C202",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C203",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C204",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C205",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C206",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C207",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C208",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C209",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C210",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C211",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C212",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C213",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C214",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C215",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C216",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C217",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C218",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C219",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C220",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C221",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C222",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C223",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C224",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C225",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C226",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C227",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C228",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C229",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C230",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C231",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C232",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C233",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C234",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C235",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C236",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C237",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C238",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C239",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C240",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C241",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C242",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C243",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C244",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C245",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C246",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C247",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C248",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C249",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C250",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C251",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C252",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C253",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C254",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C255",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C256",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 12:21:03:777",
+    "seat_id": "C257",
+    "user_id": "B043030760"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C258",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C259",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C260",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C261",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C262",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C263",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C264",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C265",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C266",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C267",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C268",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "1",
+    "start_time": "2016\/10\/25 15:37:32:113",
+    "seat_id": "C269",
+    "user_id": "R045240600"
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C270",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C271",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C272",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C273",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C274",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C275",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C276",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C277",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C278",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C279",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C280",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C281",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C282",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C283",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C284",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C285",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C286",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C287",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C288",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C289",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C290",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C291",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C292",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C293",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C294",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C295",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C296",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C297",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C298",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C299",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C300",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C301",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C302",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C303",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C304",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C305",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C306",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C307",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C308",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C309",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C310",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C311",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C312",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C313",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C314",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C315",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C316",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C317",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C318",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C319",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C320",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C321",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C322",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C323",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C324",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C325",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C326",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C327",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C328",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C329",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C330",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C331",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C332",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C333",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C334",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C335",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C336",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C337",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C338",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C339",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C340",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C341",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C342",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C343",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C344",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C345",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C346",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C347",
+    "user_id": ""
+}, {
+    "tmp_exit_time": "",
+    "keep_time": "0",
+    "status": "0",
+    "start_time": "",
+    "seat_id": "C348",
+    "user_id": ""
+}]
+

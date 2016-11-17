@@ -22,31 +22,3 @@ new Vue({
   store,
   render: h => h(App)
 })
-
-
-/**
- * graphql client with vuex sync
- */
-import gql from 'graphql-tag'
-import apolloClient from './apolloClient'
-import { updateSeats } from './store/actions'
-
-apolloClient.watchQuery({
-	query: gql`
-		{
-			all_seats {
-				seat_id
-				status
-			}
-		}
-	`,
-	pollInterval: 300, // ms
-}).subscribe({
-	next ({ data }) {
-		updateSeats(store, data.all_seats)
-	},
-	error (err) {
-		console.error(err)
-	}
-})
-

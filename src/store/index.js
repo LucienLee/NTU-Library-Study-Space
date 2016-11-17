@@ -4,7 +4,6 @@ import * as actions from './actions'
 import * as mutations from './mutations'
 import * as getters from './getters'
 import filters from './modules/filters'
-import seats from './modules/seats'
 import register from './modules/register'
 import list from './modules/list'
 import history from './modules/history'
@@ -14,14 +13,19 @@ Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
 
+const state = {
+	seats: {},
+	resetMapToInitState: false
+}
+
 export default new Vuex.Store({
+	state,
 	actions,
 	getters,
 	mutations,
 	modules: {
 		filters,
 		register,
-		seats,
 		list,
 		history,
 	},

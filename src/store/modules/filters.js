@@ -1,15 +1,16 @@
-// import * as types from '../mutation-types'
+import _ from 'lodash'
+import ranges from '../../utils/seat-range.js'
 
-const initialStateFactory = () => ({
+const seatFilterConfig = require('../../seat-config.json')
+
+const initialUIStateFactory = () => ({
 	laptop: {
 		laptopAllow: false,
 		laptopForbidden: false,
 	},
 	table: {
-		seatCount: {
-			seats4: false,
-			seats6: false,
-		},
+		seats4: false,
+		seats6: false,
 		partition: false,
 	},
 	near: {
@@ -24,13 +25,66 @@ const initialStateFactory = () => ({
 	},
 })
 
+// Create seat factory singleton
+const seatsFactory = (function(){
+	const seatsArray = []
+	const seatsObject = {}
+
+	for ( let area in ranges ) {
+		let range = ranges[area]
+		for (let section = 0; section < range.length/2; section++ ) {
+			let start = section * 2
+			let end = start + 1
+			for ( let i = range[start]; i <= range[end]; i++ ) {
+				seatsArray.push( `${area}${`00${i}`.slice(-3)}` )
+				seatsObject[`${area}${`00${i}`.slice(-3)}`] = false
+			}
+		}
+	}
+
+	return {
+		getSeats (type = 'array') {
+			if ( type === 'array' ) return seatsArray
+			else if (type === 'object') return seatsObject
+		}
+	}
+
+})()
+
+const getters = {
+	seatsToShowAfterFilter (state) {
+		let collection = [seatsFactory.getSeats()]
+		let seats = _.clone( seatsFactory.getSeats('object') )
+
+		for ( let category in state ) {
+			for ( let prop in state[category] ) {
+				if ( state[category][prop] === true ) {
+					collection.push(seatFilterConfig[category][prop])
+				}
+			}
+		}
+
+		Object.keys(seats).forEach(function (key) {
+			seats[key] = false
+		})
+
+		_.intersection(...collection).forEach((key) => {
+			seats[key] = true
+		})
+
+		return seats
+	}
+}
+
 // mutations
 const mutations = {
 	UPDATE_LAPTOP (state, val) {
 		state.laptop = val
 	},
 	UPDATE_TABLE_SEATCOUNT (state, val) {
-		state.table.seatCount = val
+		for (let prop in val) {
+			state.table[prop] = val[prop]
+		}
 	},
 	UPDATE_TABLE_PARTITION (state, val) {
 		state.table.partition = val
@@ -52,11 +106,10 @@ const mutations = {
 	},
 	CLEAR_FILTER (state) {
 		// https://github.com/vuejs/vuex/issues/82
-		const is = initialStateFactory()
-		state.laptop = is.laptop
-		state.away = is.away
-		state.near = is.near
-		state.table = is.table
+		const is = initialUIStateFactory()
+		for (let prop in is) {
+			state[prop] = is[prop]
+		}
 	},
 }
 
@@ -99,9 +152,10 @@ const actions = {
 	},
 }
 
-const state = initialStateFactory()
+const state = initialUIStateFactory()
 export default {
 	state,
+	getters,
 	mutations,
 	actions,
 }

@@ -3,13 +3,18 @@
 	panel(:headerTitle="title")
 		div(slot="panel-body")
 			text-field(
-				v-for="field in fields",
-				:id="field.id",
-				:placeholder="field.placeholder",
-				:pattern="field.pattern",
-				v-model="field.value",
+				id="studentID",
+				:placeholder="fields.studentID.placeholder",
+				:pattern="fields.studentID.pattern",
+				v-model="studentIDValue",
 				@validate="onValidate")
-			seat-history(@historySeatConfirm="onHistorySeatConfirm")
+			text-field(
+				id="seatID",
+				:placeholder="fields.seatID.placeholder",
+				:pattern="fields.seatID.pattern",
+				v-model="seatIDValue",
+				@validate="onValidate")
+			seat-history
 </template>
 
 <script>
@@ -35,10 +40,8 @@ export default {
 			zh: '登記你的自習座位',
 			en: 'Register your Seat',
 		},
-		fields: [
-			{
-				id: 'studentID',
-				value: '',
+		fields: {
+			studentID: {
 				pattern: /[a-zA-Z]+\d{9}$/,
 				validated: false,
 				placeholder: {
@@ -46,35 +49,42 @@ export default {
 					en: 'Scan student card to enter ID'
 				}
 			},
-			{
-				id: 'seatNumber',
-				value: '',
+			seatID: {
 				pattern: /[A-C]+\d{3}$/,
 				validated: false,
 				placeholder: {
 					zh: '點選地圖來選擇座位',
 					en: 'Select seat from the map'
 				}
-			}
-		]
+			},
+		},
 	}),
 	computed: {
+		...mapGetters({
+			doneCheckIn: 'doneRequest',
+		}),
 		...mapState({
 			loading: state => state.register.loading,
 			error: state => state.register.error,
 			result: state => state.register.result,
 			checkUserError: state => state.register.user.error,
 		}),
-		...mapGetters({
-			doneCheckIn: 'doneRequest',
-		}),
+		seatIDValue: {
+			get () { return this.$store.state.register.inputFields.seatIDValue },
+			set (value) { this.updateRegisterInputValue({ key: 'seatIDValue', value }) },
+		},
+		studentIDValue: {
+			get () { return this.$store.state.register.inputFields.studentIDValue },
+			set (value) { this.updateRegisterInputValue({ key: 'studentIDValue', value }) },
+		},
+
 		readyToCheckIn () {
 			return _.reduce(this.fields, (result, item) => {
 				return result && item.validated
 			}, true)
 		},
 		readyToCheckUser () {
-			return this.fields[0].validated
+			return this.fields.studentID.validated
 		},
 	},
 	methods: {
@@ -83,26 +93,23 @@ export default {
 			'checkOut',
 			'resetRegister',
 			'checkUser',
+			'updateRegisterInputValue',
 		]),
 		onValidate (id, validated) {
-			const index = _.findIndex(this.fields, { id })
-			this.fields[index].validated = validated
-		},
-		onHistorySeatConfirm (seatID) {
-			this.fields[1].value = seatID
+			this.fields[id].validated = validated
 		},
 	},
 	watch: {
 		readyToCheckIn (val) {
 			if(!val) return
-			this.checkIn({ user_id: this.fields[0].value, seat_id: this.fields[1].value })
+			this.checkIn({ user_id: this.studentIDValue, seat_id: this.seatIDValue })
 		},
 		readyToCheckUser (newVal, oldVal) {
 			if (!newVal && oldVal) {
 				return this.resetRegister()
 			}
-			if (newVal && !this.fields[1].validated) {
-				return this.checkUser({ user_id: this.fields[0].value })
+			if (newVal && !this.fields.seatID.validated) {
+				return this.checkUser({ user_id: this.studentIDValue })
 			}
 		},
 		doneCheckIn (val) {
@@ -118,16 +125,16 @@ export default {
 			this.$modal({
 				type: type,
 				message: {
-					studentID: this.fields[0].value,
-					seatID: this.fields[1].value,
+					studentID: this.studentIDValue,
+					seatID: this.seatIDValue,
 					zh: this.error.message,
 					en: this.error.message_en
 				},
 				timer: modalShowTime
 			})
 			.then(() => {
-				this.fields[0].value = ''
-				this.fields[1].value = ''
+				this.studentIDValue = ''
+				this.seatIDValue = ''
 
 				// no need to call reset here since resetting TextField.value will trigger reset automatically
 				// this.resetRegister()
@@ -138,15 +145,15 @@ export default {
 				this.$modal({
 					type: 'failure',
 					message: {
-						studentID: this.fields[0].value,
+						studentID: this.studentIDValue,
 						zh: this.checkUserError.message,
 						en: this.checkUserError.message_en
 					},
 					timer: modalShowTime
 				})
 				.then(() => {
-					this.fields[0].value = ''
-					this.fields[1].value = ''
+					this.studentIDValue = ''
+					this.seatIDValue = ''
 				})
 			}
 		},
@@ -156,8 +163,14 @@ export default {
 
 <style lang="sass">
 @import '../sass/variables'
+@import "../sass/mixin"
 
 .SeatRegister
 	width: ($panel-width/$max-width)*100vw
 	min-width: 300px
+	font-size: $font-size-regular
+	+mq(widescreen)
+		font-size: $font-size-small
+	margin-top: 2.5em
+	margin-bottom: 4em
 </style>

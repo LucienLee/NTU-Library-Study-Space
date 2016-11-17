@@ -1,19 +1,7 @@
 // import _ from 'lodash'
-import apolloClient from '../../apolloClient'
 import gql from 'graphql-tag'
-
-function mapStatusToState(status) {
-	switch (status) {
-		case '0':
-			return 'empty'
-		case '1':
-			return 'used'
-		case '2':
-			return 'left'
-		default:
-			return 'error'
-	}
-}
+import apolloClient from '../../apolloClient'
+import { mapStatusToState } from '../../utils/seat-status'
 
 const queryStudentHistory = gql`
 query StudentHistory($student_id: String!){

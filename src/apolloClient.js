@@ -1,4 +1,4 @@
-import ApolloClient, { createNetworkInterface, addTypename } from 'apollo-client'
+import ApolloClient, { createNetworkInterface } from 'apollo-client'
 
 const uri = process.env.DEV_SERVER ? 'http://localhost:3000/graphql' : 'http://140.112.113.10/graphql'
 
@@ -8,7 +8,7 @@ const apolloClient = new ApolloClient({
 		uri,
 		transportBatching: true,
 	}),
-	queryTransformer: addTypename,
+	// queryTransformer: addTypename,
 })
 
 export default apolloClient
