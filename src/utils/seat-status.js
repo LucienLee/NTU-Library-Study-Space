@@ -7,6 +7,7 @@ export function mapStatusToState(status) {
 		case '2':
 			return 'left'
 		case '-1':
+		case '-2':
 			return 'banned'
 		default:
 			return 'error'
