@@ -35,7 +35,7 @@ class LibAPIConnector {
 		this.getSeatInfo()
 			.then(() => {
 				this.diffSeatsArray()
-				setTimeout(this.invalidate.bind(this), 1000)
+				setTimeout(this.invalidate.bind(this), 5000)
 			})
 	}
 
