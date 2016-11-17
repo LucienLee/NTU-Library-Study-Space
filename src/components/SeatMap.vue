@@ -1,6 +1,7 @@
 <template lang="jade">
 .SeatMap
 	img.SeatMap__map(src="/static/map-compressed.svg")
+	SeatLegend(:x="mapBox.x * mapBox.scaleFactor", :width="mapBox.width * mapBox.scaleFactor")
 </template>
 
 <script>
@@ -9,6 +10,7 @@ import * as d3 from 'd3'
 
 import SVGInjector from 'svg-injector'
 import _ from 'lodash'
+import SeatLegend from './SeatLegend.vue'
 import {
 	mapActions,
 	mapGetters,
@@ -165,6 +167,9 @@ export default {
 				y: 0
 			}
 		}
+	},
+	components: {
+		SeatLegend
 	},
 	computed: {
 		...mapGetters([ 'seatsToShowAfterFilter' ]),
@@ -461,5 +466,4 @@ export default {
 	.SeatMap__table,
 	.SeatMap__seat--empty
 		cursor: move
-
 </style>
