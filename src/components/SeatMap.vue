@@ -1,6 +1,6 @@
 <template lang="jade">
 .SeatMap
-	img.SeatMap__map(src="/static/map-compressed.svg")
+	img.SeatMap__map(src="../assets/images/map.svg")
 	SeatLegend(:x="mapBox.x * mapBox.scaleFactor", :width="mapBox.width * mapBox.scaleFactor")
 </template>
 
