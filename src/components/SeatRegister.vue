@@ -1,7 +1,7 @@
 <template lang="jade">
 .SeatRegister
 	panel(:headerTitle="title")
-		div(slot="panel-body")
+		.SeatRegister__fields(slot="panel-body")
 			text-field(
 				id="studentID",
 				:placeholder="fields.studentID.placeholder",
@@ -17,6 +17,8 @@
 				v-model="seatIDValue",
 				@validate="onValidate")
 			seat-history
+			transition(name="fade")
+				.SeatRegister__loading(v-show="loading"): spinner
 </template>
 
 <script>
@@ -26,6 +28,7 @@ import { mapActions, mapState, mapGetters } from 'vuex'
 import Panel from './Panel'
 import TextField from './TextField'
 import Divider from './Divider'
+import Spinner from './Spinner'
 import SeatHistory from './SeatHistory'
 
 const modalShowTime = 5
@@ -35,6 +38,7 @@ export default {
 		Panel,
 		TextField,
 		Divider,
+		Spinner,
 		SeatHistory
 	},
 	data: () => ({
@@ -61,7 +65,7 @@ export default {
 					en: 'Select seat from the map'
 				}
 			},
-		},
+		}
 	}),
 	computed: {
 		...mapGetters({
@@ -177,4 +181,11 @@ export default {
 		font-size: $font-size-small
 	margin-top: 2.5em
 	margin-bottom: 4em
+
+.SeatRegister__fields
+	position: relative // for position spinner
+
+.SeatRegister__loading
+	+stretch
+	background: rgba(#fff, 0.84)
 </style>

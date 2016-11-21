@@ -73,3 +73,21 @@
 	20%, 40%, 60%, 80%
 		transform: translate3d(5px, 0, 0)
 
+
+@keyframes rotate
+	100%
+		transform: rotate(360deg)
+
+$PI: 3.1416
+$length: 0.45
+$offset: $length * 2 - 0.01
+@keyframes circle-dash
+	0%
+		stroke-dasharray: percentage(0.01 * $PI) percentage($PI)
+		stroke-dashoffset: 0%
+	50%
+		stroke-dasharray: percentage($length * $PI), percentage($PI)
+		stroke-dashoffset: percentage( -$length * $PI)
+	100%
+		stroke-dasharray: percentage($length * $PI), percentage($PI)
+		stroke-dashoffset: percentage( -$offset * $PI)
