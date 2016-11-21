@@ -135,8 +135,8 @@ export default {
 
 <style lang="sass">
 @import '../sass/variables'
-@import '../sass/mixin'
-@import '../sass/transition'
+@import '../sass/mixins'
+@import '../sass/transitions'
 
 $modal-width: 480px
 $modal-min-width: 360px

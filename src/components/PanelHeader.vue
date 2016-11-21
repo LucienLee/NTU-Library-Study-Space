@@ -25,7 +25,7 @@ export default {
 
 <style lang="sass">
 @import '../sass/variables'
-@import '../sass/mixin'
+@import '../sass/mixins'
 
 .PanelHeader__inner
 	padding: $panel-leading percentage($panel-padding/$panel-width)

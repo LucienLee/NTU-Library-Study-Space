@@ -57,7 +57,7 @@ export default {
 
 <style lang="sass">
 @import '../sass/variables'
-@import '../sass/mixin'
+@import '../sass/mixins'
 
 $primary-color: #FFA55C
 $background-color: #FFF5EB

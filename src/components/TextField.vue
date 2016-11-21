@@ -68,9 +68,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "../sass/variables"
-@import "../sass/mixin"
-@import "../sass/transition"
+@import '../sass/variables'
+@import '../sass/mixins'
+@import '../sass/transitions'
 
 $font-size-billboard: 42px
 $font-size-billboard-shrinked: 32px

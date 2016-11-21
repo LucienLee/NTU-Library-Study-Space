@@ -143,7 +143,7 @@ export default {
 </script>
 <style lang="sass">
 @import '../sass/variables'
-@import '../sass/mixin'
+@import '../sass/mixins'
 
 .SeatHistory,
 .SeatHistory__inner

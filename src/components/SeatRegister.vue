@@ -171,7 +171,7 @@ export default {
 
 <style lang="sass">
 @import '../sass/variables'
-@import "../sass/mixin"
+@import '../sass/mixins'
 
 .SeatRegister
 	width: ($panel-width/$max-width)*100vw

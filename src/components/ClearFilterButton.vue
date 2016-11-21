@@ -19,7 +19,7 @@ export default {
 
 <style lang="sass">
 @import '../sass/variables'
-@import '../sass/mixin'
+@import '../sass/mixins'
 
 .ClearFilterButton
 	width: 100%

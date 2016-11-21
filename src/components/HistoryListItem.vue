@@ -80,7 +80,7 @@ export default {
 
 <style lang="sass">
 @import '../sass/variables'
-@import '../sass/mixin'
+@import '../sass/mixins'
 
 $item-height: 52px
 $icon-size: 32px

@@ -26,7 +26,7 @@ export default {
 
 <style lang="sass">
 @import '../sass/variables'
-@import "../sass/mixin"
+@import '../sass/mixins'
 
 $leading: $panel-leading + 2px
 

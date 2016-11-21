@@ -20,8 +20,8 @@ export default {
 </script>
 
 <style lang="sass">
-@import "../sass/variables"
-@import "../sass/mixin"
+@import '../sass/variables'
+@import '../sass/mixins'
 
 $legned-width: 900px
 $legend-height: 120px
