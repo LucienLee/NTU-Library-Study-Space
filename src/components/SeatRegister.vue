@@ -6,12 +6,14 @@
 				id="studentID",
 				:placeholder="fields.studentID.placeholder",
 				:pattern="fields.studentID.pattern",
+				:alwaysFocus="fields.studentID.alwaysFocus",
 				v-model="studentIDValue",
 				@validate="onValidate")
 			text-field(
 				id="seatID",
 				:placeholder="fields.seatID.placeholder",
 				:pattern="fields.seatID.pattern",
+				:alwaysFocus="fields.seatID.alwaysFocus",
 				v-model="seatIDValue",
 				@validate="onValidate")
 			seat-history
@@ -44,6 +46,7 @@ export default {
 			studentID: {
 				pattern: /[a-zA-Z]+\d{9}$/,
 				validated: false,
+				alwaysFocus: true,
 				placeholder: {
 					zh: '刷卡輸入學生證號',
 					en: 'Scan student card to enter ID'
@@ -52,6 +55,7 @@ export default {
 			seatID: {
 				pattern: /[A-C]+\d{3}$/,
 				validated: false,
+				alwaysFocus: false,
 				placeholder: {
 					zh: '點選地圖來選擇座位',
 					en: 'Select seat from the map'

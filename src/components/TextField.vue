@@ -1,7 +1,7 @@
 <template lang="jade">
 .TextField
 	.TextField__inner
-		input.TextField__input(type="text", :id="id", :value="value", @input="onInput")
+		input.TextField__input(type="text", :id="id", :value="value", :autofocus="alwaysFocus", @input="onInput", @blur="onBlur")
 		label.TextField__label(:for="id")
 			span.TextField__display {{value}}
 			transition(name="fade")
@@ -23,6 +23,7 @@ export default {
 		id: String,
 		placeholder: Object,
 		value: String,
+		alwaysFocus: Boolean,
 		pattern: RegExp
 	},
 	components: {
@@ -46,6 +47,12 @@ export default {
 	methods: {
 		onInput (event) {
 			this.$emit('input', event.target.value)
+		},
+		onBlur (event) {
+			if (!this.alwaysFocus) return
+			this.$nextTick(()=>{
+				event.target.focus()
+			})
 		},
 		reset () {
 			this.$emit('input', '')
