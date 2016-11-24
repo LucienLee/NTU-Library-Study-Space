@@ -20,6 +20,7 @@ module.exports = {
       'vue': 'vue/dist/vue.common.js',
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
+      'fonts': path.resolve(__dirname, '../src/assets/fonts'),
       'components': path.resolve(__dirname, '../src/components')
     }
   },
