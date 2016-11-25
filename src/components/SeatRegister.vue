@@ -7,7 +7,8 @@
 				:placeholder="fields.studentID.placeholder",
 				:pattern="fields.studentID.pattern",
 				:alwaysFocus="fields.studentID.alwaysFocus",
-				v-model="studentIDValue",
+				:value="studentIDValue"
+				@input="onStudentIDInput"
 				@validate="onValidate")
 			text-field(
 				id="seatID",
@@ -106,6 +107,16 @@ export default {
 		onValidate (id, validated) {
 			this.fields[id].validated = validated
 		},
+		onStudentIDInput (value) {
+			console.log(this.studentIDValue, value)
+			if (value.length - this.studentIDValue.length > 1) {
+				const diff = value.slice(this.studentIDValue.length - value.length)
+				this.studentIDValue = ''
+				this.$nextTick(() => this.studentIDValue = diff)
+			} else {
+				this.studentIDValue = value
+			}
+		}
 	},
 	watch: {
 		readyToCheckIn (val) {
