@@ -1,6 +1,8 @@
 .DS_Store
 node_modules/
 dist/
+desktop/dist/
+release/
 dist-server/
 npm-debug.log
 test/unit/coverage

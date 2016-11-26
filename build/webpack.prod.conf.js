@@ -16,7 +16,12 @@ var webpackConfig = merge(baseWebpackConfig, {
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
-    path: config.build.assetsRoot,
+    path: process.env.RELEASE_TARGET === 'electron'
+    	? config.release.assetsRoot
+    	: config.build.assetsRoot,
+    publicPath: process.env.RELEASE_TARGET === 'electron'
+    	? config.release.assetsPublicPath
+    	: config.build.assetsPublicPath,
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
@@ -45,7 +50,9 @@ var webpackConfig = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: process.env.NODE_ENV === 'testing'
         ? 'index.html'
-        : config.build.index,
+        : process.env.RELEASE_TARGET === 'electron'
+        	? config.release.index
+        	: config.build.index,
       template: 'index.html',
 	  chunks: ['libraryDesktop', 'manifest', 'vendor'],
       inject: true,

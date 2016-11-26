@@ -2,6 +2,12 @@
 var path = require('path')
 
 module.exports = {
+  release: {
+    index: path.resolve(__dirname, '../desktop/dist/index.html'),
+    assetsRoot: path.resolve(__dirname, '../desktop/dist'),
+    assetsSubDirectory: 'static',
+    assetsPublicPath: 'resource://',
+  },
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
@@ -28,5 +34,17 @@ module.exports = {
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false
+  },
+  electron: {
+  	// see https://github.com/electron-userland/electron-packager for documentation.
+  	name: 'Study Space Register',
+  	arch: 'x64',
+	asar: true,
+	dir: path.resolve(__dirname, '../desktop'),
+	icon: path.resolve(__dirname, '../desktop/icons/icon'),
+	ignore: /\b(node_modules|src|index\.ejs|icons)\b/,
+	out: path.resolve(__dirname, '../release'),
+	overwrite: true,
+	platform: process.env.PLATFORM_TARGET || 'all'
   }
 }
