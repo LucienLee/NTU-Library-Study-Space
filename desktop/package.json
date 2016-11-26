@@ -1,0 +1,7 @@
+{
+  "name": "ntu-library-study-space-desktop-app",
+  "version": "1.0.0",
+  "description": "NTU Library Study Space Seat Register",
+  "main": "electron.js",
+  "author": "Lucien Lee <lkiral7903@gmail.com>"
+}
