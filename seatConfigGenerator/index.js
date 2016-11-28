@@ -323,7 +323,7 @@ fs.writeFile('src/seat-config.json', JSON.stringify(toWrite/* , null, 2 */), err
 })
 
 // below are some legacy things to read data.json from @kelly
-// const data = require('./src/data.json')
+// const data = require('./data.json')
 //
 // let laptopAllow = lodash.reduce(data, (res, val, key) => { if (val.laptop.usable) res.push(key); return res; }, [])
 // let laptopForbidden = lodash.reduce(data, (res, val, key) => { if (val.laptop.usable === false) res.push(key); return res; }, [])
