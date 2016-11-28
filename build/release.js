@@ -5,14 +5,15 @@ process.env.RELEASE_TARGET = 'electron'
 const packager = require('electron-packager')
 const path = require('path')
 const ora = require('ora')
+const chalk = require('chalk')
 const webpack = require('webpack')
 const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
 
 const assetsPath = path.join(config.release.assetsRoot, config.release.assetsSubDirectory)
-const spinner = ora('building for desktop production...')
 
 function pack () {
+	const spinner = ora('Packing for desktop production...')
 	spinner.start()
 
 	rm('-rf', assetsPath)
@@ -35,20 +36,21 @@ function pack () {
 }
 
 function build () {
-	let options = config.electron
+	const options = config.electron
+	const spinner = ora('Building electron app(s)...')
+	spinner.start()
 
-	console.log('\x1b[34mBuilding electron app(s)...\n\x1b[0m')
 	packager(options, (err, appPaths) => {
+		spinner.stop()
 		if (err) {
-			console.error('\x1b[31mError from `electron-packager` when building app...\x1b[0m')
+			console.error(chalk.red('Error from `electron-packager` when building app...'))
 			console.error(err)
 		} else {
-			console.log('Build(s) successful!')
-			console.log(appPaths)
-
-			console.log('\n\x1b[34mDONE\n\x1b[0m')
+			console.log(chalk.green('Build(s) successful!'))
+			console.log(`Builded in ${chalk.underline(appPaths)}`)
+			console.log(chalk.blue('DONE'))
 		}
 	})
 }
 
-pack()
+build()
