@@ -31,6 +31,9 @@ import Divider from './Divider'
 import Spinner from './Spinner'
 import SeatHistory from './SeatHistory'
 
+// Import the pattern you want to test in dev enviroment
+import { loose as idPattern } from '../utils/id-pattern.js'
+
 const modalShowTime = 5
 
 export default {
@@ -48,7 +51,7 @@ export default {
 		},
 		fields: {
 			studentID: {
-				pattern: /[a-zA-Z]+\d{9}$/,
+				pattern: idPattern,
 				validated: false,
 				alwaysFocus: true,
 				placeholder: {
