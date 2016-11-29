@@ -29,4 +29,5 @@ export default {
 	background: #FFFFFF
 	box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.18)
 	border-radius: $border-radius
+	transform: translateZ(0) // GPU Acceleration
 </style>

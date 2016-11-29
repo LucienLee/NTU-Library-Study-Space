@@ -150,6 +150,7 @@ export default {
 	position: relative
 	overflow: hidden
 	width: 100%
+	transform: translateZ(0) // GPU Acceleration
 
 .SeatHistory__section
 	width: 100%
