@@ -20,7 +20,7 @@ function pack () {
 	mkdir('-p', assetsPath)
 	cp('-R', 'static/*', assetsPath)
 
-	webpack(webpackConfig, function(err, stats){
+	webpack(webpackConfig, (err, stats) => {
 		spinner.stop()
 		if (err) throw err
 		process.stdout.write(stats.toString({
@@ -47,10 +47,11 @@ function build () {
 			console.error(err)
 		} else {
 			console.log(chalk.green('Build(s) successful!'))
-			console.log(`Builded in ${chalk.underline(appPaths)}`)
+			console.log('App builded in...')
+			console.log(chalk.underline(appPaths.join('\n')))
 			console.log(chalk.blue('DONE'))
 		}
 	})
 }
 
-build()
+pack()
