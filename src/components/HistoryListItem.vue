@@ -5,7 +5,7 @@
 		.HistoryListItem__emptyState(v-if="emptyMessage"): div
 			p.HistoryListItem__emptyMessage.HistoryListItem__emptyMessage--zh {{emptyMessage.zh}}
 			p.HistoryListItem__emptyMessage.HistoryListItem__emptyMessage--en {{emptyMessage.en}}
-		.HistoryListItem__content(v-else, @click="onClick")
+		.HistoryListItem__content(v-else, :class="{'HistoryListItem__content--available': available}", @click="onClick")
 			.HistoryListItem__seatID {{seat.id}}
 			.HistoryListItem__seatState
 				morphing-button(v-if="available", :show="morphing", @click="confirm")
@@ -46,6 +46,10 @@ export default {
 				used: {
 					zh: '使用中',
 					en: 'Occupied'
+				},
+				banned: {
+					zh: '暫停使用',
+					en: 'Not in Service'
 				}
 			}
 		}
@@ -122,11 +126,14 @@ $icon-size: 32px
 	justify-content: space-between
 	background: #FEFCF8
 	height: 100%
-	cursor: pointer
+	cursor: default
 	transition: background $fast $easeIn
 
 	&:hover
 		background: $hover-color
+
+.HistoryListItem__content--available
+	cursor: pointer
 
 .HistoryListItem__seatID
 	color: $text-color-primary
@@ -168,5 +175,6 @@ $icon-size: 32px
 	font-family: $font-family-en
 	font-size: $font-size-small
 	color: $text-color-secondary
+	white-space: nowrap
 
 </style>
