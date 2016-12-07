@@ -25,6 +25,7 @@ export default {
 		placeholder: Object,
 		value: String,
 		alwaysFocus: Boolean,
+		autoClear: Boolean,
 		pattern: RegExp
 	},
 	components: {
@@ -34,24 +35,30 @@ export default {
 	computed: {
 		hasValue () {
 			return this.value !== '' ? true : false
+		},
+		validated () {
+			if (!this.pattern) return false
+			return this.pattern.test(this.value)
 		}
 	},
 	watch: {
-		value (val) {
-			// Validate Input
-			if( this.pattern ) {
-				let validated = this.pattern.test(val)
-				this.$emit('validate', this.id, validated)
-			}
+		value () {
+			// Validate input
+			this.$emit('validate', this.id, this.validated)
 		}
 	},
 	methods: {
 		onInput (event) {
-			this.$emit('input', event.target.value)
+			if (this.autoClear && this.validated) { // Add auto clear for input from card reader
+				const diff = event.target.value.slice(this.value.length - 1) // one for carriage return
+				this.$emit('input', diff)
+			} else {
+				this.$emit('input', event.target.value)
+			}
 		},
 		onBlur (event) {
 			if (!this.alwaysFocus) return
-			this.$nextTick(()=>{
+			this.$nextTick(() => {
 				event.target.focus()
 			})
 		},

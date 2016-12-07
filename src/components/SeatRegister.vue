@@ -7,6 +7,7 @@
 				:placeholder="fields.userID.placeholder",
 				:pattern="fields.userID.pattern",
 				:alwaysFocus="fields.userID.alwaysFocus",
+				:autoClear="fields.userID.autoClear",
 				v-model="userIDValue",
 				@validate="onValidate")
 			text-field(
@@ -14,6 +15,7 @@
 				:placeholder="fields.seatID.placeholder",
 				:pattern="fields.seatID.pattern",
 				:alwaysFocus="fields.seatID.alwaysFocus",
+				:autoClear="fields.seatID.autoClear",
 				v-model="seatIDValue",
 				@validate="onValidate")
 			seat-history
@@ -54,6 +56,7 @@ export default {
 				pattern: idPattern,
 				validated: false,
 				alwaysFocus: true,
+				autoClear: true,
 				placeholder: {
 					zh: '刷卡輸入使用者代號',
 					en: 'Scan NTU ID card to enter ID'
@@ -63,6 +66,7 @@ export default {
 				pattern: /[A-C]+\d{3}$/,
 				validated: false,
 				alwaysFocus: false,
+				autoClear: false,
 				placeholder: {
 					zh: '點選地圖來選擇座位',
 					en: 'Select your seat from the map'
