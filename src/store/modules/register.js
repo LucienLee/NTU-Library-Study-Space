@@ -132,7 +132,7 @@ const actions = {
 			fetch(`${url}checkUser?user_id=${user_id}`)
 				.then(res => res.json())
 				.then(json => {
-					// not a valid user
+					// Failed because of not a valid user
 					if (!json.authority) throw json
 
 					// valid user
@@ -140,7 +140,7 @@ const actions = {
 				})
 				.then(res => res.json())
 				.then(json => {
-					// nothing affected
+					// Failed because of register rejected
 					if (json.affected !== '1') throw json
 
 					// ok
@@ -169,7 +169,7 @@ const actions = {
 			fetch(`${url}checkout?user_id=${user_id}&token=${token}`)
 				.then(res => res.json())
 				.then(json => {
-					// not valid
+					// Failed because of register rejected
 					if (json.affected !== '1') throw json
 
 					// valid
@@ -185,7 +185,7 @@ const actions = {
 			fetch(`${url}checkUser?user_id=${user_id}`)
 				.then(res => res.json())
 				.then(json => {
-					// not valid
+					// Failed because of not a valid user
 					if (!json.authority) throw json
 
 					// valid
@@ -193,7 +193,7 @@ const actions = {
 				})
 				.then(res => res.json())
 				.then(json => {
-					// not valid
+					// Failed because of register rejected
 					if (json.affected !== '1') throw json
 
 					// valid
@@ -215,6 +215,9 @@ const actions = {
 
 		// zoom the map back to initial state
 		dispatch('setResetMapToInitState', true)
+
+		// clear filter options
+		dispatch('clearFilter')
 	},
 }
 

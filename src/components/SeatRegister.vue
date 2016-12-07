@@ -65,7 +65,7 @@ export default {
 				alwaysFocus: false,
 				placeholder: {
 					zh: '點選地圖來選擇座位',
-					en: 'Select seat from the map'
+					en: 'Select your seat from the map'
 				}
 			},
 		}
@@ -88,8 +88,8 @@ export default {
 			get () { return this.$store.state.register.inputFields.userIDValue },
 			set (value) { this.updateRegisterInputValue({ key: 'userIDValue', value }) },
 		},
-		normalizeduserID () {
-			return this.userIDValue.replace('\r', '')
+		normalizedUserID () {
+			return this.userIDValue.replace(/(\r?\n|\r)/g, '')
 		},
 		readyToCheckIn () {
 			return _.reduce(this.fields, (result, item) => {
@@ -104,25 +104,26 @@ export default {
 		...mapActions([
 			'checkIn',
 			'checkOut',
-			'resetRegister',
 			'checkUser',
-			'updateRegisterInputValue',
+			'resetRegister',
+			'updateRegisterInputValue'
 		]),
 		onValidate (id, validated) {
 			this.fields[id].validated = validated
-		},
+		}
 	},
 	watch: {
 		readyToCheckIn (val) {
 			if(!val) return
-			this.checkIn({ user_id: this.normalizeduserID, seat_id: this.seatIDValue })
+			this.checkIn({ user_id: this.normalizedUserID, seat_id: this.seatIDValue })
 		},
 		readyToCheckUser (newVal, oldVal) {
+			// Reset Register when userID be cleaned
 			if (!newVal && oldVal) {
 				return this.resetRegister()
 			}
 			if (newVal && !this.fields.seatID.validated) {
-				return this.checkUser({ user_id: this.normalizeduserID })
+				return this.checkUser({ user_id: this.normalizedUserID })
 			}
 		},
 		doneCheckIn (val) {
@@ -148,9 +149,6 @@ export default {
 			.then(() => {
 				this.userIDValue = ''
 				this.seatIDValue = ''
-
-				// no need to call reset here since resetting TextField.value will trigger reset automatically
-				// this.resetRegister()
 			})
 		},
 		checkUserError (newVal, oldVal) {
