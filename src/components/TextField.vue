@@ -1,7 +1,8 @@
 <template lang="jade">
 .TextField
 	.TextField__inner
-		input.TextField__input(type="text", :id="id", :value="value", :autofocus="alwaysFocus", @input="onInput", @blur="onBlur")
+		input.TextField__input(type="text", :id="id", :value="value", :autofocus="alwaysFocus",
+			@input="onInput", @blur="onBlur", @keyup.enter="simulateCR")
 		label.TextField__label(:for="id")
 			span.TextField__display {{value}}
 			transition(name="fade")
@@ -54,6 +55,9 @@ export default {
 				event.target.focus()
 			})
 		},
+		simulateCR () {
+			this.$emit('input', this.value + '\r')
+		},
 		reset () {
 			this.$emit('input', '')
 		},
@@ -104,6 +108,7 @@ $leading: percentage( 12px / $line-height-billboard)
 	font-size: $font-size-billboard
 	line-height: #{ $line-height-billboard/$font-size-billboard }em
 	color: $primary-color
+	overflow-x: hidden
 
 	+mq(widescreen)
 		font-size: $font-size-billboard-shrinked

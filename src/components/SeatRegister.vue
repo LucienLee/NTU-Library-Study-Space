@@ -88,7 +88,9 @@ export default {
 			get () { return this.$store.state.register.inputFields.studentIDValue },
 			set (value) { this.updateRegisterInputValue({ key: 'studentIDValue', value }) },
 		},
-
+		normalizedStudentID () {
+			return this.studentIDValue.replace('\r', '')
+		},
 		readyToCheckIn () {
 			return _.reduce(this.fields, (result, item) => {
 				return result && item.validated
@@ -113,14 +115,14 @@ export default {
 	watch: {
 		readyToCheckIn (val) {
 			if(!val) return
-			this.checkIn({ user_id: this.studentIDValue, seat_id: this.seatIDValue })
+			this.checkIn({ user_id: this.normalizedStudentID, seat_id: this.seatIDValue })
 		},
 		readyToCheckUser (newVal, oldVal) {
 			if (!newVal && oldVal) {
 				return this.resetRegister()
 			}
 			if (newVal && !this.fields.seatID.validated) {
-				return this.checkUser({ user_id: this.studentIDValue })
+				return this.checkUser({ user_id: this.normalizedStudentID })
 			}
 		},
 		doneCheckIn (val) {
