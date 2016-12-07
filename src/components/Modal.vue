@@ -9,7 +9,7 @@ transition(name="modal-transition", @after-leave="onCloseEnd")
 				h2.Modal__title.Modal__title--en {{title.en}}
 			divider(type="strong")
 			.Modal__body(v-if="message")
-				p.Modal__userID {{message.studentID}}
+				p.Modal__userID {{message.userID}}
 				.Modal__message--success(v-if="type === 'success'")
 					.Modal__seatInfo
 						p.Modal__seatDesc.Modal__seatDesc--zh 你登記的座位為

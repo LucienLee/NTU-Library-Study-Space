@@ -6,7 +6,7 @@ const url = 'http://140.112.113.35:8080/StudyRoom/api/'
 const initialStateFactory = () => ({
 	inputFields: {
 		seatIDValue: '',
-		studentIDValue: '',
+		userIDValue: '',
 	},
 	loading: false,
 	result: {},

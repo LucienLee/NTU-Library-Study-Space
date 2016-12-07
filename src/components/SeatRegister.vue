@@ -3,11 +3,11 @@
 	panel(:headerTitle="title")
 		.SeatRegister__fields(slot="panel-body")
 			text-field(
-				id="studentID",
-				:placeholder="fields.studentID.placeholder",
-				:pattern="fields.studentID.pattern",
-				:alwaysFocus="fields.studentID.alwaysFocus",
-				v-model="studentIDValue",
+				id="userID",
+				:placeholder="fields.userID.placeholder",
+				:pattern="fields.userID.pattern",
+				:alwaysFocus="fields.userID.alwaysFocus",
+				v-model="userIDValue",
 				@validate="onValidate")
 			text-field(
 				id="seatID",
@@ -50,13 +50,13 @@ export default {
 			en: 'Register your Seat',
 		},
 		fields: {
-			studentID: {
+			userID: {
 				pattern: idPattern,
 				validated: false,
 				alwaysFocus: true,
 				placeholder: {
-					zh: '刷卡輸入學生證號',
-					en: 'Scan student card to enter ID'
+					zh: '刷卡輸入使用者代號',
+					en: 'Scan NTU ID card to enter ID'
 				}
 			},
 			seatID: {
@@ -84,12 +84,12 @@ export default {
 			get () { return this.$store.state.register.inputFields.seatIDValue },
 			set (value) { this.updateRegisterInputValue({ key: 'seatIDValue', value }) },
 		},
-		studentIDValue: {
-			get () { return this.$store.state.register.inputFields.studentIDValue },
-			set (value) { this.updateRegisterInputValue({ key: 'studentIDValue', value }) },
+		userIDValue: {
+			get () { return this.$store.state.register.inputFields.userIDValue },
+			set (value) { this.updateRegisterInputValue({ key: 'userIDValue', value }) },
 		},
-		normalizedStudentID () {
-			return this.studentIDValue.replace('\r', '')
+		normalizeduserID () {
+			return this.userIDValue.replace('\r', '')
 		},
 		readyToCheckIn () {
 			return _.reduce(this.fields, (result, item) => {
@@ -97,7 +97,7 @@ export default {
 			}, true)
 		},
 		readyToCheckUser () {
-			return this.fields.studentID.validated
+			return this.fields.userID.validated
 		},
 	},
 	methods: {
@@ -115,14 +115,14 @@ export default {
 	watch: {
 		readyToCheckIn (val) {
 			if(!val) return
-			this.checkIn({ user_id: this.normalizedStudentID, seat_id: this.seatIDValue })
+			this.checkIn({ user_id: this.normalizeduserID, seat_id: this.seatIDValue })
 		},
 		readyToCheckUser (newVal, oldVal) {
 			if (!newVal && oldVal) {
 				return this.resetRegister()
 			}
 			if (newVal && !this.fields.seatID.validated) {
-				return this.checkUser({ user_id: this.normalizedStudentID })
+				return this.checkUser({ user_id: this.normalizeduserID })
 			}
 		},
 		doneCheckIn (val) {
@@ -138,7 +138,7 @@ export default {
 			this.$modal({
 				type: type,
 				message: {
-					studentID: this.studentIDValue,
+					userID: this.userIDValue,
 					seatID: this.seatIDValue,
 					zh: this.error.message,
 					en: this.error.message_en
@@ -146,7 +146,7 @@ export default {
 				timer: modalShowTime
 			})
 			.then(() => {
-				this.studentIDValue = ''
+				this.userIDValue = ''
 				this.seatIDValue = ''
 
 				// no need to call reset here since resetting TextField.value will trigger reset automatically
@@ -158,14 +158,14 @@ export default {
 				this.$modal({
 					type: 'failure',
 					message: {
-						studentID: this.studentIDValue,
+						userID: this.userIDValue,
 						zh: this.checkUserError.message,
 						en: this.checkUserError.message_en
 					},
 					timer: modalShowTime
 				})
 				.then(() => {
-					this.studentIDValue = ''
+					this.userIDValue = ''
 					this.seatIDValue = ''
 				})
 			}
