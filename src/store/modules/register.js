@@ -15,6 +15,7 @@ const initialStateFactory = () => ({
 		id: '',
 		isValid: false,
 		token: null,
+		seatIDOld: null,
 		error: {},
 	},
 })
@@ -80,17 +81,19 @@ const actions = {
 						id: user_id,
 						isValid: true,
 						token: json.token,
+						seatIDOld: json.seat_id || null,
 						error: null,
 					})
 
 					// because valid, dispatch getHistory action
 					dispatch('getHistory', { user_id })
 				} else {
-					// not valid
+					// Failed because of register rejected
 					commit('USER_CHECKED', {
 						id: user_id,
 						isValid: false,
 						token: null,
+						seatIDOld: null,
 						error: json,
 					})
 				}
@@ -106,52 +109,48 @@ const actions = {
 		// start the loading flag
 		commit('REGISTER_LOADING', true)
 
-		// first check if there is already a token to use
-		if (state.user.id === user_id && state.user.isValid && state.user.token) {
-			// erase the token
-			const token = state.user.token
-			commit('CONSUME_TOKEN')
+		let token = null
+		new Promise((resolve) => {
+			// first check if there is already a token to use
+			if (state.user.id === user_id && state.user.isValid && state.user.token) {
+				// erase the token
+				token = state.user.token
+				commit('CONSUME_TOKEN')
+				resolve()
+			} else {
+				// no token, so get one first
+				return fetch(`${url}checkUser?user_id=${user_id}`)
+					.then(res => res.json())
+					.then(json => {
+						// Failed because of not a valid user
+						if (!json.authority) throw json
 
-			// send out the request
-			fetch(`${url}checkin?type=1&user_id=${user_id}&seat_id=${seat_id}&token=${token}`)
-				.then(res => res.json())
-				.then(json => {
-					// nothing affected
-					if (json.affected !== '1') throw json
+						// valid user
+						token = json.token
+					})
+			}
+		})
+			.then(() => {
+				// second check if there's seat_id_old
+				const seat_id_old = state.user.seatIDOld ? `&seat_id_old=${state.user.seatIDOld}` : ''
+				const type = seat_id_old ? '&type=2' : '&type=1'
 
-					// ok
-					commit('REGISTER_LOADING', false)
-					commit('REGISTER_DONE', json)
-				})
-				.catch(err => {
-					commit('REGISTER_LOADING', false)
-					commit('REGISTER_ERROR', err)
-				})
-		} else {
-			// no token, so get one first
-			fetch(`${url}checkUser?user_id=${user_id}`)
-				.then(res => res.json())
-				.then(json => {
-					// Failed because of not a valid user
-					if (!json.authority) throw json
+				// finally send out the request
+				return fetch(`${url}checkin?user_id=${user_id}&seat_id=${seat_id}&token=${token}${type}${seat_id_old}`)
+			})
+			.then(res => res.json())
+			.then(json => {
+				// Failed because of register rejected
+				if (json.affected !== '1') throw json
 
-					// valid user
-					return fetch(`${url}checkin?type=1&user_id=${user_id}&seat_id=${seat_id}&token=${json.token}`)
-				})
-				.then(res => res.json())
-				.then(json => {
-					// Failed because of register rejected
-					if (json.affected !== '1') throw json
-
-					// ok
-					commit('REGISTER_LOADING', false)
-					commit('REGISTER_DONE', json)
-				})
-				.catch(err => {
-					commit('REGISTER_LOADING', false)
-					commit('REGISTER_ERROR', err)
-				})
-		}
+				// ok
+				commit('REGISTER_LOADING', false)
+				commit('REGISTER_DONE', json)
+			})
+			.catch(err => {
+				commit('REGISTER_LOADING', false)
+				commit('REGISTER_ERROR', err)
+			})
 	},
 	checkOut ({ commit, state }, { user_id }) {
 		if (!user_id) throw new Error(`user_id: "${user_id}" empty`)
@@ -218,7 +217,7 @@ const actions = {
 
 		// clear filter options
 		dispatch('clearFilter')
-	},
+	}
 }
 
 const state = initialStateFactory()
