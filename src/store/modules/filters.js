@@ -1,29 +1,6 @@
 import _ from 'lodash'
 import ranges from '../../utils/seat-range.js'
-
-const seatFilterConfig = require('../../seat-config.json')
-
-const initialUIStateFactory = () => ({
-	laptop: {
-		laptopAllow: false,
-		laptopForbidden: false,
-	},
-	table: {
-		seats4: false,
-		seats6: false,
-		partition: false,
-	},
-	near: {
-		wall: false,
-		window: false,
-	},
-	away: {
-		vent: false,
-		toilet: false,
-		register: false,
-		aisle: false,
-	},
-})
+import seatFilterConfig from '../../seat-config.json'
 
 // Create seat factory singleton
 const seatsFactory = (function(){
@@ -51,6 +28,30 @@ const seatsFactory = (function(){
 
 })()
 
+// state
+const state = {
+	laptop: {
+		laptopAllow: false,
+		laptopForbidden: false,
+	},
+	table: {
+		seats4: false,
+		seats6: false,
+		partition: false,
+	},
+	near: {
+		wall: false,
+		window: false,
+	},
+	away: {
+		vent: false,
+		toilet: false,
+		register: false,
+		aisle: false,
+	},
+}
+
+// getters
 const getters = {
 	seatsToShowAfterFilter (state) {
 		let collection = [seatsFactory.getSeats()]
@@ -78,81 +79,29 @@ const getters = {
 
 // mutations
 const mutations = {
-	UPDATE_LAPTOP (state, val) {
-		state.laptop = val
-	},
-	UPDATE_TABLE_SEATCOUNT (state, val) {
-		for (let prop in val) {
-			state.table[prop] = val[prop]
-		}
-	},
-	UPDATE_TABLE_PARTITION (state, val) {
-		state.table.partition = val
-	},
-	UPDATE_NEAR (state, val) {
-		state.near = val
-	},
-	UPDATE_AWAY_VENT (state, val) {
-		state.away.vent = val
-	},
-	UPDATE_AWAY_TOILET(state, val) {
-		state.away.toilet = val
-	},
-	UPDATE_AWAY_REGISTER (state, val) {
-		state.away.register = val
-	},
-	UPDATE_AWAY_AISLE (state, val) {
-		state.away.aisle = val
+	UPDATE_FILTER (state, {category, key, value}) {
+		state[category][key] = value
 	},
 	CLEAR_FILTER (state) {
-		// https://github.com/vuejs/vuex/issues/82
-		const is = initialUIStateFactory()
-		for (let prop in is) {
-			state[prop] = is[prop]
+		for (let category in state) {
+			for (let prop in state[category]) {
+				state[category][prop] = false
+			}
 		}
-	},
+	}
 }
 
+// actions
 const actions = {
-	updateLaptopAllow({ commit }, val) {
-		commit('UPDATE_LAPTOP', { laptopAllow: val, laptopForbidden: false })
-	},
-	updateLaptopForbidden({ commit }, val) {
-		commit('UPDATE_LAPTOP', { laptopAllow: false, laptopForbidden: val })
-	},
-	updateSeats4({ commit }, val) {
-		commit('UPDATE_TABLE_SEATCOUNT', { seats4: val, seats6: false })
-	},
-	updateSeats6({ commit }, val) {
-		commit('UPDATE_TABLE_SEATCOUNT', { seats4: false, seats6: val })
-	},
-	updatePartition({ commit }, val) {
-		commit('UPDATE_TABLE_PARTITION', val)
-	},
-	updateWall({ commit }, val) {
-		commit('UPDATE_NEAR', { wall: val, window: false })
-	},
-	updateWindow({ commit }, val) {
-		commit('UPDATE_NEAR', { wall: false, window: val })
-	},
-	updateVent({ commit }, val) {
-		commit('UPDATE_AWAY_VENT', val)
-	},
-	updateToilet({ commit }, val) {
-		commit('UPDATE_AWAY_TOILET', val)
-	},
-	updateRegister({ commit }, val) {
-		commit('UPDATE_AWAY_REGISTER', val)
-	},
-	updateAisle({ commit }, val) {
-		commit('UPDATE_AWAY_AISLE', val)
+	updateFilter ({ commit }, update) {
+		commit('UPDATE_FILTER', update)
 	},
 	clearFilter({ commit }) {
 		commit('CLEAR_FILTER')
-	},
+	}
 }
 
-const state = initialUIStateFactory()
+
 export default {
 	state,
 	getters,

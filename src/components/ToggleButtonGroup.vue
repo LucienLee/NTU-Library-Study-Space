@@ -1,6 +1,6 @@
 <template lang="jade">
 .ToggleButtonGroup(:class="[ type ? 'ToggleButtonGroup--' + type : '' ]")
-	toggle-button(v-for="(value, key) in groupData" v-model="groupData[key]", :label="key")
+	toggle-button(v-for="(value, key) in groupData", :value="groupData[key]", :label="key", @input="update(key, $event)")
 </template>
 
 <script>
@@ -14,8 +14,18 @@ export default {
 		groupData: Object,
 		type: String
 	},
+	methods: {
+		update (key, value) {
+			if (value === true) {
+				// turn others options off
+				for (let prop in this.groupData) {
+					if ( prop !== key ) this.$emit('input', {key: prop, value: false})
+				}
+			}
+			this.$emit('input', {key: key, value: value})
+		}
+	}
 }
-
 </script>
 
 

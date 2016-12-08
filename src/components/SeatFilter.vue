@@ -3,16 +3,17 @@
 	panel(:headerTitle="title")
 		div(slot="panel-body")
 			filter-control(label="使用筆記電腦 / Laptop Allowed")
-				toggle-button-group(:group-data="filters.laptop")
+				toggle-button-group(:group-data="filters.laptop", @input="update('laptop', $event)")
 			filter-control(label="桌子類型 / Table Type")
-				toggle-button-group(:group-data="filters.table.seatCount", type="small")
-				toggle-button(v-model="filters.table.partition", label="partition")
+				toggle-button-group(type="small", :group-data="filters.table.seatCount", @input="update('table', $event)")
+				toggle-button(:value="filters.table.partition", label="partition",
+					@input="update('table', {key: 'partition', value: $event})")
 			filter-control(label="靠近 / Near")
-				toggle-button-group(:group-data="filters.near")
+				toggle-button-group(:group-data="filters.near", @input="update('near', $event)")
 			filter-control(label="遠離 / Away from")
-				toggle-button(v-for="(value, key) in filters.away", v-model="filters.away[key]", :label="key")
+				toggle-button(v-for="(value, key) in filters.away", :value="value", :label="key",
+					@input="update('away', {key: key, value: $event})")
 			clear-filter-button
-
 </template>
 
 <script>
@@ -40,57 +41,27 @@ export default {
 	computed: {
 		filters() {
 			const filters = this.$store.state.filters
-			const _this = this
 			return {
-				laptop: {
-					get laptopAllow () { return filters.laptop.laptopAllow },
-					set laptopAllow (val) { _this.updateLaptopAllow(val) },
-					get laptopForbidden () { return filters.laptop.laptopForbidden },
-					set laptopForbidden (val) { _this.updateLaptopForbidden(val) },
-				},
+				laptop: filters.laptop,
 				table: {
 					seatCount: {
-						get seats4 () { return filters.table.seats4 },
-						set seats4 (val) { _this.updateSeats4(val) },
-						get seats6 () { return filters.table.seats6 },
-						set seats6 (val) { _this.updateSeats6(val) },
+						seats4: filters.table.seats4,
+						seats6: filters.table.seats6,
 					},
-					get partition () { return filters.table.partition },
-					set partition (val) { _this.updatePartition(val) },
+					partition: filters.table.partition
 				},
-				near: {
-					get wall () { return filters.near.wall },
-					set wall (val) { _this.updateWall(val) },
-					get window () { return filters.near.window },
-					set window (val) { _this.updateWindow(val) },
-				},
-				away: {
-					get vent () { return filters.away.vent },
-					set vent (val) { _this.updateVent(val) },
-					get toilet () { return filters.away.toilet },
-					set toilet (val) { _this.updateToilet(val) },
-					get register () { return filters.away.register },
-					set register (val) { _this.updateRegister(val) },
-					get aisle () { return filters.away.aisle },
-					set aisle (val) { _this.updateAisle(val) },
-				},
+				near: filters.near,
+				away: filters.away
 			}
 		},
 	},
 	methods: {
 		...mapActions([
-			'updateLaptopAllow',
-			'updateLaptopForbidden',
-			'updateSeats4',
-			'updateSeats6',
-			'updatePartition',
-			'updateWall',
-			'updateWindow',
-			'updateVent',
-			'updateToilet',
-			'updateRegister',
-			'updateAisle',
+			'updateFilter'
 		]),
+		update (category, {key, value}) {
+			this.updateFilter({category: category, key: key, value: value})
+		}
 	}
 }
 </script>

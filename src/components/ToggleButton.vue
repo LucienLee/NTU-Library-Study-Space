@@ -62,6 +62,4 @@ export default {
 		background: darken( $primary-dark-color, 5% )
 	.ToggleButton__icon
 		color: #fff
-
-
 </style>
