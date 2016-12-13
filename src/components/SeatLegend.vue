@@ -1,6 +1,6 @@
 <template lang="jade">
 .SeatLegend(:style="{ width: width + 'px', left: x + 'px'}")
-	.SeatLegend__inner
+	.SeatLegend__inner: .SeatLegend__aspectKeeper
 		img.SeatLegend__image(src="../assets/images/legend.svg")
 </template>
 
@@ -34,12 +34,13 @@ $legend-height: 120px
 .SeatLegend__inner
 	position: relative
 	width: ($legned-width/$max-width)*100vw
-	padding-bottom: percentage($legend-height / $legned-width)
-	height: 0
 	margin: 0 auto
-	background: #FFFFFF
-	box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.18)
-	border-radius: $border-radius
+	+panelShadow
+
+.SeatLegend__aspectKeeper
+	width: 100%
+	height: 0
+	padding-bottom: percentage($legend-height / $legned-width)
 
 .SeatLegend__image
 	+img-responsive
