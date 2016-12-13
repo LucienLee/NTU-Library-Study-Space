@@ -2,6 +2,7 @@
 .SeatMap
 	img.SeatMap__map(src="../assets/images/map.svg")
 	SeatLegend(:x="mapBox.x * mapBox.scaleFactor", :width="mapBox.width * mapBox.scaleFactor")
+	MapControls
 </template>
 
 <script>
@@ -11,6 +12,7 @@ import * as d3 from 'd3'
 import SVGInjector from 'svg-injector'
 import _ from 'lodash'
 import SeatLegend from './SeatLegend.vue'
+import MapControls from './MapControls.vue'
 import {
 	mapActions,
 	mapGetters,
@@ -169,7 +171,8 @@ export default {
 		}
 	},
 	components: {
-		SeatLegend
+		SeatLegend,
+		MapControls
 	},
 	computed: {
 		...mapGetters([ 'seatsToShowAfterFilter' ]),
