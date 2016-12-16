@@ -2,7 +2,7 @@
 .SeatMap
 	img.SeatMap__map(src="../assets/images/map.svg")
 	SeatLegend(:x="mapBox.x * mapBox.scaleFactor", :width="mapBox.width * mapBox.scaleFactor")
-	MapControls
+	MapControls(@zoom="zoomByControl")
 </template>
 
 <script>
@@ -114,6 +114,13 @@ class MapBox {
 
 	get scale () {
 		return this.width / this.map.width
+	}
+
+	get center () {
+		return {
+			x: this.x - this.width / 2,
+			y: this.y - this.height / 2
+		}
 	}
 }
 
@@ -249,6 +256,34 @@ export default {
 			this.svg.call(this.zoom.transform,
 				d3.zoomIdentity.translate( this.mapBox.x, this.mapBox.y ).scale( this.mapBox.scale )
 			)
+		},
+		zoomClick (direction) {
+			const factor = 0.1
+			// const center = this.mapBox.center
+			const transform = d3.zoomTransform(this.svg.node())
+			const targetZoom = (1 + factor * direction)
+			const scale =	transform.k * (targetZoom - 1)
+			this.svg.transition()
+				.duration(840)
+				.call(this.zoom.transform,
+					d3.zoomIdentity.translate(
+						transform.x - this.mapBox.map.width * scale / 2,
+						transform.y - this.mapBox.map.height * scale / 2)
+					.scale(transform.k * targetZoom))
+
+		},
+		zoomByControl (event) {
+			switch (event) {
+				case 'reset':
+					this.transitionToMapBox()
+					break
+				case 'in':
+					this.zoomClick(1)
+					break
+				case 'out':
+					this.zoomClick(-1)
+					break
+			}
 		}
 	},
 	mounted () {

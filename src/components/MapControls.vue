@@ -1,12 +1,12 @@
 <template lang="jade">
 .MapControls
 	.MapControls__grid
-		button.MapControls__button.MapControls__button--large.MapControls__button--left
+		button.MapControls__button.MapControls__button--large.MapControls__button--left(@click="zoom('reset')")
 			icon(symbol="reset")
 	.MapControls__grid
-		button.MapControls__button.MapControls__button--topRight
+		button.MapControls__button.MapControls__button--topRight(@click="zoom('in')")
 			icon(symbol="plus")
-		button.MapControls__button.MapControls__button--bottomRight
+		button.MapControls__button.MapControls__button--bottomRight(@click="zoom('out')")
 			icon(symbol="minus")
 </template>
 
@@ -16,6 +16,11 @@ import Icon from './Icon'
 export default {
 	components: {
 		Icon
+	},
+	methods: {
+		zoom (value) {
+			this.$emit('zoom', value)
+		}
 	}
 }
 </script>
