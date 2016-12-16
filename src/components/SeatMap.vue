@@ -171,6 +171,7 @@ export default {
 			mapBox: new MapBox(),
 			zoom: d3.zoom(),
 			scale: 1,
+			isZooming: false,
 			startPoint: {
 				x: 0,
 				y: 0
@@ -247,10 +248,15 @@ export default {
 			'setResetMapToInitState'
 		]),
 		transitionToMapBox (time = 840) {
+			if (this.isZooming) return
+			this.isZooming = true
 			this.svg.transition()
 				.duration(time)
 				.call(this.zoom.transform,
 					d3.zoomIdentity.translate( this.mapBox.x, this.mapBox.y ).scale( this.mapBox.scale ))
+				.on('end', () => {
+					this.isZooming = false
+				})
 		},
 		zoomToMapBox () {
 			this.svg.call(this.zoom.transform,
@@ -258,18 +264,26 @@ export default {
 			)
 		},
 		zoomClick (direction) {
-			const factor = 0.1
-			// const center = this.mapBox.center
+			if (this.isZooming) return
+
+			const factor = 0.35
 			const transform = d3.zoomTransform(this.svg.node())
-			const targetZoom = (1 + factor * direction)
-			const scale =	transform.k * (targetZoom - 1)
+			const targetZoom = transform.k * (1 + factor * direction)
+			const scaleDiff =	transform.k * (factor * direction)
+
+			if (targetZoom < scaleExtent[0] * this.mapBox.scale || targetZoom > scaleExtent[1] * this.mapBox.scale) return
+
+			this.isZooming = true
 			this.svg.transition()
-				.duration(840)
+				.duration(200)
 				.call(this.zoom.transform,
 					d3.zoomIdentity.translate(
-						transform.x - this.mapBox.map.width * scale / 2,
-						transform.y - this.mapBox.map.height * scale / 2)
-					.scale(transform.k * targetZoom))
+						transform.x - this.mapBox.map.width * scaleDiff / 2,
+						transform.y - this.mapBox.map.height * scaleDiff / 2)
+					.scale(targetZoom))
+				.on('end', () => {
+					this.isZooming = false
+				})
 
 		},
 		zoomByControl (event) {
