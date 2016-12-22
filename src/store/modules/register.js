@@ -109,24 +109,28 @@ const actions = {
 		// start the loading flag
 		commit('REGISTER_LOADING', true)
 
-		let token = null
-		new Promise((resolve) => {
+		new Promise(resolve => {
 			// first check if there is already a token to use
 			if (state.user.id === user_id && state.user.isValid && state.user.token) {
-				// erase the token
-				token = state.user.token
-				commit('CONSUME_TOKEN')
 				resolve()
 			} else {
 				// no token, so get one first
-				return fetch(`${url}checkUser?user_id=${user_id}`)
+				fetch(`${url}checkUser?user_id=${user_id}`)
 					.then(res => res.json())
 					.then(json => {
 						// Failed because of not a valid user
 						if (!json.authority) throw json
 
 						// valid user
-						token = json.token
+						commit('USER_CHECKED', {
+							id: user_id,
+							isValid: true,
+							token: json.token,
+							seatIDOld: json.seat_id || null,
+							error: null,
+						})
+
+						resolve()
 					})
 			}
 		})
@@ -134,6 +138,10 @@ const actions = {
 				// second check if there's seat_id_old
 				const seat_id_old = state.user.seatIDOld ? `&seat_id_old=${state.user.seatIDOld}` : ''
 				const type = seat_id_old ? '&type=2' : '&type=1'
+
+				// erase the token
+				const token = state.user.token
+				commit('CONSUME_TOKEN')
 
 				// finally send out the request
 				return fetch(`${url}checkin?user_id=${user_id}&seat_id=${seat_id}&token=${token}${type}${seat_id_old}`)
