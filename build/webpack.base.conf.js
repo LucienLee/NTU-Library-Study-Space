@@ -60,12 +60,12 @@ module.exports = {
       {
       	test: /\.svg$/,
       	loader: 'svg-sprite',
-      	include: /assets\/icons/
+      	include: /assets[\\\/]icons/
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url',
-        exclude: /assets\/icons/,
+        exclude: /assets[\\\/]icons/,
         query: {
           limit: 10000,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
