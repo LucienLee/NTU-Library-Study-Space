@@ -1,36 +1,31 @@
 import express from 'express'
-import Schema from './data/schema'
-import Resolvers from './data/resolvers'
-
-import { apolloExpress, graphiqlExpress } from 'apollo-server'
-import { makeExecutableSchema/* , addMockFunctionsToSchema */ } from 'graphql-tools'
 import bodyParser from 'body-parser'
+import { graphqlExpress, graphiqlExpress } from 'graphql-server-express'
 
-const GRAPHQL_PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000
 
-const graphQLServer = express()
+const app = express()
 
 import cors from 'cors'
-graphQLServer.use(cors())
+app.use(cors())
 
-const executableSchema = makeExecutableSchema({
-	typeDefs: Schema,
-	resolvers: Resolvers,
-	allowUndefinedInResolve: false,
-	printErrors: true,
-})
-
-// `context` must be an object and can't be undefined when using connectors
-graphQLServer.use('/graphql', bodyParser.json(), apolloExpress({
-	schema: executableSchema,
-	context: {},
+import schema from './api/schema'
+import { LibAPI } from './api/library/models'
+import { Student, Record } from './api/mongo/models'
+const record = new Record()
+app.use('/graphql', bodyParser.json(), graphqlExpress({
+  schema,
+  context: {
+    Student: new Student(),
+    LibAPI: new LibAPI(record)
+  }
 }))
 
-graphQLServer.use('/graphiql', graphiqlExpress({
-	endpointURL: '/graphql',
+app.use('/graphiql', graphiqlExpress({
+  endpointURL: '/graphql'
 }))
 
-graphQLServer.listen(GRAPHQL_PORT, () => console.log(
-	`GraphQL Server is now running on http://localhost:${GRAPHQL_PORT}/graphql`
+app.listen(PORT, () => console.log(
+  `GraphQL Server is now running on http://localhost:${PORT}/graphql`
 ))
 

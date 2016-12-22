@@ -9,13 +9,13 @@ export function startSeatQuery ({ dispatch }) {
 	apolloClient.watchQuery({
 		query: gql`
 			{
-				seatInfo
+				allSeatsObjectJSON
 			}
 		`,
 		pollInterval: 300, // ms
 	}).subscribe({
 		next ({ data }) {
-			dispatch('updateSeats', JSON.parse(data.seatInfo))
+			dispatch('updateSeats', JSON.parse(data.allSeatsObjectJSON))
 		},
 		error (err) {
 			console.error(err) // eslint-disable-line no-console

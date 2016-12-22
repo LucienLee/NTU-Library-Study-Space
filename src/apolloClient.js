@@ -1,6 +1,7 @@
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 
-const uri = process.env.DEV_SERVER ? 'http://localhost:3000/graphql' : 'http://140.112.113.10/graphql'
+// `GRAPHQL_URL_ROOT` is set by webpack's DefinePlugin
+const uri = process.env.GRAPHQL_URL_ROOT + '/graphql'
 
 // Create the apollo client
 const apolloClient = new ApolloClient({
