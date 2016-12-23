@@ -19,18 +19,17 @@ let config = {
 			{ label: 'Copy', accelerator: 'CmdOrCtrl+C', role: 'copy' },
 			{ label: 'Paste', accelerator: 'CmdOrCtrl+V', role: 'paste' }
 		]
-	}]
+	}],
+	window: {
+		height: 1920,
+		width: 1080,
+		kiosk: true,
+		frame: false
+	}
 }
 
 function createWindow() {
-	mainWindow = new BrowserWindow({
-		height: 1920,
-		width: 1080
-	})
-
-	mainWindow.maximize()
-
-	// mainWindow.setFullScreen(true)
+	mainWindow = new BrowserWindow(config.window)
 	// mainWindow.webContents.openDevTools()
 
 	mainWindow.loadURL(config.url)
