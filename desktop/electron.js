@@ -25,7 +25,7 @@ let config = {
 		height: 1920,
 		width: 1080,
 		kiosk: true,
-		frame: false
+		autoHideMenuBar: true
 	}
 }
 
