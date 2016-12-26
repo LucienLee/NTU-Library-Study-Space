@@ -1,8 +1,8 @@
 import { LibAPIConnector } from './connector'
 
 export class LibAPI {
-  constructor () {
-    this.connector = new LibAPIConnector()
+  constructor (record) {
+    this.connector = new LibAPIConnector(record)
   }
 
   getAllSeatsAsArray () {
