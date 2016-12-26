@@ -1,7 +1,6 @@
 import 'whatwg-fetch'
 import _ from 'lodash'
-
-const url = 'http://140.112.113.35:8080/StudyRoom/api/'
+import url from 'credential'
 
 const initialStateFactory = () => ({
 	inputFields: {
