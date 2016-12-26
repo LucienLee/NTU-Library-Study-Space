@@ -10,8 +10,9 @@ let config = {
 		label: 'Application',
 		submenu: [
 			{ label: 'Reload', accelerator: 'CmdOrCtrl+R', role: 'reload' },
+			{ label: 'Toggle Kiosk Mode', accelerator: 'F1', click () { mainWindow.setKiosk(!mainWindow.isKiosk()) }},
 			{ type: 'separator' },
-			{ label: 'Quit', accelerator: 'Cmd+Q', click: function() { app.quit() }}
+			{ label: 'Quit', accelerator: 'Cmd+Q', click () { app.quit() }}
 		]
 	}, {
 		label: 'Edit',
@@ -28,7 +29,7 @@ let config = {
 	}
 }
 
-function createWindow() {
+function createWindow () {
 	mainWindow = new BrowserWindow(config.window)
 	// mainWindow.webContents.openDevTools()
 
@@ -41,7 +42,7 @@ function createWindow() {
 	console.log('mainWindow opened')
 }
 
-function registerResourceProtocol() {
+function registerResourceProtocol () {
 	const scheme = config.scheme
 
 	protocol.registerFileProtocol(scheme, (request, callback) => {
