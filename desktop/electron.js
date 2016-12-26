@@ -10,7 +10,10 @@ let config = {
 		label: 'Application',
 		submenu: [
 			{ label: 'Reload', accelerator: 'CmdOrCtrl+R', role: 'reload' },
-			{ label: 'Toggle Kiosk Mode', accelerator: 'F1', click () { mainWindow.setKiosk(!mainWindow.isKiosk()) }},
+			{ label: 'Toggle Kiosk Mode', accelerator: 'F1', click () {
+				mainWindow.setKiosk(!mainWindow.isKiosk())
+				mainWindow.show()
+			}},
 			{ type: 'separator' },
 			{ label: 'Quit', accelerator: 'Cmd+Q', click () { app.quit() }}
 		]
