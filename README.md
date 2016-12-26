@@ -37,6 +37,12 @@ now you can run the dev server:
 npm start
 ```
 
+```
+# Use production CheckIn API server in development
+cross-env API_HOST=production npm start 
+```
+
+
 ### build for production
 ```
 # build for production with minification
@@ -61,6 +67,7 @@ npm test
 .
 ├── build/                           # Build scripts and webpack config files
 ├── config/                          # Project configures
+├── credential/                      # Crendential API url (request to us if you need)
 ├── desktop/                         # Electron files
 ├── dist/                            # Packed files (prepared to deploy to server)
 ├── docs/                            # Documentation files
