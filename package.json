@@ -20,6 +20,7 @@
     "release:darwin": "cross-env PLATFORM_TARGET=darwin node build/release.js",
     "release:win32": "cross-env PLATFORM_TARGET=win32 node build/release.js",
     "release:linux": "cross-env PLATFORM_TARGET=linux node build/release.js",
+    "release:win32-ia32": "cross-env PLATFORM_TARGET=win32 PLATFORM_ARCH=ia32 node build/release.js",
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",

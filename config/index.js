@@ -38,13 +38,13 @@ module.exports = {
   electron: {
   	// see https://github.com/electron-userland/electron-packager for documentation.
   	name: 'Study Space Register',
-  	arch: 'x64',
-	asar: true,
-	dir: path.resolve(__dirname, '../desktop'),
-	icon: path.resolve(__dirname, '../desktop/icons/icon'),
-	ignore: /\b(node_modules|src|index\.ejs|icons)\b/,
-	out: path.resolve(__dirname, '../release'),
-	overwrite: true,
-	platform: process.env.PLATFORM_TARGET || 'all'
+  	arch: process.env.PLATFORM_ARCH || 'x64',
+		asar: true,
+		dir: path.resolve(__dirname, '../desktop'),
+		icon: path.resolve(__dirname, '../desktop/icons/icon'),
+		ignore: /\b(node_modules|src|index\.ejs|icons)\b/,
+		out: path.resolve(__dirname, '../release'),
+		overwrite: true,
+		platform: process.env.PLATFORM_TARGET || 'all'
   }
 }
