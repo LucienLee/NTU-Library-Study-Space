@@ -1,16 +1,16 @@
-import { Students, Records } from './connector'
+import DB from './connector'
 import { sanitizeUserId } from '../utils/utils'
 
 export class Student {
   getStudentByStudentID (studentID) {
-    return Students.findOne({ student_id: studentID })
+    return DB.Students.findOne({ student_id: studentID })
   }
 }
 
 export class Record {
   addRecord (doc) {
     // first insert a record
-    Records.insert(doc)
+    DB.Records.insert(doc)
 
     // then, update `Students`
     if (doc.action === 'NEW') {
@@ -21,7 +21,7 @@ export class Record {
       // increment freq.SEAT_ID
       operation.$inc[`freq.${doc.seat_id}`] = 1
 
-      Students.update({ student_id: sanitizeUserId(doc.student_id) }, operation, { upsert: true })
+      DB.Students.update({ student_id: sanitizeUserId(doc.student_id) }, operation, { upsert: true })
     }
   }
 }
