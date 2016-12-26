@@ -10,24 +10,10 @@ module.exports = {
       name      : 'API',
       script    : 'dist-server/server.js',
       env: {
-        NODE_ENV: 'development'
-      },
-      env_production : {
         NODE_ENV: 'production',
         PORT: 80
       }
-    },
-    {
-      name      : 'API:staging',
-      script    : 'dist-server/server.js',
-      env: {
-        NODE_ENV: 'development'
-      },
-      env_staging : {
-        NODE_ENV: 'staging',
-        PORT: 3000,
-      }
-    },
+    }
 
     // Second application
     // {
@@ -47,18 +33,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'git@github.com:LucienLee/NTU-Library-Study-Space.git',
       path : '/var/www/production',
-      'post-deploy' : 'npm install && pm2 startOrRestart ecosystem.json --env production'
-    },
-    staging: {
-      user : 'node',
-      host : '140.112.113.10',
-      ref  : 'origin/master',
-      repo : 'git@github.com:LucienLee/NTU-Library-Study-Space.git',
-      path : '/var/www/staging',
-      'post-deploy' : 'npm install && pm2 startOrRestart ecosystem.json --env staging',
-      env  : {
-        NODE_ENV: 'staging'
-      }
+      'post-deploy' : 'npm install && pm2 startOrRestart ecosystem.config.js --env production'
     }
   }
 }

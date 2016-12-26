@@ -12,24 +12,11 @@ const PORT = process.env.PORT || 3000
  * { error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 }
  * you can use winston.level = 'debug' to set the level
  */
-// set the default level of logging here
-let loggingLevel = ''
-switch (process.env.NODE_ENV) {
-  case 'production':
-    loggingLevel = 'info'
-    break
-  case 'staging':
-    loggingLevel = 'debug'
-    break
-  default:
-    loggingLevel = 'verbose'
-}
-
 winston.configure({
   transports: [
     new (winston.transports.Console)({
       // The level of logging
-      level: loggingLevel,
+      level: process.env.LOGGING_LEVEL || 'info',
       // timestamp to be used
       timestamp () {
         return moment().format('YYYYMMDD-HH:mm:ss')
