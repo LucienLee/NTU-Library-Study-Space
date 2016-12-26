@@ -1,9 +1,9 @@
 import fetch from 'node-fetch'
 import _ from 'lodash'
 import chalk from 'chalk'
+import { log } from 'winston'
 import { arr2objSelect } from '../utils/utils'
-
-const LIBRARY_API_URL = 'http://140.112.113.35:8080/StudyRoom/api'
+import { LIBRARY_API_URL } from '../../../config'
 
 /**
  * LibAPI connector
@@ -45,11 +45,13 @@ export class LibAPIConnector {
       .catch(err => {
         if (err.name === 'SyntaxError') {
           // may be JSON.parse parsing 'illegal access!'
+        } else if (err.name === 'FetchError') {
+          // may be connection error
         } else if (err.name === 'TypeError') {
           // may be connection error
         }
 
-        console.error(chalk.red(err))
+        log('error', chalk.red(err))
 
         // re-invalidate after 30 seconds
         setTimeout(this.invalidate.bind(this), 30000)
@@ -61,6 +63,7 @@ export class LibAPIConnector {
    * @param {string} endpoint - the endpoint with the leading `/`, eg. fetch('/getSeatInfo')
    */
   fetch (endpoint) {
+    log('debug', 'now fetching LibAPI...')
     return fetch(LIBRARY_API_URL + endpoint)
       .then(res => {
         return res.json()
@@ -89,6 +92,11 @@ export class LibAPIConnector {
     for (let i = 0; i < lastSeatsArray.length; ++i) {
       // use _.isEqual to deep compare objects
       if (!_.isEqual(seatsArray[i], lastSeatsArray[i])) { // changed!
+        log('verbose', 'found diff in LibAPIConnector!', {
+          oldSeat: lastSeatsArray[i],
+          newSeat: seatsArray[i]
+        })
+
         const oldStatus = lastSeatsArray[i].status
         const newStatus = seatsArray[i].status
 

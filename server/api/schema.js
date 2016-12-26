@@ -19,6 +19,8 @@ type Query {
   # We convert the returned *Array* from \`getSeatInfo\` to *Object* with the \`seat_id\` as keys,
   # and convert it to JSON string.
   allSeatsObjectJSON: String!
+  # redundent legacy api (for backwards compatibility)
+  seatInfo: String!
 }
 
 #type Mutation {
@@ -44,6 +46,9 @@ const rootResolvers = {
       return Student.getStudentByStudentID(student_id)
     },
     allSeatsObjectJSON (root, args, { LibAPI }) {
+      return LibAPI.getAllSeatsAsObjectJSON()
+    },
+    seatInfo (root, args, { LibAPI }) {
       return LibAPI.getAllSeatsAsObjectJSON()
     }
   }
