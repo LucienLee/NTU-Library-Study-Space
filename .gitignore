@@ -1,6 +1,7 @@
 .DS_Store
 node_modules/
 dist/
+credential/index.js
 desktop/dist/
 release/
 dist-server/
