@@ -1,0 +1,19 @@
+{
+  "plugins": [
+    "edit-link",
+    "github",
+    "prism",
+    "highlight",
+    "fontsettings"
+  ],
+  "pluginsConfig": {
+    "edit-link": {
+      "base": "https://github.com/LucienLee/NTU-Library-Study-Space/tree/docs",
+      "label": "Edit This Page"
+    },
+    "github": {
+      "url": "https://github.com/LucienLee/NTU-Library-Study-Space"
+    }
+  },
+  "root": "./docs"
+}
