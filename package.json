@@ -12,7 +12,7 @@
     "build": "npm run build:client && npm run build:server",
     "dev:client": "node build/dev-server.js",
     "build:client": "node build/build.js",
-    "dev:server": "nodemon server/server.js --exec 'npm run lint:server && babel-node'",
+    "dev:server": "cd server && nodemon server.js --exec 'standard \"**/*.js\" --verbose | snazzy && babel-node'",
     "build:server": "rimraf dist-server && babel --no-babelrc server --out-dir dist-server --source-maps --plugins=transform-es2015-modules-commonjs,transform-async-to-generator",
     "release": "node build/release.js",
     "release:darwin": "cross-env PLATFORM_TARGET=darwin node build/release.js",
@@ -22,7 +22,7 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "lint:server": "standard \"server/**/*.js\""
+    "lint:server": "standard \"server/**/*.js\" --verbose | snazzy"
   },
   "standard": {
     "ignore": [
@@ -113,6 +113,7 @@
     "shelljs": "^0.7.4",
     "sinon": "^1.17.3",
     "sinon-chai": "^2.8.0",
+    "snazzy": "^5.0.0",
     "standard": "^8.6.0",
     "svg-sprite-loader": "0.0.29",
     "url-loader": "^0.5.7",
