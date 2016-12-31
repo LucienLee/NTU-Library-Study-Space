@@ -7,18 +7,19 @@
 const { REGISTER_API_ENV, HISTORY_API_ENV } = process.env
 
 // Register API is the library API handling `getSeatInfo`, `checkUser`, `checkIn`
-let registerURL
-if (REGISTER_API_ENV === 'development') registerURL = 'http://localhost:3000/StudyRoom/api/'
-if (REGISTER_API_ENV === 'staging') registerURL = ''
-if (REGISTER_API_ENV === 'production') registerURL = ''
+const registerURL = REGISTER_API_ENV === 'production'
+  ? '' // production
+  : REGISTER_API_ENV === 'staging'
+    ? '' // staging
+    : 'http://localhost:3000/StudyRoom/api/' // development
 
 // History API is the GraphQL API we developed to store user usage record, and caches the `getSeatInfo`
-let historyURL
-if (HISTORY_API_ENV === 'development') historyURL = 'http://localhost:3000'
-if (HISTORY_API_ENV === 'production') historyURL = ''
+const historyURL = HISTORY_API_ENV === 'production'
+  ? '' // production
+  : 'http://localhost:3000' // development
 
-export default {
-	registerURL,
-	historyURL
+module.exports = {
+  registerURL,
+  historyURL
 }
 
