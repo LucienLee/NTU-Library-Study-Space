@@ -1,9 +1,9 @@
 <template lang="jade">
 #app
-	seat-map
-	.controlsContainer
-		seat-register
-		seat-filter
+  seat-map
+  .controlsContainer
+    seat-register
+    seat-filter
 </template>
 
 <script>
@@ -13,12 +13,12 @@ import SeatRegister from './components/SeatRegister'
 import Modal from './components/Modal'
 
 export default {
-	components: {
-		SeatMap,
-		SeatFilter,
-		SeatRegister,
-		Modal
-	}
+  components: {
+    SeatMap,
+    SeatFilter,
+    SeatRegister,
+    Modal
+  }
 }
 </script>
 
@@ -26,10 +26,10 @@ export default {
 @import 'sass/variables'
 
 body
-	background: $background-color
+  background: $background-color
 
 .controlsContainer
-	position: absolute
-	left: ($panel-margin/$max-width)*100%
-	top: 0
+  position: absolute
+  left: ($panel-margin/$max-width)*100%
+  top: 0
 </style>

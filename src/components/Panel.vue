@@ -1,22 +1,22 @@
 <template lang="jade">
 .Panel
-	panel-header(:title="headerTitle")
-	slot(name="panel-body")
+  panel-header(:title="headerTitle")
+  slot(name="panel-body")
 </template>
 
 <script>
 import PanelHeader from './PanelHeader'
 
 export default {
-	props: {
-		headerTitle: {
-			type: Object,
-			required: true
-		}
-	},
-	components: {
-		PanelHeader
-	}
+  props: {
+    headerTitle: {
+      type: Object,
+      required: true
+    }
+  },
+  components: {
+    PanelHeader
+  }
 }
 </script>
 
@@ -26,7 +26,7 @@ export default {
 @import "../sass/mixins"
 
 .Panel
-	width: 100%
-	+panelShadow
-	transform: translateZ(0) // GPU Acceleration
+  width: 100%
+  +panelShadow
+  transform: translateZ(0) // GPU Acceleration
 </style>

@@ -8,7 +8,6 @@ import store from './store'
 import './assets/fonts/Noto_Sans_TC/NotoSansTC.scss'
 import './assets/fonts/Avenir_Next_LT_Pro/AvenirNextLTPro.scss'
 
-
 // Normalize style
 import 'normalize.css'
 
@@ -16,7 +15,7 @@ import 'normalize.css'
 import MessageModal from './plugins/MessageModal.js'
 Vue.use(MessageModal)
 
-/* eslint-disable-next-line no-new */
+// eslint-disable-next-line no-new
 new Vue({
   el: '#app',
   store,
