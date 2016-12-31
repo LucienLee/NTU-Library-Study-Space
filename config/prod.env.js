@@ -1,4 +1,5 @@
 module.exports = {
   NODE_ENV: '"production"',
-  API_HOST: '"production"'
+  REGISTER_API_ENV: '"production"'
+  HISTORY_API_ENV: '"production"'
 }

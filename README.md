@@ -39,7 +39,7 @@ npm start
 
 ```
 # Use production CheckIn API server in development
-cross-env API_HOST=production npm start 
+cross-env REGISTER_API_ENV=production npm start
 ```
 
 

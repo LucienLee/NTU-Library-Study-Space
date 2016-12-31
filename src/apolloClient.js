@@ -1,6 +1,7 @@
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
+import { historyURL } from 'credential'
 
-const uri = process.env.DEV_SERVER ? 'http://localhost:3000/graphql' : 'http://140.112.113.10/graphql'
+const uri = historyURL + '/graphql'
 
 // Create the apollo client
 const apolloClient = new ApolloClient({

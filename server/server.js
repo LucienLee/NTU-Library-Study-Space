@@ -1,36 +1,60 @@
 import express from 'express'
-import Schema from './data/schema'
-import Resolvers from './data/resolvers'
-
-import { apolloExpress, graphiqlExpress } from 'apollo-server'
-import { makeExecutableSchema/* , addMockFunctionsToSchema */ } from 'graphql-tools'
 import bodyParser from 'body-parser'
+import { graphqlExpress, graphiqlExpress } from 'graphql-server-express'
+import winston, { log } from 'winston'
+import moment from 'moment'
 
-const GRAPHQL_PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000
 
-const graphQLServer = express()
-
-import cors from 'cors'
-graphQLServer.use(cors())
-
-const executableSchema = makeExecutableSchema({
-	typeDefs: Schema,
-	resolvers: Resolvers,
-	allowUndefinedInResolve: false,
-	printErrors: true,
+/**
+ * Logging settings:
+ * winston supports default 5 levels of logging,
+ * { error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 }
+ * you can use winston.level = 'debug' to set the level
+ */
+winston.configure({
+  transports: [
+    new (winston.transports.Console)({
+      // The level of logging
+      level: process.env.LOGGING_LEVEL || 'info',
+      // timestamp to be used
+      timestamp () {
+        return moment().format('YYYYMMDD-HH:mm:ss')
+      },
+      // custom formatter
+      formatter (options) {
+        // Return string will be passed to logger.
+        return `${options.timestamp()}[${options.level.toUpperCase()}]${(options.message ? options.message : '')}${(options.meta && Object.keys(options.meta).length ? '\n\t' + JSON.stringify(options.meta) : '')}`
+      }
+    })
+  ]
 })
 
-// `context` must be an object and can't be undefined when using connectors
-graphQLServer.use('/graphql', bodyParser.json(), apolloExpress({
-	schema: executableSchema,
-	context: {},
+/**
+ * The API server itself
+ */
+const app = express()
+
+import cors from 'cors'
+app.use(cors())
+
+import schema from './api/schema'
+import { LibAPI } from './api/library/models'
+import { Student, Record } from './api/mongo/models'
+const record = new Record()
+app.use('/graphql', bodyParser.json(), graphqlExpress({
+  schema,
+  context: {
+    Student: new Student(),
+    LibAPI: new LibAPI(record)
+  }
 }))
 
-graphQLServer.use('/graphiql', graphiqlExpress({
-	endpointURL: '/graphql',
+app.use('/graphiql', graphiqlExpress({
+  endpointURL: '/graphql'
 }))
 
-graphQLServer.listen(GRAPHQL_PORT, () => console.log(
-	`GraphQL Server is now running on http://localhost:${GRAPHQL_PORT}/graphql`
+app.listen(PORT, () => log('info',
+  `GraphQL Server is now running on http://localhost:${PORT}/graphql`
 ))
 
