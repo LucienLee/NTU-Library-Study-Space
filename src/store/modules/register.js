@@ -1,6 +1,6 @@
 import 'whatwg-fetch'
 import _ from 'lodash'
-import url from 'credential'
+import { registerURL as url } from 'credential'
 
 const initialStateFactory = () => ({
 	inputFields: {

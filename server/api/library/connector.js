@@ -3,7 +3,7 @@ import _ from 'lodash'
 import chalk from 'chalk'
 import { log } from 'winston'
 import { arr2objSelect } from '../utils/utils'
-import { LIBRARY_API_URL } from '../../../.config'
+import { registerURL } from '../../../credential'
 
 /**
  * LibAPI connector
@@ -35,7 +35,7 @@ export class LibAPIConnector {
     // save the previous result before fetching, so we can diff the results
     this.lastSeatsArray = this.seatsArray
 
-    this.fetch('/getSeatInfo')
+    this.fetch('getSeatInfo')
       .then(() => {
         this.diffSeatsArray()
 
@@ -59,12 +59,12 @@ export class LibAPIConnector {
   }
 
   /**
-   * fetch the LIBRARY_API_URL with `endpoint`
+   * fetch the registerURL with `endpoint`
    * @param {string} endpoint - the endpoint with the leading `/`, eg. fetch('/getSeatInfo')
    */
   fetch (endpoint) {
-    log('verbose', 'now fetching LibAPI...')
-    return fetch(LIBRARY_API_URL + endpoint)
+    log('verbose', 'now fetching LibAPI: ' + registerURL + endpoint)
+    return fetch(registerURL + endpoint)
       .then(res => {
         return res.json()
       })
