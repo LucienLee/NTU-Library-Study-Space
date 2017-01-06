@@ -157,6 +157,17 @@ module.exports = function setupMockServer (app) {
         if (seatId) {
           log('debug', `assigning ${userId} to ${seatId}, with oldSeat=${oldSeat}`)
 
+          // remove from oldSeat
+          mockData[oldSeat] = {
+            tmp_exit_time: '',
+            keep_time: '0',
+            status: '0',
+            start_time: '',
+            seat_id: oldSeat,
+            user_id: ''
+          }
+
+          // register to new seat
           mockData[seatId] = {
             tmp_exit_time: '',
             keep_time: '0',
@@ -166,7 +177,11 @@ module.exports = function setupMockServer (app) {
             user_id: userId
           }
 
-          return res.send(JSON.stringify())
+          return res.send(JSON.stringify({
+            message_en: ` The system has assigned you to seat: ${seatId} , Welcome to the Study Room`,
+            message: ` 座位已 由${oldSeat}指定至 ${seatId} 歡迎使用自習室 changes the seat from ${oldSeat} to the seat ${seatId} Welcome to Study Room`,
+            affected: '1'
+          }))
         } else {
           // already have seat and not providing new seat_id, affected: 0
           log('debug', `${userId} already have oldSeat=${oldSeat} but not providing new seat_id, affected: 0`)
