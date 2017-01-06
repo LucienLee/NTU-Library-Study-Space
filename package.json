@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "npm run dev:client",
+    "start": "npm run dev",
     "dev": "npm run dev:client & npm run dev:server",
     "build": "npm run build:client && npm run build:server",
     "dev:client": "node build/dev-server.js",

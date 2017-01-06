@@ -52,9 +52,17 @@ app.use('/graphql', bodyParser.json(), graphqlExpress({
   }
 }))
 
-app.use('/graphiql', graphiqlExpress({
-  endpointURL: '/graphql'
-}))
+// only show GraphiQL when explicitly specified, or NODE_ENV not production
+if (process.env.GRAPHIQL || process.env.NODE_ENV !== 'production') {
+  app.use('/graphiql', graphiqlExpress({
+    endpointURL: '/graphql'
+  }))
+}
+
+// mock the RegisterAPI
+if (process.env.REGISTER_API_ENV !== 'staging' && process.env.REGISTER_API_ENV !== 'production') {
+  require('./mock/setup-mock-server')(app)
+}
 
 app.listen(PORT, () => log('info',
   `GraphQL Server is now running on http://localhost:${PORT}/graphql`
