@@ -6,41 +6,41 @@ $module: '~fonts/#{$folder}/';
 
 /* ### not used ###
 @font-face {
-	font-family: 'Noto Sans TC';
-	font-style: normal;
-	font-weight: 100;
-	src: url( $module + 'NotoSansTC-Thin.otf') format('opentype');
+  font-family: 'Noto Sans TC';
+  font-style: normal;
+  font-weight: 100;
+  src: url( $module + 'NotoSansTC-Thin.otf') format('opentype');
 }
 */
 @font-face {
-	font-family: 'Noto Sans TC';
-	font-style: normal;
-	font-weight: 300;
-	src: url( $module + 'NotoSansTC-Light.otf') format('opentype');
+  font-family: 'Noto Sans TC';
+  font-style: normal;
+  font-weight: 300;
+  src: url( $module + 'NotoSansTC-Light.otf') format('opentype');
 }
 @font-face {
-	font-family: 'Noto Sans TC';
-	font-style: normal;
-	font-weight: 400;
-	src: url( $module + 'NotoSansTC-Regular.otf') format('opentype');
+  font-family: 'Noto Sans TC';
+  font-style: normal;
+  font-weight: 400;
+  src: url( $module + 'NotoSansTC-Regular.otf') format('opentype');
 }
 /* ### not used ###
 @font-face {
-	font-family: 'Noto Sans TC';
-	font-style: normal;
-	font-weight: 500;
-	src: url( $module + 'NotoSansTC-Medium.otf') format('opentype');
+  font-family: 'Noto Sans TC';
+  font-style: normal;
+  font-weight: 500;
+  src: url( $module + 'NotoSansTC-Medium.otf') format('opentype');
 }
 @font-face {
-	font-family: 'Noto Sans TC';
-	font-style: normal;
-	font-weight: 700;
-	src: url( $module + 'NotoSansTC-Bold.otf') format('opentype');
+  font-family: 'Noto Sans TC';
+  font-style: normal;
+  font-weight: 700;
+  src: url( $module + 'NotoSansTC-Bold.otf') format('opentype');
 }
 @font-face {
-	font-family: 'Noto Sans TC';
-	font-style: normal;
-	font-weight: 900;
-	src: url( $module + 'NotoSansTC-Black.otf') format('opentype');
+  font-family: 'Noto Sans TC';
+  font-style: normal;
+  font-weight: 900;
+  src: url( $module + 'NotoSansTC-Black.otf') format('opentype');
 }
 */

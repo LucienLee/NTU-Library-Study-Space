@@ -3,91 +3,91 @@
 // fade
 .fade-enter,
 .fade-leave-active
-	opacity: 0
+  opacity: 0
 
 .fade-enter-active,
 .fade-leave-active
-	transition: opacity $medium $easeIn
+  transition: opacity $medium $easeIn
 
 //fade fast
 .fadeFast-enter,
 .fadeFast-leave-active
-	opacity: 0
+  opacity: 0
 
 .fadeFast-enter-active,
 .fadeFast-leave-active
-	transition: opacity $fast $easeIn
+  transition: opacity $fast $easeIn
 
 
 // fade and scale
 .fadeAndScale-enter,
 .fadeAndScale-leave-active
-	opacity: 0
-	transform: scale(0)
+  opacity: 0
+  transform: scale(0)
 
 .fadeAndScale-enter-active
-	transition: opacity $medium $easeIn, transform $fast $easeInOutBack
+  transition: opacity $medium $easeIn, transform $fast $easeInOutBack
 
 .fadeAndScale-leave-active
-	transition: opacity $medium $easeOut, transform $fast $easeInOutBack
+  transition: opacity $medium $easeOut, transform $fast $easeInOutBack
 
 // modal
 .modal-transition-enter
-	opacity: 0
-	transform: scale(0.94)
+  opacity: 0
+  transform: scale(0.94)
 
 .modal-transition-leave-active
-	opacity: 0
-	transform: translateY(16px)
+  opacity: 0
+  transform: translateY(16px)
 
 .modal-transition-enter-active,
 .modal-transition-leave-active
-	transition: opacity $slow $easeIn, transform $medium $easeOut
+  transition: opacity $slow $easeIn, transform $medium $easeOut
 
 
 // Animation
 .animation
-	animation-fill-mode: both
+  animation-fill-mode: both
 
 .iconPop
-	animation-duration: $slow+$fast
-	animation-timing-function: $easeOutBack
-	animation-name: pop
+  animation-duration: $slow+$fast
+  animation-timing-function: $easeOutBack
+  animation-name: pop
 
 @keyframes pop
-	0%
-		transform: scale(0.75)
-	100%
-		transform: scale(1)
+  0%
+    transform: scale(0.75)
+  100%
+    transform: scale(1)
 
 .errorShake
-	animation-duration: $slow
-	animation-delay: $fast
-	animation-name: shake
+  animation-duration: $slow
+  animation-delay: $fast
+  animation-name: shake
 
 @keyframes shake
-	0%, 100%
-		transform: translate3d(0, 0, 0)
-	10%, 30%, 50%, 70%
-		transform: translate3d(-5px, 0, 0)
-	20%, 40%, 60%, 80%
-		transform: translate3d(5px, 0, 0)
+  0%, 100%
+    transform: translate3d(0, 0, 0)
+  10%, 30%, 50%, 70%
+    transform: translate3d(-5px, 0, 0)
+  20%, 40%, 60%, 80%
+    transform: translate3d(5px, 0, 0)
 
 
 @keyframes rotate
-	100%
-		transform: rotate(360deg)
+  100%
+    transform: rotate(360deg)
 
 $PI: 3.1416
 $length: 0.45
 $offset: $length * 2 - 0.01
 @keyframes circle-dash
-	0%
-		stroke-dasharray: percentage(0.01 * $PI) percentage($PI)
-		stroke-dashoffset: 0%
-	50%
-		stroke-dasharray: percentage($length * $PI), percentage($PI)
-		stroke-dashoffset: percentage( -$length * $PI)
-	100%
-		stroke-dasharray: percentage($length * $PI), percentage($PI)
-		stroke-dashoffset: percentage( -$offset * $PI)
+  0%
+    stroke-dasharray: percentage(0.01 * $PI) percentage($PI)
+    stroke-dashoffset: 0%
+  50%
+    stroke-dasharray: percentage($length * $PI), percentage($PI)
+    stroke-dashoffset: percentage( -$length * $PI)
+  100%
+    stroke-dasharray: percentage($length * $PI), percentage($PI)
+    stroke-dashoffset: percentage( -$offset * $PI)

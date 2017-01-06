@@ -1,5 +1,5 @@
 [
-	{ "seat_id": "A001", "status": "0"  },
-	{ "seat_id": "A002", "status": "1"  },
-	{ "seat_id": "A003", "status": "0"  }
+  { "seat_id": "A001", "status": "0"  },
+  { "seat_id": "A002", "status": "1"  },
+  { "seat_id": "A003", "status": "0"  }
 ]

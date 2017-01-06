@@ -12,7 +12,7 @@ const student = {
     B035: 2,
     C002: 3,
     C018: 15
-		// ...
+    // ...
   },
   last_used: String
 }
