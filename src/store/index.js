@@ -14,21 +14,21 @@ Vue.use(Vuex)
 const debug = process.env.NODE_ENV !== 'production'
 
 const state = {
-	seats: {},
-	resetMapToInitState: false
+  seats: {},
+  resetMapToInitState: false
 }
 
 export default new Vuex.Store({
-	state,
-	actions,
-	getters,
-	mutations,
-	modules: {
-		filters,
-		register,
-		list,
-		history,
-	},
-	strict: debug,
-	plugins: debug ? [createLogger()] : []
+  state,
+  actions,
+  getters,
+  mutations,
+  modules: {
+    filters,
+    register,
+    list,
+    history
+  },
+  strict: debug,
+  plugins: debug ? [createLogger()] : []
 })

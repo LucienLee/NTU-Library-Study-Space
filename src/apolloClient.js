@@ -5,11 +5,11 @@ const uri = historyURL + '/graphql'
 
 // Create the apollo client
 const apolloClient = new ApolloClient({
-	networkInterface: createNetworkInterface({
-		uri,
-		transportBatching: true,
-	}),
-	// queryTransformer: addTypename,
+  networkInterface: createNetworkInterface({
+    uri,
+    transportBatching: true
+  })
+  // queryTransformer: addTypename,
 })
 
 export default apolloClient
