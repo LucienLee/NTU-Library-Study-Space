@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .HistoryListItem
   divider
   .HistoryListItem__inner

@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .SeatMap
   img.SeatMap__map(src="../assets/images/map.svg")
   SeatLegend(:x="mapBox.x * mapBox.scaleFactor", :width="mapBox.width * mapBox.scaleFactor")

@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .MapControls
   .MapControls__grid
     button.MapControls__button.MapControls__button--large.MapControls__button--left(@click="zoom('reset')")

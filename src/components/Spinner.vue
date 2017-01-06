@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .Spinner
   .Spinner__inner
     svg(width="100%", height="100%")

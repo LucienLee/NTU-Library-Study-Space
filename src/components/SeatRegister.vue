@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .SeatRegister
   panel(:headerTitle="title")
     .SeatRegister__fields(slot="panel-body")

@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .TextField
   .TextField__inner
     input.TextField__input(type="text", :id="id", :value="value", :autofocus="alwaysFocus",

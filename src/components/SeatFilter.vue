@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .SeatFilter
   panel(:headerTitle="title")
     div(slot="panel-body")

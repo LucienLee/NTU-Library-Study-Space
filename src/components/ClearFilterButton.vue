@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 button.ClearFilterButton(@click="onClick") 清除・Reset
 </template>
 

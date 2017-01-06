@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .SeatHistory
   transition(@enter="expand", @leave="collapse")
     .SeatHistory__inner(v-show="!isCollapsed")

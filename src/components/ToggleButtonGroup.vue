@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .ToggleButtonGroup(:class="[ type ? 'ToggleButtonGroup--' + type : '' ]")
   toggle-button(v-for="(value, key) in groupData", :value="groupData[key]", :label="key", @input="update(key, $event)")
 </template>
