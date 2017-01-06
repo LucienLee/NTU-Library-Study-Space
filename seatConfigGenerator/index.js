@@ -1,48 +1,52 @@
 const fs = require('fs')
 const _ = require('lodash')
 
+/* eslint-disable no-console */
+
 /********************/
-/*		UTILS		*/
+/*    UTILS   */
 /********************/
 const _allseatArray = []
 for (let i = 1; i <= 224; ++i) {
-	_allseatArray.push(`A${`00${i}`.slice(-3)}`)
+  _allseatArray.push(`A${`00${i}`.slice(-3)}`)
 }
 for (let i = 231; i <= 300; ++i) {
-	_allseatArray.push(`A${`00${i}`.slice(-3)}`)
+  _allseatArray.push(`A${`00${i}`.slice(-3)}`)
 }
 for (let i = 1; i <= 180; ++i) {
-	_allseatArray.push(`B${`00${i}`.slice(-3)}`)
+  _allseatArray.push(`B${`00${i}`.slice(-3)}`)
 }
 for (let i = 1; i <= 348; ++i) {
-	_allseatArray.push(`C${`00${i}`.slice(-3)}`)
+  _allseatArray.push(`C${`00${i}`.slice(-3)}`)
 }
-function allSeatArrayFactory() {
-	return _allseatArray.slice()
+function allSeatArrayFactory () {
+  return _allseatArray.slice()
 }
 
-function seatArrayFactory(prefix, start, end) {
-	let ret = []
-	for (let i = start; i <= end; ++i) {
-		ret.push(prefix + `00${i}`.slice(-3))
-	}
-	return ret
+function seatArrayFactory (prefix, start, end) {
+  let ret = []
+  for (let i = start; i <= end; ++i) {
+    ret.push(prefix + `00${i}`.slice(-3))
+  }
+  return ret
 }
 
 /********************/
-/*		LAPTOP		*/
+/*    LAPTOP    */
 /********************/
-let laptopAllow = [], laptopForbidden = []
+let laptopAllow = []
+let laptopForbidden = []
 laptopAllow = laptopAllow.concat(seatArrayFactory('A', 1, 224))
 laptopAllow = laptopAllow.concat(seatArrayFactory('A', 231, 300))
 laptopForbidden = laptopForbidden.concat(seatArrayFactory('B', 1, 180))
 laptopForbidden = laptopForbidden.concat(seatArrayFactory('C', 1, 348))
 
-
 /********************/
-/*		TABLE		*/
+/*    TABLE   */
 /********************/
-let seats4 = [], seats6 = [], partition = []
+let seats4 = []
+let seats6 = []
+let partition = []
 seats6 = seats6.concat(seatArrayFactory('A', 1, 36))
 seats4 = seats4.concat(seatArrayFactory('A', 37, 44))
 seats6 = seats6.concat(seatArrayFactory('A', 45, 224))
@@ -63,9 +67,8 @@ seats6 = seats6.concat(seatArrayFactory('C', 1, 348))
 partition = partition.concat(seatArrayFactory('C', 1, 24))
 partition = partition.concat(seatArrayFactory('C', 37, 252))
 
-
 /********************/
-/*		NEAR		*/
+/*    NEAR    */
 /********************/
 let window = []
 // A區左邊 左下往上
@@ -97,63 +100,63 @@ wall = wall.concat(seatArrayFactory('C', 271, 282))
 wall = wall.concat(seatArrayFactory('C', 295, 348))
 
 /********************/
-/*		AWAY		*/
+/*    AWAY    */
 /********************/
 /**
  * vent
  */
 let nearVent = [
-	/**
-	 * A
-	 */
-	// 最左邊 左下往上
-	'A296', 'A300', 'A232', 'A172',
-	'A238', 'A241', 'A178', 'A182', 'A124', 'A127', 'A244', 'A247', 'A184', 'A187', 'A130', 'A133',
-	'A253', 'A193', 'A139', 'A256', 'A195', 'A142', 'A145',
-	'A262', 'A265', 'A202', 'A206', 'A151', 'A267', 'A209', 'A153',
-	'A274', 'A277', 'A214', 'A159', 'A163', 'A280', 'A220', 'A223', 'A170',
-	// 左邊中間 由下往上
-	'A046', 'A001', 'A088', 'A092', 'A052', 'A055', 'A009', 'A011',
-	'A094', 'A097', 'A058', 'A062', 'A015', 'A016', 'A103', 'A067', 'A022',
-	'A105', 'A109', 'A074', 'A027', 'A116', 'A076', 'A079', 'A033',
-	'A119', 'A081',
-	'A038', 'A042', // 這是A區右上角那兩小桌
+  /**
+   * A
+   */
+  // 最左邊 左下往上
+  'A296', 'A300', 'A232', 'A172',
+  'A238', 'A241', 'A178', 'A182', 'A124', 'A127', 'A244', 'A247', 'A184', 'A187', 'A130', 'A133',
+  'A253', 'A193', 'A139', 'A256', 'A195', 'A142', 'A145',
+  'A262', 'A265', 'A202', 'A206', 'A151', 'A267', 'A209', 'A153',
+  'A274', 'A277', 'A214', 'A159', 'A163', 'A280', 'A220', 'A223', 'A170',
+  // 左邊中間 由下往上
+  'A046', 'A001', 'A088', 'A092', 'A052', 'A055', 'A009', 'A011',
+  'A094', 'A097', 'A058', 'A062', 'A015', 'A016', 'A103', 'A067', 'A022',
+  'A105', 'A109', 'A074', 'A027', 'A116', 'A076', 'A079', 'A033',
+  'A119', 'A081',
+  'A038', 'A042', // 這是A區右上角那兩小桌
 
-	/**
-	 * B
-	 */
-	// 最上面橫排 由左往右
-	'B001', 'B004', 'B051', 'B006', 'B054',
-	'B059', 'B062',
-	'B018', 'B067', 'B023', 'B071',
-	// 過廁所門繼續往右
-	'B027', 'B025', 'B079', 'B033', 'B031', 'B085',
-	'B041', 'B093', 'B096', 'B102',
-	// B區下半那排 一路往右
-	'B108', 'B112',
-	'B124', 'B142', 'B144',
-	'B155', 'B160', 'B174', 'B178',
+  /**
+   * B
+   */
+  // 最上面橫排 由左往右
+  'B001', 'B004', 'B051', 'B006', 'B054',
+  'B059', 'B062',
+  'B018', 'B067', 'B023', 'B071',
+  // 過廁所門繼續往右
+  'B027', 'B025', 'B079', 'B033', 'B031', 'B085',
+  'B041', 'B093', 'B096', 'B102',
+  // B區下半那排 一路往右
+  'B108', 'B112',
+  'B124', 'B142', 'B144',
+  'B155', 'B160', 'B174', 'B178',
 
-	/**
-	 * C
-	 */
-	// 左上橫條開始 由左往右
-	'C004', 'C006', 'C010', 'C012',
-	'C019',
-	'C030',
-	// 中間大區塊的「有格板區」的左半邊 由上往下
-	'C037', 'C042', 'C074', 'C077', 'C109', 'C113', 'C048', 'C083', 'C120',
-	'C055', 'C060', 'C092', 'C095', 'C127', 'C131',
-	'C066', 'C098', 'C134', 'C067', 'C104', 'C139',
-	// 中間大區塊的「有格板區」的右半邊 由上往下
-	'C146', 'C149', 'C182', 'C218', 'C156', 'C192', 'C188', 'C224', 'C227',
-	'C164', 'C167', 'C199', 'C203', 'C236', 'C239',
-	'C170', 'C205', 'C245', 'C176', 'C211', 'C248',
-	// 下半無格板區 從左一路往右
-	'C298', 'C300', 'C294', 'C291', 'C282',
-	'C273', 'C271', 'C263', 'C264', 'C253', 'C255',
-	// 剩下最左下跟右下了 由左往右吧
-	'C311', 'C323', 'C335', 'C347',
+  /**
+   * C
+   */
+  // 左上橫條開始 由左往右
+  'C004', 'C006', 'C010', 'C012',
+  'C019',
+  'C030',
+  // 中間大區塊的「有格板區」的左半邊 由上往下
+  'C037', 'C042', 'C074', 'C077', 'C109', 'C113', 'C048', 'C083', 'C120',
+  'C055', 'C060', 'C092', 'C095', 'C127', 'C131',
+  'C066', 'C098', 'C134', 'C067', 'C104', 'C139',
+  // 中間大區塊的「有格板區」的右半邊 由上往下
+  'C146', 'C149', 'C182', 'C218', 'C156', 'C192', 'C188', 'C224', 'C227',
+  'C164', 'C167', 'C199', 'C203', 'C236', 'C239',
+  'C170', 'C205', 'C245', 'C176', 'C211', 'C248',
+  // 下半無格板區 從左一路往右
+  'C298', 'C300', 'C294', 'C291', 'C282',
+  'C273', 'C271', 'C263', 'C264', 'C253', 'C255',
+  // 剩下最左下跟右下了 由左往右吧
+  'C311', 'C323', 'C335', 'C347'
 ]
 
 console.log('nearVent:', nearVent.length)
@@ -272,7 +275,7 @@ console.log('nearAisle:', nearAisle.length)
 let aisle = _.difference(allSeatArrayFactory(), nearAisle)
 
 /************************/
-/*		WriteJSON		*/
+/*    WriteJSON   */
 /************************/
 let toWrite = {}
 
@@ -318,8 +321,8 @@ console.log('register:', register.length)
 console.log('aisle:', aisle.length)
 
 fs.writeFile('src/seat-config.json', JSON.stringify(toWrite/* , null, 2 */), err => {
-	if (err) throw err
-	console.log('done generate file')
+  if (err) throw err
+  console.log('done generate file')
 })
 
 // below are some legacy things to read data.json from @kelly
