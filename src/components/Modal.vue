@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 transition(name="modal-transition", @after-leave="onCloseEnd")
   .Modal(v-show="value", @click.self="onOverlayClick")
     .Modal__inner

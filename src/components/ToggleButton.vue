@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 label.ToggleButton(:class="{'ToggleButton--active': value}")
   input(type="checkbox", :value="value", :checked="value", @change="onChange")
   span.ToggleButton__icon

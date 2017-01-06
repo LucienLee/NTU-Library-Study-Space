@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .Divider(:class="[ type ? 'Divider--' + type : '' ]")
 </template>
 

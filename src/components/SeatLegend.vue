@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .SeatLegend(:style="{ width: width + 'px', left: x + 'px'}")
   .SeatLegend__inner: .SeatLegend__aspectKeeper
     img.SeatLegend__image(src="../assets/images/legend.svg")

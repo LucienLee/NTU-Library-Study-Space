@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 transition(@enter="expand" @leave="collapse")
   button.MorphingButton(v-show="show", @click.stop="onClick")
     icon.MorphingButton__label(symbol="check", ref="icon")

@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .PanelHeader
   .PanelHeader__inner
     h2.PanelHeader__title.PanelHeader__title--zh {{title.zh}}

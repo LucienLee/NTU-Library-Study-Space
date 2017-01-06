@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 .Filter
   fieldset.Filter__fieldset
     legend.Filter__legend {{label}}

@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 svg.Icon(:class="iconClass")
   use(v-bind:xlink:href="'#' + symbol")
 </template>
