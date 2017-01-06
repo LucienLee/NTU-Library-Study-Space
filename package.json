@@ -45,11 +45,12 @@
     "mongodb": "^2.2.11",
     "node-fetch": "^1.6.3",
     "normalize.css": "^5.0.0",
+    "paper": "^0.10.2",
     "svg-injector": "^1.1.3",
     "vue": "^2.0.1",
-    "whatwg-fetch": "^1.0.0",
     "vue-popup": "^0.2.14",
     "vuex": "^2.1.1",
+    "whatwg-fetch": "^1.0.0",
     "winston": "^2.3.0"
   },
   "devDependencies": {
