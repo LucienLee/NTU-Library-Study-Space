@@ -1,94 +1,99 @@
 # NTU Library Study Space
+National Taiwan University library study space map & register. Get your seat in the elegant way.
 
 [![Standard - JavaScript Style
 Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-> initialized with vue-cli v2.4.0 with `vue init webpack`
+![demo](./docs/images/demo.png)
 
-## Build Setup
+## About
+The aim of this project is to redesign the registration of study space in National Taiwan University Library, which provide intuitive and interactive way to choose the study seats.
+The early design research is [here](http://pt.slideshare.net/lkiral/hack-campus-study-area-experience-design-discover). 
 
-#### install dependencies
+This project is maintained by Hack Campus.
+We specialize in the designing and coding of interface and system to improve campus service.
+
+## Requirements
+- NodeJS 6.0.0+
+- NPM 3.0.0+
+- Mongodb 3.0.0+
+
+### Optional for bundle desktop app
+**OSX**
+
+- Wine 1.6+ (required to build windows desktop app on OSX)
+
+**Windows**
+
+- Visual Studio 2015
+- Python 2.7
+
+
+## Quick Start
+
+#### Install dependencies
+
 ``` bash
 npm install
 ```
 
-### run for development
+#### Run for development
 
-First, you need a mongodb running.
+First, be sure running a mongodb
 
-```
+``` bash
+# OSX/Linux
 mongod
+
+# Windows (be careful of your mongodb path)
+C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe
+
 ```
 
-if you get error about permission denied, you can either run it with `sudo`:
-```
-sudo mongod
-```
+Then, run the dev server:
 
-or you can change the ownership of the default db path (`/data/db`) to yourself:
-```
-sudo chown -R `whoami` /data/db
-```
-
-now you can run the dev server:
-```
+``` bash
 # serve with hot reload at localhost:8080
 # and graphQL server at localhost:3000/graphql
 npm start
 ```
 
-```
-# Use production CheckIn API server in development
+If you want test with the prodution API:
+
+``` bash
+# Use production CheckIn API server in development, which needs credential
 cross-env REGISTER_API_ENV=production npm start
 ```
 
+#### build for production
 
-### build for production
-```
+``` bash
 # build for production with minification
 npm run build
 ```
 
-### run tests
-```
-# run unit tests
-npm run unit
+#### Bundle desktop app
 
-# run e2e tests
-npm run e2e
+``` bash
+# Bundle all platform 
+npm run release
 
-# run all tests
-npm test
+# Bundle OSX platform
+npm run release:darwin
+
+# Bundle Windows platform
+npm run release:win32
+
+# Bundle Linux platform
+npm run release:linux
+
+# Bundle Windows 32bit platform
+npm run release:win32-ia32
 ```
 
-## Directory Structure
+## Documents
+For detailed explanation on how things work, checkout the (docs)[https://lucienlee.gitbooks.io/ntu-library-study-space/]
 
-```
-.
-├── build/                           # Build scripts and webpack config files
-├── config/                          # Project configures
-├── credential/                      # Crendential API url (request to us if you need)
-├── desktop/                         # Electron files
-├── dist/                            # Packed files (prepared to deploy to server)
-├── docs/                            # Documentation files
-├── release/                         # Bundled desktop app files
-├── src/                             # Source files
-│   ├── assets/                      # Module assets
-│   ├── components/                  # Vue UI components
-│   ├── sass/                        # Global style files
-│   ├── store/                       # Vuex stores
-│   ├── util/                        # Global utilities
-│   ├── App.vue                      # Main app component
-│   ├── main-library-desktop.js      # Main entry for desktop app
-│   ├── main-external-client.js      # Main entry for client out of library
-│   └── seat-config.json             # Seats properties on the map
-├── server/                          # Server related files
-├── seatConfigGenerator/             # Seats properties generator
-├── static/                          # Static assets (without processing by webpack)
-├── test/                            # Automated tests (under constructed)
-├── index.html                       # index.html template
-└── README.md
-```
 
 ## Built With
 
@@ -98,10 +103,6 @@ npm test
 * [GSAP](https://github.com/greensock/GreenSock-JS) - Smooth JS-based Animation
 * [Apollo](http://dev.apollodata.com/) - Access server data with GraphQL
 * [Electron](http://electron.atom.io/) - Build cross platform desktop apps
-
-## Documents
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 
 ## Entry point
@@ -118,4 +119,16 @@ functions are only included each version.
 
 Currently we are only serving the `libraryDesktop` part
 
+## Contributor and Acknowledge
+
+
 ## License
+MIT 
+
+Copyright (c) 2016-2017 Hack Campus
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
